@@ -17,6 +17,20 @@
             <textarea class="form-control form-control-sm" placeholder="Subjudul" name="subjudul" id="subjudul" rows="3" cols="80"></textarea>
           </div>
 
+          <div class="form-group">
+            <label>Image</label>
+            <input type="file" name="img" class="file-upload-default" data-id="image"/>
+            <div class="input-group col-xs-12">
+              <input type="hidden" class="file-dir" name="file-dir-image" data-id="image"/>
+              <input type="text" class="form-control form-control-sm file-upload-info file-name" data-id="image" placeholder="Image" readonly name="image" />
+            <span class="input-group-append">
+              <button class="btn-remove-image btn btn-danger btn-sm" type="button" data-id="image" style="display:<?=$image!=''?'block':'none'?>;"><i class="ti-trash"></i></button>
+              <button class="file-upload-browse btn btn-primary btn-sm" data-id="image" type="button">Select File</button>
+            </span>
+            </div>
+            <div id="image"></div>
+          </div>
+
           <input type="hidden" name="submit" value="add">
 
           <div class="text-right">

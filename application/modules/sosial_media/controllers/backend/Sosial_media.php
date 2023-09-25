@@ -7,13 +7,13 @@
 /*| instagram :  */
 /*| youtube :  */
 /*| --------------------------------------------------------------------------*/
-/*| Generate By M-CRUD Generator 25/09/2023 20:50*/
+/*| Generate By M-CRUD Generator 25/09/2023 21:16*/
 /*| Please DO NOT modify this information*/
 
 
-class Home extends Backend{
+class Sosial_media extends Backend{
 
-private $title = "Home";
+private $title = "Sosial Media";
 
 
 public function __construct()
@@ -22,12 +22,12 @@ public function __construct()
     'title' => $this->title,
    );
   parent::__construct($config);
-  $this->load->model("Home_model","model");
+  $this->load->model("Sosial_media_model","model");
 }
 
 function index()
 {
-  $this->is_allowed('home_list');
+  $this->is_allowed('sosial_media_list');
   $this->template->set_title($this->title);
   $this->template->view("index");
 }
@@ -35,7 +35,7 @@ function index()
 function json()
 {
   if ($this->input->is_ajax_request()) {
-    if (!is_allowed('home_list')) {
+    if (!is_allowed('sosial_media_list')) {
       show_error("Access Permission", 403,'403::Access Not Permission');
       exit();
     }
@@ -44,19 +44,18 @@ function json()
     $data = array();
     foreach ($list as $row) {
         $rows = array();
-                $rows[] = $row->judul;
-                $rows[] = $row->subjudul;
-                $rows[] = is_image($row->image);
+                $rows[] = $row->sosmed;
+                $rows[] = $row->link;
         
         $rows[] = '
                   <div class="btn-group" role="group" aria-label="Basic example">
-                      <a href="'.url("home/detail/".enc_url($row->id)).'" id="detail" class="btn btn-primary" title="'.cclang("detail").'">
+                      <a href="'.url("sosial_media/detail/".enc_url($row->id)).'" id="detail" class="btn btn-primary" title="'.cclang("detail").'">
                         <i class="mdi mdi-file"></i>
                       </a>
-                      <a href="'.url("home/update/".enc_url($row->id)).'" id="update" class="btn btn-warning" title="'.cclang("update").'">
+                      <a href="'.url("sosial_media/update/".enc_url($row->id)).'" id="update" class="btn btn-warning" title="'.cclang("update").'">
                         <i class="ti-pencil"></i>
                       </a>
-                      <a href="'.url("home/delete/".enc_url($row->id)).'" id="delete" class="btn btn-danger" title="'.cclang("delete").'">
+                      <a href="'.url("sosial_media/delete/".enc_url($row->id)).'" id="delete" class="btn btn-danger" title="'.cclang("delete").'">
                         <i class="ti-trash"></i>
                       </a>
                     </div>
@@ -78,7 +77,7 @@ function json()
 
 function filter()
 {
-  if(!is_allowed('home_filter'))
+  if(!is_allowed('sosial_media_filter'))
   {
     echo "access not permission";
   }else{
@@ -88,13 +87,12 @@ function filter()
 
 function detail($id)
 {
-  $this->is_allowed('home_detail');
+  $this->is_allowed('sosial_media_detail');
     if ($row = $this->model->find(dec_url($id))) {
     $this->template->set_title("Detail ".$this->title);
     $data = array(
-          "judul" => $row->judul,
-          "subjudul" => $row->subjudul,
-          "image" => $row->image,
+          "sosmed" => $row->sosmed,
+          "link" => $row->link,
     );
     $this->template->view("view",$data);
   }else{
@@ -104,12 +102,11 @@ function detail($id)
 
 function add()
 {
-  $this->is_allowed('home_add');
+  $this->is_allowed('sosial_media_add');
   $this->template->set_title(cclang("add")." ".$this->title);
-  $data = array('action' => url("home/add_action"),
-                  'judul' => set_value("judul"),
-                  'subjudul' => set_value("subjudul"),
-                  'image' => set_value("image"),
+  $data = array('action' => url("sosial_media/add_action"),
+                  'sosmed' => set_value("sosmed"),
+                  'link' => set_value("link"),
                   );
   $this->template->view("add",$data);
 }
@@ -117,26 +114,24 @@ function add()
 function add_action()
 {
   if($this->input->is_ajax_request()){
-    if (!is_allowed('home_add')) {
+    if (!is_allowed('sosial_media_add')) {
       show_error("Access Permission", 403,'403::Access Not Permission');
       exit();
     }
 
     $json = array('success' => false);
-    $this->form_validation->set_rules("judul","* Judul","trim|xss_clean");
-    $this->form_validation->set_rules("subjudul","* Subjudul","trim|xss_clean");
-    $this->form_validation->set_rules("image","* Image","trim|xss_clean");
+    $this->form_validation->set_rules("sosmed","* Sosmed","trim|xss_clean");
+    $this->form_validation->set_rules("link","* Link","trim|xss_clean");
     $this->form_validation->set_error_delimiters('<i class="error text-danger" style="font-size:11px">','</i>');
 
     if ($this->form_validation->run()) {
-      $save_data['judul'] = $this->input->post('judul',true);
-      $save_data['subjudul'] = $this->input->post('subjudul',true);
-      $save_data['image'] = $this->imageCopy($this->input->post('image',true),$_POST['file-dir-image']);
+      $save_data['sosmed'] = $this->input->post('sosmed',true);
+      $save_data['link'] = $this->input->post('link',true);
 
       $this->model->insert($save_data);
 
       set_message("success",cclang("notif_save"));
-      $json['redirect'] = url("home");
+      $json['redirect'] = url("sosial_media");
       $json['success'] = true;
     }else {
       foreach ($_POST as $key => $value) {
@@ -150,13 +145,12 @@ function add_action()
 
 function update($id)
 {
-  $this->is_allowed('home_update');
+  $this->is_allowed('sosial_media_update');
   if ($row = $this->model->find(dec_url($id))) {
     $this->template->set_title(cclang("update")." ".$this->title);
-    $data = array('action' => url("home/update_action/$id"),
-                  'judul' => set_value("judul", $row->judul),
-                  'subjudul' => set_value("subjudul", $row->subjudul),
-                  'image' => set_value("image", $row->image),
+    $data = array('action' => url("sosial_media/update_action/$id"),
+                  'sosmed' => set_value("sosmed", $row->sosmed),
+                  'link' => set_value("link", $row->link),
                   );
     $this->template->view("update",$data);
   }else {
@@ -167,27 +161,25 @@ function update($id)
 function update_action($id)
 {
   if($this->input->is_ajax_request()){
-    if (!is_allowed('home_update')) {
+    if (!is_allowed('sosial_media_update')) {
       show_error("Access Permission", 403,'403::Access Not Permission');
       exit();
     }
 
     $json = array('success' => false);
-    $this->form_validation->set_rules("judul","* Judul","trim|xss_clean");
-    $this->form_validation->set_rules("subjudul","* Subjudul","trim|xss_clean");
-    $this->form_validation->set_rules("image","* Image","trim|xss_clean");
+    $this->form_validation->set_rules("sosmed","* Sosmed","trim|xss_clean");
+    $this->form_validation->set_rules("link","* Link","trim|xss_clean");
     $this->form_validation->set_error_delimiters('<i class="error text-danger" style="font-size:11px">','</i>');
 
     if ($this->form_validation->run()) {
-      $save_data['judul'] = $this->input->post('judul',true);
-      $save_data['subjudul'] = $this->input->post('subjudul',true);
-      $save_data['image'] = $this->imageCopy($this->input->post('image',true),$_POST['file-dir-image']);
+      $save_data['sosmed'] = $this->input->post('sosmed',true);
+      $save_data['link'] = $this->input->post('link',true);
 
       $save = $this->model->change(dec_url($id), $save_data);
 
       set_message("success",cclang("notif_update"));
 
-      $json['redirect'] = url("home");
+      $json['redirect'] = url("sosial_media");
       $json['success'] = true;
     }else {
       foreach ($_POST as $key => $value) {
@@ -202,7 +194,7 @@ function update_action($id)
 function delete($id)
 {
   if ($this->input->is_ajax_request()) {
-    if (!is_allowed('home_delete')) {
+    if (!is_allowed('sosial_media_delete')) {
       return $this->response([
         'type_msg' => "error",
         'msg' => "do not have permission to access"
@@ -221,5 +213,5 @@ function delete($id)
 
 }
 
-/* End of file Home.php */
-/* Location: ./application/modules/home/controllers/backend/Home.php */
+/* End of file Sosial_media.php */
+/* Location: ./application/modules/sosial_media/controllers/backend/Sosial_media.php */

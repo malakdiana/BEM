@@ -7,16 +7,12 @@
       <div class="card-body">
         <table class="table table-bordered table-striped">
         <tr>
-          <td>Judul</td>
-          <td><?=$judul?></td>
+          <td>Sosmed</td>
+          <td><?=$sosmed?></td>
         </tr>
         <tr>
-          <td>Subjudul</td>
-          <td><?=$subjudul?></td>
-        </tr>
-        <tr>
-          <td>Image</td>
-          <td><?=is_image($image)?></td>
+          <td>Link</td>
+          <td><?=$link?></td>
         </tr>
         </table>
 

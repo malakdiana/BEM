@@ -8,17 +8,17 @@
 /*| instagram :  */
 /*| youtube :  */
 /*| --------------------------------------------------------------------------*/
-/*| Generate By M-CRUD Generator 25/09/2023 20:50*/
+/*| Generate By M-CRUD Generator 25/09/2023 21:12*/
 /*| Please DO NOT modify this information*/
 
 
-class Home_model extends MY_Model{
+class General_setting_model extends MY_Model{
 
-  private $table        = "home";
+  private $table        = "general_setting";
   private $primary_key  = "id";
-  private $column_order = array('judul', 'subjudul', 'image');
-  private $order        = array('home.id'=>"DESC");
-  private $select       = "home.id,home.judul,home.subjudul,home.image";
+  private $column_order = array('nama_website', 'logo', 'alamat', 'telepon', 'email');
+  private $order        = array('general_setting.id'=>"DESC");
+  private $select       = "general_setting.id,general_setting.nama_website,general_setting.logo,general_setting.alamat,general_setting.telepon,general_setting.email";
 
 public function __construct()
 	{
@@ -38,19 +38,29 @@ public function __construct()
       $this->db->select($this->select);
       $this->db->from($this->table);
 
-    if($this->input->post("judul"))
+    if($this->input->post("nama_website"))
         {
-          $this->db->like("home.judul", $this->input->post("judul"));
+          $this->db->like("general_setting.nama_website", $this->input->post("nama_website"));
         }
 
-    if($this->input->post("subjudul"))
+    if($this->input->post("logo"))
         {
-          $this->db->like("home.subjudul", $this->input->post("subjudul"));
+          $this->db->like("general_setting.logo", $this->input->post("logo"));
         }
 
-    if($this->input->post("image"))
+    if($this->input->post("alamat"))
         {
-          $this->db->like("home.image", $this->input->post("image"));
+          $this->db->like("general_setting.alamat", $this->input->post("alamat"));
+        }
+
+    if($this->input->post("telepon"))
+        {
+          $this->db->like("general_setting.telepon", $this->input->post("telepon"));
+        }
+
+    if($this->input->post("email"))
+        {
+          $this->db->like("general_setting.email", $this->input->post("email"));
         }
 
       if(isset($_POST['order'])) // here order processing
@@ -93,5 +103,5 @@ public function __construct()
 
 }
 
-/* End of file Home_model.php */
-/* Location: ./application/modules/home/models/Home_model.php */
+/* End of file General_setting_model.php */
+/* Location: ./application/modules/general_setting/models/General_setting_model.php */

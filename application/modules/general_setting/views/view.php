@@ -7,16 +7,24 @@
       <div class="card-body">
         <table class="table table-bordered table-striped">
         <tr>
-          <td>Judul</td>
-          <td><?=$judul?></td>
+          <td>Nama website</td>
+          <td><?=$nama_website?></td>
         </tr>
         <tr>
-          <td>Subjudul</td>
-          <td><?=$subjudul?></td>
+          <td>Logo</td>
+          <td><?=is_image($logo)?></td>
         </tr>
         <tr>
-          <td>Image</td>
-          <td><?=is_image($image)?></td>
+          <td>Alamat</td>
+          <td><?=$alamat?></td>
+        </tr>
+        <tr>
+          <td>Telepon</td>
+          <td><?=$telepon?></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><?=$email?></td>
         </tr>
         </table>
 

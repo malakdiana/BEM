@@ -8,17 +8,17 @@
 /*| instagram :  */
 /*| youtube :  */
 /*| --------------------------------------------------------------------------*/
-/*| Generate By M-CRUD Generator 25/09/2023 20:50*/
+/*| Generate By M-CRUD Generator 25/09/2023 21:16*/
 /*| Please DO NOT modify this information*/
 
 
-class Home_model extends MY_Model{
+class Sosial_media_model extends MY_Model{
 
-  private $table        = "home";
+  private $table        = "sosial_media";
   private $primary_key  = "id";
-  private $column_order = array('judul', 'subjudul', 'image');
-  private $order        = array('home.id'=>"DESC");
-  private $select       = "home.id,home.judul,home.subjudul,home.image";
+  private $column_order = array('sosmed', 'link');
+  private $order        = array('sosial_media.id'=>"DESC");
+  private $select       = "sosial_media.id,sosial_media.sosmed,sosial_media.link";
 
 public function __construct()
 	{
@@ -38,19 +38,14 @@ public function __construct()
       $this->db->select($this->select);
       $this->db->from($this->table);
 
-    if($this->input->post("judul"))
+    if($this->input->post("sosmed"))
         {
-          $this->db->like("home.judul", $this->input->post("judul"));
+          $this->db->like("sosial_media.sosmed", $this->input->post("sosmed"));
         }
 
-    if($this->input->post("subjudul"))
+    if($this->input->post("link"))
         {
-          $this->db->like("home.subjudul", $this->input->post("subjudul"));
-        }
-
-    if($this->input->post("image"))
-        {
-          $this->db->like("home.image", $this->input->post("image"));
+          $this->db->like("sosial_media.link", $this->input->post("link"));
         }
 
       if(isset($_POST['order'])) // here order processing
@@ -93,5 +88,5 @@ public function __construct()
 
 }
 
-/* End of file Home_model.php */
-/* Location: ./application/modules/home/models/Home_model.php */
+/* End of file Sosial_media_model.php */
+/* Location: ./application/modules/sosial_media/models/Sosial_media_model.php */

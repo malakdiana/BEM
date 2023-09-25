@@ -8,27 +8,37 @@
           <form action="<?=$action?>" id="form" autocomplete="off">
           
           <div class="form-group">
-            <label>Judul</label>
-            <textarea class="form-control form-control-sm" placeholder="Judul" name="judul" id="judul" rows="3" cols="80"><?=$judul?></textarea>
+            <label>Nama website</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Nama website" name="nama_website" id="nama_website" value="<?=$nama_website?>">
           </div>
         
           <div class="form-group">
-            <label>Subjudul</label>
-            <textarea class="form-control form-control-sm" placeholder="Subjudul" name="subjudul" id="subjudul" rows="3" cols="80"><?=$subjudul?></textarea>
-          </div>
-        
-          <div class="form-group">
-            <label>Image</label>
-            <input type="file" name="img" class="file-upload-default" data-id="image"/>
+            <label>Logo</label>
+            <input type="file" name="img" class="file-upload-default" data-id="logo"/>
             <div class="input-group col-xs-12">
-              <input type="hidden" class="file-dir" name="file-dir-image" data-id="image"/>
-              <input type="text" class="form-control form-control-sm file-upload-info file-name" data-id="image" placeholder="Image" readonly name="image" value="<?=$image?>" />
+              <input type="hidden" class="file-dir" name="file-dir-logo" data-id="logo"/>
+              <input type="text" class="form-control form-control-sm file-upload-info file-name" data-id="logo" placeholder="Logo" readonly name="logo" value="<?=$logo?>" />
             <span class="input-group-append">
-              <button class="btn-remove-image btn btn-danger btn-sm" type="button" data-id="image" style="display:<?=$image!=''?'block':'none'?>;"><i class="ti-trash"></i></button>
-              <button class="file-upload-browse btn btn-primary btn-sm" data-id="image" type="button">Select File</button>
+              <button class="btn-remove-image btn btn-danger btn-sm" type="button" data-id="logo" style="display:<?=$logo!=''?'block':'none'?>;"><i class="ti-trash"></i></button>
+              <button class="file-upload-browse btn btn-primary btn-sm" data-id="logo" type="button">Select File</button>
             </span>
             </div>
-            <div id="image"></div>
+            <div id="logo"></div>
+          </div>
+        
+          <div class="form-group">
+            <label>Alamat</label>
+            <textarea class="form-control form-control-sm" placeholder="Alamat" name="alamat" id="alamat" rows="3" cols="80"><?=$alamat?></textarea>
+          </div>
+        
+          <div class="form-group">
+            <label>Telepon</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Telepon" name="telepon" id="telepon" value="<?=$telepon?>">
+          </div>
+        
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Email" name="email" id="email" value="<?=$email?>">
           </div>
         
           <input type="hidden" name="submit" value="update">

@@ -8,27 +8,22 @@
           <form action="<?=$action?>" id="form" autocomplete="off">
           
           <div class="form-group">
-            <label>Judul</label>
-            <textarea class="form-control form-control-sm" placeholder="Judul" name="judul" id="judul" rows="3" cols="80"><?=$judul?></textarea>
+            <label>Sosmed</label>
+            <select class="form-control form-control-sm select2" data-placeholder=" -- Select -- " name="sosmed" id="sosmed">
+              <option value=""></option>
+              <option <?=($sosmed == "Instagram" ? "selected":"")?> value="Instagram">Instagram</option>
+              <option <?=($sosmed == "Facebook" ? "selected":"")?> value="Facebook">Facebook</option>
+              <option <?=($sosmed == "Twitter" ? "selected":"")?> value="Twitter">Twitter</option>
+              <option <?=($sosmed == "Youtube" ? "selected":"")?> value="Youtube">YouTube</option>
+              <option <?=($sosmed == "LinkedIn" ? "selected":"")?> value="LinkedIn">LinkedIn</option>
+              <option <?=($sosmed == "Tiktok" ? "selected":"")?> value="Tiktok">Tiktok</option>
+              <option <?=($sosmed == "WhatsApp" ? "selected":"")?> value="WhatsApp">WhatsApp</option>
+            </select>
           </div>
         
           <div class="form-group">
-            <label>Subjudul</label>
-            <textarea class="form-control form-control-sm" placeholder="Subjudul" name="subjudul" id="subjudul" rows="3" cols="80"><?=$subjudul?></textarea>
-          </div>
-        
-          <div class="form-group">
-            <label>Image</label>
-            <input type="file" name="img" class="file-upload-default" data-id="image"/>
-            <div class="input-group col-xs-12">
-              <input type="hidden" class="file-dir" name="file-dir-image" data-id="image"/>
-              <input type="text" class="form-control form-control-sm file-upload-info file-name" data-id="image" placeholder="Image" readonly name="image" value="<?=$image?>" />
-            <span class="input-group-append">
-              <button class="btn-remove-image btn btn-danger btn-sm" type="button" data-id="image" style="display:<?=$image!=''?'block':'none'?>;"><i class="ti-trash"></i></button>
-              <button class="file-upload-browse btn btn-primary btn-sm" data-id="image" type="button">Select File</button>
-            </span>
-            </div>
-            <div id="image"></div>
+            <label>Link</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Link" name="link" id="link" value="<?=$link?>">
           </div>
         
           <input type="hidden" name="submit" value="update">

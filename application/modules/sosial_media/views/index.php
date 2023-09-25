@@ -6,23 +6,28 @@
       </div>
       <div class="card-body">
         <div class="mb-2">
-          <a href="<?=url("home/add")?>" class="btn btn-sm btn-success btn-icon-text"><i class="fa fa-file btn-icon-prepend"></i><?=cclang("add_new")?></a>
+          <a href="<?=url("sosial_media/add")?>" class="btn btn-sm btn-success btn-icon-text"><i class="fa fa-file btn-icon-prepend"></i><?=cclang("add_new")?></a>
           <button type="button" id="reload" class="btn btn-sm btn-info-2 btn-icon-text"><i class="mdi mdi-backup-restore btn-icon-prepend"></i> Reload</button>
-          <a href="<?=url("home/filter/")?>" id="filter-show" class="btn btn-sm btn-primary btn-icon-text"><i class="mdi mdi-magnify btn-icon-prepend"></i> Filter</a>
+          <a href="<?=url("sosial_media/filter/")?>" id="filter-show" class="btn btn-sm btn-primary btn-icon-text"><i class="mdi mdi-magnify btn-icon-prepend"></i> Filter</a>
         </div>
 
         <form autocomplete="off" class="content-filter">
           <div class="row">
             <div class="form-group col-md-6">
-              <input type="text" id="judul" class="form-control form-control-sm" placeholder="Judul" />
+              <select class="form-control form-control-sm select2" data-placeholder=" -- Select Sosmed -- " name="sosmed" id="sosmed">
+                <option value=""></option>
+                <option value="Instagram">Instagram</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Twitter">Twitter</option>
+                <option value="Youtube">YouTube</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Tiktok">Tiktok</option>
+                <option value="WhatsApp">WhatsApp</option>
+              </select>
             </div>
 
             <div class="form-group col-md-6">
-              <input type="text" id="subjudul" class="form-control form-control-sm" placeholder="Subjudul" />
-            </div>
-
-            <div class="form-group col-md-6">
-              <input type="text" id="image" class="form-control form-control-sm" placeholder="Image" />
+              <input type="text" id="link" class="form-control form-control-sm" placeholder="Link" />
             </div>
 
             <div class="col-md-12">
@@ -35,9 +40,8 @@
         <table class="table table-bordered table-striped" id="table" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
           <thead>
             <tr>
-							<th>Judul</th>
-							<th>Subjudul</th>
-							<th>Image</th>
+							<th>Sosmed</th>
+							<th>Link</th>
               <th>#</th>
             </tr>
           </thead>
@@ -71,12 +75,11 @@ var table;
 
       // Load data for the table's content from an Ajax source
       "ajax": {
-          "url": "<?= url("home/json")?>",
+          "url": "<?= url("sosial_media/json")?>",
           "type": "POST",
           "data":function(data){
-              data.judul = $("#judul").val();
-              data.subjudul = $("#subjudul").val();
-              data.image = $("#image").val();
+              data.sosmed = $("#sosmed").val();
+              data.link = $("#link").val();
               }
             },
 
@@ -93,23 +96,17 @@ var table;
             "orderable": false
           },
 
-					{
-            "targets": 2,
-            "orderable": false
-          },
-
         {
             "className": "text-center",
             "orderable": false,
-            "targets": 3
+            "targets": 2
         },
       ],
     });
 
   $("#reload").click(function(){
-  $("#judul").val("");
-  $("#subjudul").val("");
-  $("#image").val("");
+  $("#sosmed").val("");
+  $("#link").val("");
   table.ajax.reload();
   });
 

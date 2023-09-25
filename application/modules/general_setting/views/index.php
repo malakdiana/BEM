@@ -6,23 +6,31 @@
       </div>
       <div class="card-body">
         <div class="mb-2">
-          <a href="<?=url("home/add")?>" class="btn btn-sm btn-success btn-icon-text"><i class="fa fa-file btn-icon-prepend"></i><?=cclang("add_new")?></a>
+          <a href="<?=url("general_setting/add")?>" class="btn btn-sm btn-success btn-icon-text"><i class="fa fa-file btn-icon-prepend"></i><?=cclang("add_new")?></a>
           <button type="button" id="reload" class="btn btn-sm btn-info-2 btn-icon-text"><i class="mdi mdi-backup-restore btn-icon-prepend"></i> Reload</button>
-          <a href="<?=url("home/filter/")?>" id="filter-show" class="btn btn-sm btn-primary btn-icon-text"><i class="mdi mdi-magnify btn-icon-prepend"></i> Filter</a>
+          <a href="<?=url("general_setting/filter/")?>" id="filter-show" class="btn btn-sm btn-primary btn-icon-text"><i class="mdi mdi-magnify btn-icon-prepend"></i> Filter</a>
         </div>
 
         <form autocomplete="off" class="content-filter">
           <div class="row">
             <div class="form-group col-md-6">
-              <input type="text" id="judul" class="form-control form-control-sm" placeholder="Judul" />
+              <input type="text" id="nama_website" class="form-control form-control-sm" placeholder="Nama website" />
             </div>
 
             <div class="form-group col-md-6">
-              <input type="text" id="subjudul" class="form-control form-control-sm" placeholder="Subjudul" />
+              <input type="text" id="logo" class="form-control form-control-sm" placeholder="Logo" />
             </div>
 
             <div class="form-group col-md-6">
-              <input type="text" id="image" class="form-control form-control-sm" placeholder="Image" />
+              <input type="text" id="alamat" class="form-control form-control-sm" placeholder="Alamat" />
+            </div>
+
+            <div class="form-group col-md-6">
+              <input type="text" id="telepon" class="form-control form-control-sm" placeholder="Telepon" />
+            </div>
+
+            <div class="form-group col-md-6">
+              <input type="text" id="email" class="form-control form-control-sm" placeholder="Email" />
             </div>
 
             <div class="col-md-12">
@@ -35,9 +43,11 @@
         <table class="table table-bordered table-striped" id="table" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
           <thead>
             <tr>
-							<th>Judul</th>
-							<th>Subjudul</th>
-							<th>Image</th>
+							<th>Nama website</th>
+							<th>Logo</th>
+							<th>Alamat</th>
+							<th>Telepon</th>
+							<th>Email</th>
               <th>#</th>
             </tr>
           </thead>
@@ -71,12 +81,14 @@ var table;
 
       // Load data for the table's content from an Ajax source
       "ajax": {
-          "url": "<?= url("home/json")?>",
+          "url": "<?= url("general_setting/json")?>",
           "type": "POST",
           "data":function(data){
-              data.judul = $("#judul").val();
-              data.subjudul = $("#subjudul").val();
-              data.image = $("#image").val();
+              data.nama_website = $("#nama_website").val();
+              data.logo = $("#logo").val();
+              data.alamat = $("#alamat").val();
+              data.telepon = $("#telepon").val();
+              data.email = $("#email").val();
               }
             },
 
@@ -98,18 +110,30 @@ var table;
             "orderable": false
           },
 
+					{
+            "targets": 3,
+            "orderable": false
+          },
+
+					{
+            "targets": 4,
+            "orderable": false
+          },
+
         {
             "className": "text-center",
             "orderable": false,
-            "targets": 3
+            "targets": 5
         },
       ],
     });
 
   $("#reload").click(function(){
-  $("#judul").val("");
-  $("#subjudul").val("");
-  $("#image").val("");
+  $("#nama_website").val("");
+  $("#logo").val("");
+  $("#alamat").val("");
+  $("#telepon").val("");
+  $("#email").val("");
   table.ajax.reload();
   });
 
