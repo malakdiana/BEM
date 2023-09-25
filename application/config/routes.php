@@ -63,6 +63,9 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['mcrud'] = 'mcrud/Mcrud';
 
+
+$route['frontend'] = 'frontend/HomePage';
+
 $route['mcrud/(:any)'] = 'mcrud/Mcrud/$1';
 //
 $route['maintenance'] = 'core/backend/core/maintenance';
