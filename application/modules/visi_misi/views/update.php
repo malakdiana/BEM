@@ -2,26 +2,23 @@
   <div class="col-md-12 col-xl-10 mx-auto animated fadeIn delay-2s">
     <div class="card m-b-30">
       <div class="card-header bg-primary text-white">
-        <?=ucwords($title_module)?>
+        <?= ucwords($title_module) ?>
       </div>
       <div class="card-body">
-          <form action="<?=$action?>" id="form" autocomplete="off">
-          
+        <form action="<?= $action ?>" id="form" method="post" autocomplete="off">
+
           <div class="form-group">
             <label>Visi</label>
-            <textarea class="form-control form-control-sm" placeholder="Visi" name="visi" id="visi" rows="3" cols="80"><?=$visi?></textarea>
+            <textarea class="form-control form-control-sm" placeholder="Visi" name="visi" id="visi" rows="3" cols="80"><?= $visi ?></textarea>
           </div>
-        
+
           <div class="form-group">
             <label>Misi</label>
-            <textarea class="form-control form-control-sm" placeholder="Misi" name="misi" id="misi" rows="3" cols="80"><?=$misi?></textarea>
+            <textarea class="form-control form-control-sm ckeditor" placeholder="Misi" name="misi" id="misi" rows="10" cols="80"><?= $misi ?></textarea>
           </div>
-        
-          <input type="hidden" name="submit" value="update">
-
           <div class="text-right">
-            <a href="<?=url($this->uri->segment(2))?>" class="btn btn-sm btn-danger"><?=cclang("cancel")?></a>
-            <button type="submit" id="submit"  class="btn btn-sm btn-primary"><?=cclang("update")?></button>
+            <a href="<?= url($this->uri->segment(2)) ?>" class="btn btn-sm btn-danger"><?= cclang("cancel") ?></a>
+            <button type="submit" id="submit" class="btn btn-sm btn-primary"><?= cclang("update") ?></button>
           </div>
         </form>
       </div>
@@ -29,7 +26,7 @@
   </div>
 </div>
 
-
+<!-- 
 <script type="text/javascript">
 $("#form").submit(function(e){
 e.preventDefault();
@@ -50,7 +47,7 @@ $.ajax({
           return;
         }else {
           $("#submit").prop('disabled',false)
-                      .html('<?=cclang("save")?>');
+                      .html('<?= cclang("save") ?>');
           $.each(json.alert, function(key, value) {
             var element = $('#' + key);
             $(element)
@@ -62,4 +59,4 @@ $.ajax({
       }
     });
 });
-</script>
+</script> -->
