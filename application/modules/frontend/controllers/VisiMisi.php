@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // require_once APPPATH . 'modules/mcrud/controllers/Dicoba.php';
 
-class VisiMisi extends Backend{
+class VisiMisi extends CI_Controller{
 
   protected $title = "M-Crud Generator";
   // protected $data;

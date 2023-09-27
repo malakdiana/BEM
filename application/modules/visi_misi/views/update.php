@@ -9,7 +9,7 @@
 
           <div class="form-group">
             <label>Visi</label>
-            <textarea class="form-control form-control-sm" placeholder="Visi" name="visi" id="visi" rows="3" cols="80"><?= $visi ?></textarea>
+            <textarea class="form-control form-control-sm ckeditor" placeholder="Visi" name="visi" id="visi" rows="3" cols="80"><?= $visi ?></textarea>
           </div>
 
           <div class="form-group">

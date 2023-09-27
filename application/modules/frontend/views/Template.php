@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Scaffold Bootstrap Template - Index</title>
+  <title><?= $title ?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -28,9 +28,9 @@
   <link href="<?=base_url()?>_temp/frontend/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
-  * Template Name: Scaffold
+  * Template Name: 
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
+  * Template URL: https://bootstrapmade.com/-bootstrap-metro-style-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
@@ -44,20 +44,27 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto">
-        <h1><a href="index.html">Scaffold</a></h1>
+        <h1><a href="index.html"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="<?=base_url()?>_temp/frontend/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'frontend' || $this->uri->segment(1) == '' ? 'active"' : '' ?>" href="<?=site_url("frontend")?>">Home</a></li>
+          <!-- <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'frontend' || $this->uri->segment(1) == '' ? 'active"' : '' ?>" href="<?=site_url("frontend")?>">Home</a></li>
           <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'tentang' || $this->uri->segment(1) == '' ? 'active"' : '' ?>" href="<?=site_url("tentang")?>">Tentang</a></li>
           <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'visi-misi' || $this->uri->segment(1) == '' ? 'active"' : '' ?>" href="<?=site_url("visi-misi")?>">Visi & Misi</a></li>
           <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'struktur-organisasi' || $this->uri->segment(1) == '' ? 'active"' : '' ?>" href="<?=site_url("struktur-organisasi")?>">Struktur Organisasi</a></li>
           <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'kementerian' || $this->uri->segment(1) == '' ? 'active"' : '' ?>" href="<?=site_url("kementerian")?>">Kementerian</a></li>
           <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'hima' || $this->uri->segment(1) == '' ? 'active"' : '' ?>" href="<?=site_url("hima")?>">HIMA</a></li>
-          <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'ukm' || $this->uri->segment(1) == '' ? 'active"' : '' ?>" href="<?=site_url("ukm")?>">UKM</a></li>
+          <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'ukm' || $this->uri->segment(1) == '' ? 'active"' : '' ?>" href="<?=site_url("ukm")?>">UKM</a></li> -->
+          <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'frontend' || $this->uri->segment(1) == '' ? 'active"' : '' ?>" href="<?=base_url()?>">Home</a></li>
+          <li><a class="nav-link scrollto" href="<?=site_url("tentang")?>">Tentang</a></li>
+          <li><a class="nav-link scrollto" href="<?=site_url("visi-misi")?>">Visi & Misi</a></li>
+          <li><a class="nav-link scrollto" href="<?=site_url("struktur-organisasi")?>">Struktur Organisasi</a></li>
+          <li><a class="nav-link scrollto " href="<?=site_url("kementerian")?>">Kementerian</a></li>
+          <li><a class="nav-link scrollto" href="<?=site_url("hima")?>">HIMA</a></li>
+          <li><a class="nav-link scrollto" href="<?=site_url("ukm")?>">UKM</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -80,7 +87,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>Scaffold</h3>
+              <h3></h3>
               <p>
                 A108 Adam Street <br>
                 NY 535022, USA<br><br>
@@ -134,13 +141,13 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Scaffold</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span></span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/-bootstrap-metro-style-template/ -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>

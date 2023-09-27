@@ -3,9 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // require_once APPPATH . 'modules/mcrud/controllers/Dicoba.php';
 
-class Ukm extends Backend{
+class Ukm extends CI_Controller{
 
-  protected $title = "M-Crud Generator";
   // protected $data;
 
   public function __construct()

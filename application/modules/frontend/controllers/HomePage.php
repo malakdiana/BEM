@@ -3,9 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // require_once APPPATH . 'modules/mcrud/controllers/Dicoba.php';
 
-class HomePage extends Backend{
-
-  protected $title = "M-Crud Generator";
+class HomePage extends CI_Controller{
   // protected $data;
 
   public function __construct()
@@ -17,14 +15,12 @@ class HomePage extends Backend{
 
   function index()
   {
-    // $tes = $this->base->get('visi_misi')->result();
-    // var_dump($tes[0]->misi);
-
-    // $data = [
-    //   'row' => $this->base->get('kementerian')->result(),
-    //   'title' => 'Home Page'
-    // ];
-    $this->frontend->load('template', 'home/home');
+    $data = [
+      'title' => 'Beranda',
+      'row' => $this->base->get('home')->row()
+    ];
+    
+    $this->frontend->load('template', 'home/home', $data);
   }
 
   function getTable($table)
