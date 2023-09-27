@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // require_once APPPATH . 'modules/mcrud/controllers/Dicoba.php';
 
-class HomePage extends Backend{
+class Ukm extends Backend{
 
   protected $title = "M-Crud Generator";
   // protected $data;
@@ -12,19 +12,12 @@ class HomePage extends Backend{
   {
     parent::__construct();
     $this->load->model("m_crud_generator/M_crud_generator_model","model");
-    $this->load->model("Base_model","base");
   }
 
   function index()
   {
-    // $tes = $this->base->get('visi_misi')->result();
-    // var_dump($tes[0]->misi);
-
-    // $data = [
-    //   'row' => $this->base->get('kementerian')->result(),
-    //   'title' => 'Home Page'
-    // ];
-    $this->frontend->load('template', 'home/home');
+    
+    $this->frontend->load('template', 'ukm/ukm');
   }
 
   function getTable($table)

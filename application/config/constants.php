@@ -85,9 +85,10 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
-$default_controller = "login/backend/login";
+// $default_controller = "login/backend/login";
 $admin_route = "cpanel";
 $login_route = "login";
+$default_controller = "frontend/homePage";
 defined('DEFAULT_CONTROLLER')  OR define('DEFAULT_CONTROLLER', "$default_controller");
 defined('ADMIN_ROUTE')  OR define('ADMIN_ROUTE', "$admin_route");
 defined('LOGIN_ROUTE')  OR define('LOGIN_ROUTE', "$login_route");
