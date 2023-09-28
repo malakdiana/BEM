@@ -1,7 +1,7 @@
 <main id="main">
 
 <!-- ======= About Section ======= -->
-<section id="about" class="about">
+<section id="about" class="about" style="border-bottom:2px solid #e9ecee">
   <div class="container">
   <div class="section-title" data-aos="fade-up">
           <h2><?= $row[0]->judul?></h2>

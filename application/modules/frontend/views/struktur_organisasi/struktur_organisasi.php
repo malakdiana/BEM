@@ -21,7 +21,7 @@
 
 </style>
 <main id="main">
-<section id="features" class="features">
+<section id="features" class="features" style="border-bottom:2px solid #e9ecee">
       <div class="container">
       <div class="section-title" data-aos="fade-up" >
           <h2 style="margin-top:50px;">Struktur Organisasi</h2>

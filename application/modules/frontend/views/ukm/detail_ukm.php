@@ -1,7 +1,7 @@
 <main id="main">
 
 <!-- ======= Breadcrumbs ======= -->
-<section id="breadcrumbs" class="breadcrumbs">
+<section id="breadcrumbs" class="breadcrumbs" style="border-bottom:2px solid #e9ecee">
   <div class="container">
 
     <ol>

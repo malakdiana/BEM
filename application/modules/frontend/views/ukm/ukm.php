@@ -1,7 +1,7 @@
 
 <main id="main">
      <!-- ======= Portfolio Section ======= -->
-     <section id="team" class="team">
+     <section id="team" class="team" style="border-bottom:2px solid #e9ecee">
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">

@@ -30,7 +30,7 @@
     </style>
 <main id="main">
      <!-- ======= Portfolio Section ======= -->
-     <section id="services" class="services section-bg">
+     <section id="services" class="services section-bg" style="border-bottom:2px solid #e9ecee">
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">

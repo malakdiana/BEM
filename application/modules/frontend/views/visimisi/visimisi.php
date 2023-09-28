@@ -1,7 +1,7 @@
 <main id="main">
 <!-- ======= Features Section ======= -->
 
-<section id="features" class="features">
+<section id="features" class="features" style="border-bottom:2px solid #e9ecee">
       <div class="container">
       <div class="section-title" data-aos="fade-up" >
           <h2 style="margin-top:50px;">Visi Misi</h2>
