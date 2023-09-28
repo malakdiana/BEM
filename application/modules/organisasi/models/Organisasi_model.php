@@ -8,7 +8,7 @@
 /*| instagram :  */
 /*| youtube :  */
 /*| --------------------------------------------------------------------------*/
-/*| Generate By M-CRUD Generator 28/09/2023 10:05*/
+/*| Generate By M-CRUD Generator 28/09/2023 12:43*/
 /*| Please DO NOT modify this information*/
 
 
@@ -16,9 +16,9 @@ class Organisasi_model extends MY_Model{
 
   private $table        = "organisasi";
   private $primary_key  = "id";
-  private $column_order = array('kategori', 'nama', 'deskripsi', 'image');
+  private $column_order = array('kategori', 'nama', 'deskripsi', 'image', 'seo_name');
   private $order        = array('organisasi.id'=>"DESC");
-  private $select       = "organisasi.id,organisasi.kategori,organisasi.nama,organisasi.deskripsi,organisasi.image";
+  private $select       = "organisasi.id,organisasi.kategori,organisasi.nama,organisasi.deskripsi,organisasi.image,organisasi.seo_name";
 
 public function __construct()
 	{
@@ -56,6 +56,11 @@ public function __construct()
     if($this->input->post("image"))
         {
           $this->db->like("organisasi.image", $this->input->post("image"));
+        }
+
+    if($this->input->post("seo_name"))
+        {
+          $this->db->like("organisasi.seo_name", $this->input->post("seo_name"));
         }
 
       if(isset($_POST['order'])) // here order processing

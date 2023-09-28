@@ -11,15 +11,15 @@
             <label>Kategori</label>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="radio" <?=($kategori == "UKM" ? "checked":"")?> class="form-check-input" name="kategori" value="UKM">
-                UKM
+                <input type="radio" <?=($kategori == "HIMA" ? "checked":"")?> class="form-check-input" name="kategori" value="HIMA">
+                HIMA
                 <i class="input-helper"></i>
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="radio" <?=($kategori == "HIMA" ? "checked":"")?> class="form-check-input" name="kategori" value="HIMA">
-                HIMA
+                <input type="radio" <?=($kategori == "UKM" ? "checked":"")?> class="form-check-input" name="kategori" value="UKM">
+                UKM
                 <i class="input-helper"></i>
               </label>
             </div>
@@ -31,11 +31,7 @@
             <input type="text" class="form-control form-control-sm" placeholder="Nama" name="nama" id="nama" value="<?=$nama?>">
           </div>
         
-          <div class="form-group">
-            <label>Deskripsi</label>
-            <textarea class="form-control form-control-sm ckeditor" placeholder="Deskripsi" name="deskripsi" id="deskripsi" rows="3" cols="80"><?=$deskripsi?></textarea>
-          </div>
-        
+         
           <div class="form-group">
             <label>Image</label>
             <input type="file" name="img" class="file-upload-default" data-id="image"/>
@@ -49,6 +45,16 @@
             </div>
             <div id="image"></div>
           </div>
+
+          <div class="form-group">
+            <label>Deskripsi</label>
+            <textarea class="form-control form-control-sm ckeditor" placeholder="Deskripsi" name="deskripsi" id="deskripsi" rows="3" cols="80"><?=$deskripsi?></textarea>
+          </div>
+        
+          <!-- <div class="form-group">
+            <label>Seo name</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Seo name" name="seo_name" id="seo_name" value="<?=$seo_name?>">
+          </div> -->
         
           <input type="hidden" name="submit" value="update">
 

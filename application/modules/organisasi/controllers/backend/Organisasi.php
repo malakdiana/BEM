@@ -7,7 +7,7 @@
 /*| instagram :  */
 /*| youtube :  */
 /*| --------------------------------------------------------------------------*/
-/*| Generate By M-CRUD Generator 28/09/2023 10:05*/
+/*| Generate By M-CRUD Generator 28/09/2023 12:43*/
 /*| Please DO NOT modify this information*/
 
 
@@ -23,6 +23,7 @@ public function __construct()
    );
   parent::__construct($config);
   $this->load->model("Organisasi_model","model");
+  $this->load->helper('seo');
 }
 
 function index()
@@ -48,6 +49,7 @@ function json()
                 $rows[] = $row->nama;
                 $rows[] = $row->deskripsi;
                 $rows[] = is_image($row->image);
+                $rows[] = $row->seo_name;
         
         $rows[] = '
                   <div class="btn-group" role="group" aria-label="Basic example">
@@ -97,6 +99,7 @@ function detail($id)
           "nama" => $row->nama,
           "deskripsi" => $row->deskripsi,
           "image" => $row->image,
+          "seo_name" => $row->seo_name,
     );
     $this->template->view("view",$data);
   }else{
@@ -113,6 +116,7 @@ function add()
                   'nama' => set_value("nama"),
                   'deskripsi' => set_value("deskripsi"),
                   'image' => set_value("image"),
+                  'seo_name' => set_value("seo_name"),
                   );
   $this->template->view("add",$data);
 }
@@ -126,10 +130,11 @@ function add_action()
     }
 
     $json = array('success' => false);
-    $this->form_validation->set_rules("kategori","* Kategori","trim|xss_clean|required");
-    $this->form_validation->set_rules("nama","* Nama","trim|xss_clean|required");
+    $this->form_validation->set_rules("kategori","* Kategori","trim|xss_clean");
+    $this->form_validation->set_rules("nama","* Nama","trim|xss_clean");
     $this->form_validation->set_rules("deskripsi","* Deskripsi","trim|xss_clean");
     $this->form_validation->set_rules("image","* Image","trim|xss_clean");
+    $this->form_validation->set_rules("seo_name","* Seo name","trim|xss_clean");
     $this->form_validation->set_error_delimiters('<i class="error text-danger" style="font-size:11px">','</i>');
 
     if ($this->form_validation->run()) {
@@ -137,21 +142,20 @@ function add_action()
       $save_data['nama'] = $this->input->post('nama',true);
       $save_data['deskripsi'] = $this->input->post('deskripsi',true);
       $save_data['image'] = $this->imageCopy($this->input->post('image',true),$_POST['file-dir-image']);
+      $save_data['seo_name'] = slugify($this->input->post('nama'));
 
       $this->model->insert($save_data);
 
       set_message("success",cclang("notif_save"));
-      //$json['redirect'] = url("organisasi");
-      //$json['success'] = true;
       redirect('cpanel/organisasi');
+      // $json['redirect'] = url("organisasi");
+      // $json['success'] = true;
     }else {
-      foreach ($_POST as $key => $value) {
-        $json['alert'][$key] = form_error($key);
-      }
+      set_message("Error", cclang("notif_save"));
     }
 
-   // $this->response($json);
-  //}
+  //   $this->response($json);
+  // }
 }
 
 function update($id)
@@ -164,11 +168,39 @@ function update($id)
                   'nama' => set_value("nama", $row->nama),
                   'deskripsi' => set_value("deskripsi", $row->deskripsi),
                   'image' => set_value("image", $row->image),
+                  'seo_name' => set_value("seo_name", $row->seo_name),
                   );
     $this->template->view("update",$data);
   }else {
     $this->error404();
   }
+}
+
+private function slug($text){
+  
+   // replace non letter or digits by -
+   $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+   // transliterate
+   $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+   // remove unwanted characters
+   $text = preg_replace('[^-\w]+', '', $text);
+
+   // trim
+   $text = trim($text, '-');
+
+   // remove duplicate -
+   $text = preg_replace('-+', '-', $text);
+
+   // lowercase
+   $text = strtolower($text);
+
+   if (empty($text)) {
+      return 'n-a';
+   }
+
+   return $text;  
 }
 
 function update_action($id)
@@ -180,32 +212,35 @@ function update_action($id)
     }
 
     $json = array('success' => false);
-    $this->form_validation->set_rules("kategori","* Kategori","trim|xss_clean|required");
-    $this->form_validation->set_rules("nama","* Nama","trim|xss_clean|required");
+    $this->form_validation->set_rules("kategori","* Kategori","trim|xss_clean");
+    $this->form_validation->set_rules("nama","* Nama","trim|xss_clean");
     $this->form_validation->set_rules("deskripsi","* Deskripsi","trim|xss_clean");
     $this->form_validation->set_rules("image","* Image","trim|xss_clean");
     $this->form_validation->set_error_delimiters('<i class="error text-danger" style="font-size:11px">','</i>');
 
     if ($this->form_validation->run()) {
+      $post = $this->input->post(null, true);
       $save_data['kategori'] = $this->input->post('kategori',true);
       $save_data['nama'] = $this->input->post('nama',true);
       $save_data['deskripsi'] = $this->input->post('deskripsi',true);
       $save_data['image'] = $this->imageCopy($this->input->post('image',true),$_POST['file-dir-image']);
+      // $save_data['seo_name'] = slugify($post['nama']);
 
-      $save = $this->model->change(dec_url($id), $save_data);
+      var_dump($this->slug("Halo bandung"));
+      // $save = $this->model->change(dec_url($id), $save_data);
 
       set_message("success",cclang("notif_update"));
-      redirect('cpanel/organisasi');
+      // redirect('cpanel/organisasi');
       // $json['redirect'] = url("organisasi");
       // $json['success'] = true;
     }else {
-      foreach ($_POST as $key => $value) {
-        $json['alert'][$key] = form_error($key);
-      }
+      set_message("Error", cclang("notif_save"));
+      // redirect('cpanel/organisasi');
+      
     }
 
-   // $this->response($json);
-  //}
+    //$this->response($json);
+ // }
 }
 
 function delete($id)

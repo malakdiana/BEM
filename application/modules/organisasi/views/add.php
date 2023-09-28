@@ -11,15 +11,15 @@
             <label>Kategori</label>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="kategori" value="UKM">
-                UKM
+                <input type="radio" class="form-check-input" name="kategori" value="HIMA">
+                HIMA
                 <i class="input-helper"></i>
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="kategori" value="HIMA">
-                HIMA
+                <input type="radio" class="form-check-input" name="kategori" value="UKM">
+                UKM
                 <i class="input-helper"></i>
               </label>
             </div>
@@ -31,10 +31,6 @@
             <input type="text" class="form-control form-control-sm" placeholder="Nama" name="nama" id="nama">
           </div>
 
-          <div class="form-group">
-            <label>Deskripsi</label>
-            <textarea class="form-control form-control-sm ckeditor" placeholder="Deskripsi" name="deskripsi" id="deskripsi" rows="3" cols="80"></textarea>
-          </div>
 
           <div class="form-group">
             <label>Image</label>
@@ -49,6 +45,16 @@
             </div>
             <div id="image"></div>
           </div>
+          
+          <div class="form-group">
+            <label>Deskripsi</label>
+            <textarea class="form-control form-control-sm ckeditor" placeholder="Deskripsi" name="deskripsi" id="deskripsi" rows="3" cols="80"></textarea>
+          </div>
+
+          <!-- <div class="form-group">
+            <label>Seo name</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Seo name" name="seo_name" id="seo_name">
+          </div> -->
 
           <input type="hidden" name="submit" value="add">
 

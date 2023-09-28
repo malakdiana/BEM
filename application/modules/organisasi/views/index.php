@@ -17,14 +17,14 @@
                 <label class="mb-0">Kategori</label>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" id="kategori" name="kategori" value="UKM">
-                    UKM                    <i class="input-helper"></i>
+                    <input type="radio" class="form-check-input" id="kategori" name="kategori" value="HIMA">
+                    HIMA                    <i class="input-helper"></i>
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" id="kategori" name="kategori" value="HIMA">
-                    HIMA                    <i class="input-helper"></i>
+                    <input type="radio" class="form-check-input" id="kategori" name="kategori" value="UKM">
+                    UKM                    <i class="input-helper"></i>
                   </label>
                 </div>
             </div>
@@ -41,6 +41,10 @@
               <input type="text" id="image" class="form-control form-control-sm" placeholder="Image" />
             </div>
 
+            <div class="form-group col-md-6">
+              <input type="text" id="seo_name" class="form-control form-control-sm" placeholder="Seo name" />
+            </div>
+
             <div class="col-md-12">
               <button type='button' class='btn btn-default btn-sm' id="filter-cancel"><?=cclang("cancel")?></button>
               <button type="button" class="btn btn-primary btn-sm" id="filter">Filter</button>
@@ -55,6 +59,7 @@
 							<th>Nama</th>
 							<th>Deskripsi</th>
 							<th>Image</th>
+							<th>Seo name</th>
               <th>#</th>
             </tr>
           </thead>
@@ -95,6 +100,7 @@ var table;
               data.nama = $("#nama").val();
               data.deskripsi = $("#deskripsi").val();
               data.image = $("#image").val();
+              data.seo_name = $("#seo_name").val();
               }
             },
 
@@ -121,10 +127,15 @@ var table;
             "orderable": false
           },
 
+					{
+            "targets": 4,
+            "orderable": false
+          },
+
         {
             "className": "text-center",
             "orderable": false,
-            "targets": 4
+            "targets": 5
         },
       ],
     });
@@ -134,6 +145,7 @@ var table;
   $("#nama").val("");
   $("#deskripsi").val("");
   $("#image").val("");
+  $("#seo_name").val("");
   table.ajax.reload();
   });
 
