@@ -1,41 +1,37 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
+class Dashboard extends Backend
+{
+    private $title = 'Dashboard';
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Core_model', 'model');
+    }
 
-class Dashboard extends Backend{
+    function index()
+    {
+        $this->template->set_title('Dashboard');
+        $this->template->view('index');
+    }
 
-  private $title = "Dashboard";
+    function test()
+    {
+        $get_controller = $this->userize->combo_controllerlist();
+        echo json_encode($get_controller);
+    }
 
-  public function __construct()
-  {
-    parent::__construct();
-    $this->load->model("Core_model","model");
-  }
+    function folderSize($dir = null)
+    {
+        $dir = './_temp/uploads/img/';
+        $size = 0;
 
-  function index()
-  {
-    $this->template->set_title("Dashboard");
-    $this->template->view("index");
-  }
+        foreach (glob(rtrim($dir, '/') . '/*', GLOB_NOSORT) as $each) {
+            $size += is_file($each) ? filesize($each) : folderSize($each);
+        }
 
-  function test()
-  {
-    $get_controller = $this->userize->combo_controllerlist();
-    echo json_encode($get_controller);
-  }
-
-  function folderSize ($dir = null)
-  {
-    $dir = "./_temp/uploads/img/";
-      $size = 0;
-
-      foreach (glob(rtrim($dir, '/').'/*', GLOB_NOSORT) as $each) {
-          $size += is_file($each) ? filesize($each) : folderSize($each);
-      }
-
-      echo $size. "Kb";
-  }
-
-
+        echo $size . 'Kb';
+    }
 }

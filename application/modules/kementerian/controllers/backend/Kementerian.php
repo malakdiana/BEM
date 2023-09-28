@@ -113,7 +113,7 @@ function add()
 
 function add_action()
 {
-  if($this->input->is_ajax_request()){
+  //if($this->input->is_ajax_request()){
     if (!is_allowed('kementerian_add')) {
       show_error("Access Permission", 403,'403::Access Not Permission');
       exit();
@@ -131,16 +131,17 @@ function add_action()
       $this->model->insert($save_data);
 
       set_message("success",cclang("notif_save"));
-      $json['redirect'] = url("kementerian");
-      $json['success'] = true;
+      redirect('cpanel/kementerian');
+      //$json['redirect'] = url("kementerian");
+      //$json['success'] = true;
     }else {
       foreach ($_POST as $key => $value) {
         $json['alert'][$key] = form_error($key);
       }
     }
 
-    $this->response($json);
-  }
+    // $this->response($json);
+  //}
 }
 
 function update($id)
@@ -160,7 +161,7 @@ function update($id)
 
 function update_action($id)
 {
-  if($this->input->is_ajax_request()){
+  //if($this->input->is_ajax_request()){
     if (!is_allowed('kementerian_update')) {
       show_error("Access Permission", 403,'403::Access Not Permission');
       exit();
@@ -178,17 +179,17 @@ function update_action($id)
       $save = $this->model->change(dec_url($id), $save_data);
 
       set_message("success",cclang("notif_update"));
-
-      $json['redirect'] = url("kementerian");
-      $json['success'] = true;
+      redirect('cpanel/kementerian');
+      //$json['redirect'] = url("kementerian");
+      //$json['success'] = true;
     }else {
       foreach ($_POST as $key => $value) {
         $json['alert'][$key] = form_error($key);
       }
     }
 
-    $this->response($json);
-  }
+    // $this->response($json);
+  //}
 }
 
 function delete($id)

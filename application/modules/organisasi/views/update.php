@@ -5,15 +5,25 @@
         <?=ucwords($title_module)?>
       </div>
       <div class="card-body">
-          <form action="<?=$action?>" id="form" autocomplete="off">
+          <form action="<?=$action?>" id="form" method="post" autocomplete="off">
           
           <div class="form-group">
             <label>Kategori</label>
-            <select class="form-control form-control-sm select2" data-placeholder=" -- Select -- " name="kategori" id="kategori">
-              <option value=""></option>
-              <option <?=($kategori == "HIMA" ? "selected":"")?> value="HIMA">HIMA</option>
-              <option <?=($kategori == "UKM" ? "selected":"")?> value="UKM">UKM</option>
-            </select>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" <?=($kategori == "UKM" ? "checked":"")?> class="form-check-input" name="kategori" value="UKM">
+                UKM
+                <i class="input-helper"></i>
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" <?=($kategori == "HIMA" ? "checked":"")?> class="form-check-input" name="kategori" value="HIMA">
+                HIMA
+                <i class="input-helper"></i>
+              </label>
+            </div>
+            <div id="kategori"></div>
           </div>
         
           <div class="form-group">
@@ -23,7 +33,21 @@
         
           <div class="form-group">
             <label>Deskripsi</label>
-            <textarea class="form-control form-control-sm" placeholder="Deskripsi" name="deskripsi" id="deskripsi" rows="3" cols="80"><?=$deskripsi?></textarea>
+            <textarea class="form-control form-control-sm ckeditor" placeholder="Deskripsi" name="deskripsi" id="deskripsi" rows="3" cols="80"><?=$deskripsi?></textarea>
+          </div>
+        
+          <div class="form-group">
+            <label>Image</label>
+            <input type="file" name="img" class="file-upload-default" data-id="image"/>
+            <div class="input-group col-xs-12">
+              <input type="hidden" class="file-dir" name="file-dir-image" data-id="image"/>
+              <input type="text" class="form-control form-control-sm file-upload-info file-name" data-id="image" placeholder="Image" readonly name="image" value="<?=$image?>" />
+            <span class="input-group-append">
+              <button class="btn-remove-image btn btn-danger btn-sm" type="button" data-id="image" style="display:<?=$image!=''?'block':'none'?>;"><i class="ti-trash"></i></button>
+              <button class="file-upload-browse btn btn-primary btn-sm" data-id="image" type="button">Select File</button>
+            </span>
+            </div>
+            <div id="image"></div>
           </div>
         
           <input type="hidden" name="submit" value="update">
@@ -39,7 +63,7 @@
 </div>
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $("#form").submit(function(e){
 e.preventDefault();
 var me = $(this);
@@ -71,4 +95,4 @@ $.ajax({
       }
     });
 });
-</script>
+</script> -->

@@ -9,21 +9,24 @@
           
           <div class="form-group">
             <label>Sosmed</label>
-            <select class="form-control form-control-sm select2" data-placeholder=" -- Select -- " name="sosmed" id="sosmed">
-              <option value=""></option>
-              <option <?=($sosmed == "Instagram" ? "selected":"")?> value="Instagram">Instagram</option>
-              <option <?=($sosmed == "Facebook" ? "selected":"")?> value="Facebook">Facebook</option>
-              <option <?=($sosmed == "Twitter" ? "selected":"")?> value="Twitter">Twitter</option>
-              <option <?=($sosmed == "Youtube" ? "selected":"")?> value="Youtube">YouTube</option>
-              <option <?=($sosmed == "LinkedIn" ? "selected":"")?> value="LinkedIn">LinkedIn</option>
-              <option <?=($sosmed == "Tiktok" ? "selected":"")?> value="Tiktok">Tiktok</option>
-              <option <?=($sosmed == "WhatsApp" ? "selected":"")?> value="WhatsApp">WhatsApp</option>
-            </select>
+            <input type="text" class="form-control form-control-sm" placeholder="Sosmed" name="sosmed" id="sosmed" value="<?=$sosmed?>">
           </div>
         
           <div class="form-group">
             <label>Link</label>
             <input type="text" class="form-control form-control-sm" placeholder="Link" name="link" id="link" value="<?=$link?>">
+          </div>
+        
+          <div class="form-group">
+            <label>Icon</label>
+                <input type="text" id="icon" name="icon" value="<?=$icon?>" class="file-upload-default">
+                <div class="input-group col-xs-12">
+                  <input type="text" class="form-control file-upload-info form-control-sm" id="icons" value="<?=$icon?>" disabled="" placeholder="Icon">
+                  <span class="input-group-append">
+                    <button class="file-upload-browse btn btn-primary btn-sm" href="<?=url("core/icon_sosmed")?>" id="icons" type="button">Icon</button>
+                    <button class="file-upload-browse btn btn-danger btn-sm" id="icons-remove" type="button"><i class="fa fa-trash"></i></button>
+                  </span>
+                </div>
           </div>
         
           <input type="hidden" name="submit" value="update">
@@ -40,6 +43,7 @@
 
 
 <script type="text/javascript">
+    $(document).ready(function(){
 $("#form").submit(function(e){
 e.preventDefault();
 var me = $(this);
@@ -70,5 +74,20 @@ $.ajax({
         }
       }
     });
+});
+$(document).on("click","#icons",function(e){
+    e.preventDefault();
+    $('.modal-dialog').removeClass('modal-md')
+                      .removeClass('modal-sm')
+                      .addClass('modal-lg');
+    $("#modalTitle").text('Icon');
+    $('#modalContent').load($(this).attr("href"));
+    $("#modalGue").modal('show');
+  });
+
+  $(document).on("click","#icons-remove",function(e){
+    e.preventDefault();
+    $("#icon , #icons").val("");
+  })
 });
 </script>

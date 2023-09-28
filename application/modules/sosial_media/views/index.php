@@ -14,20 +14,16 @@
         <form autocomplete="off" class="content-filter">
           <div class="row">
             <div class="form-group col-md-6">
-              <select class="form-control form-control-sm select2" data-placeholder=" -- Select Sosmed -- " name="sosmed" id="sosmed">
-                <option value=""></option>
-                <option value="Instagram">Instagram</option>
-                <option value="Facebook">Facebook</option>
-                <option value="Twitter">Twitter</option>
-                <option value="Youtube">YouTube</option>
-                <option value="LinkedIn">LinkedIn</option>
-                <option value="Tiktok">Tiktok</option>
-                <option value="WhatsApp">WhatsApp</option>
-              </select>
+              <input type="text" id="sosmed" class="form-control form-control-sm" placeholder="Sosmed" />
             </div>
 
             <div class="form-group col-md-6">
               <input type="text" id="link" class="form-control form-control-sm" placeholder="Link" />
+            </div>
+
+            <div class="form-group col-md-6">
+              <i id="icon2" class="initial-class"></i>
+              <input type="text" id="icon" class="form-control form-control-sm" placeholder="Icon" />
             </div>
 
             <div class="col-md-12">
@@ -42,6 +38,7 @@
             <tr>
 							<th>Sosmed</th>
 							<th>Link</th>
+							<th>Icon</th>
               <th>#</th>
             </tr>
           </thead>
@@ -80,6 +77,7 @@ var table;
           "data":function(data){
               data.sosmed = $("#sosmed").val();
               data.link = $("#link").val();
+              data.icon = $("#icon").val();
               }
             },
 
@@ -96,10 +94,15 @@ var table;
             "orderable": false
           },
 
+					{
+            "targets": 2,
+            "orderable": false
+          },
+
         {
             "className": "text-center",
             "orderable": false,
-            "targets": 2
+            "targets": 3
         },
       ],
     });
@@ -107,6 +110,7 @@ var table;
   $("#reload").click(function(){
   $("#sosmed").val("");
   $("#link").val("");
+  $("#icon").val("");
   table.ajax.reload();
   });
 

@@ -12,12 +12,18 @@ class VisiMisi extends Backend{
   {
     parent::__construct();
     $this->load->model("m_crud_generator/M_crud_generator_model","model");
+    $this->load->model("Base_model","base");
   }
 
   function index()
   {
-    
-    $this->frontend->load('template', 'visimisi/visimisi');
+    $data = [
+      'row' => $this->base->get('visi_misi')->result(),
+      'general' => $this->base->get('general_setting')->result(),
+       'sosmed' => $this->base->get('sosial_media')->result(),
+      'title' => 'Visi Misi'
+    ];
+    $this->frontend->load('template', 'visimisi/visimisi',$data);
   }
 
   function getTable($table)

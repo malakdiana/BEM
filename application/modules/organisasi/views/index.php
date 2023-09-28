@@ -14,11 +14,19 @@
         <form autocomplete="off" class="content-filter">
           <div class="row">
             <div class="form-group col-md-6">
-              <select class="form-control form-control-sm select2" data-placeholder=" -- Select Kategori -- " name="kategori" id="kategori">
-                <option value=""></option>
-                <option value="HIMA">HIMA</option>
-                <option value="UKM">UKM</option>
-              </select>
+                <label class="mb-0">Kategori</label>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" id="kategori" name="kategori" value="UKM">
+                    UKM                    <i class="input-helper"></i>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" id="kategori" name="kategori" value="HIMA">
+                    HIMA                    <i class="input-helper"></i>
+                  </label>
+                </div>
             </div>
 
             <div class="form-group col-md-6">
@@ -27,6 +35,10 @@
 
             <div class="form-group col-md-6">
               <input type="text" id="deskripsi" class="form-control form-control-sm" placeholder="Deskripsi" />
+            </div>
+
+            <div class="form-group col-md-6">
+              <input type="text" id="image" class="form-control form-control-sm" placeholder="Image" />
             </div>
 
             <div class="col-md-12">
@@ -42,6 +54,7 @@
 							<th>Kategori</th>
 							<th>Nama</th>
 							<th>Deskripsi</th>
+							<th>Image</th>
               <th>#</th>
             </tr>
           </thead>
@@ -78,9 +91,10 @@ var table;
           "url": "<?= url("organisasi/json")?>",
           "type": "POST",
           "data":function(data){
-              data.kategori = $("#kategori").val();
+              data.kategori = $("#kategori:checked").val();
               data.nama = $("#nama").val();
               data.deskripsi = $("#deskripsi").val();
+              data.image = $("#image").val();
               }
             },
 
@@ -102,10 +116,15 @@ var table;
             "orderable": false
           },
 
+					{
+            "targets": 3,
+            "orderable": false
+          },
+
         {
             "className": "text-center",
             "orderable": false,
-            "targets": 3
+            "targets": 4
         },
       ],
     });
@@ -114,6 +133,7 @@ var table;
   $("#kategori").val("");
   $("#nama").val("");
   $("#deskripsi").val("");
+  $("#image").val("");
   table.ajax.reload();
   });
 

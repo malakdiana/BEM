@@ -5,7 +5,7 @@
         <?=ucwords($title_module)?>
       </div>
       <div class="card-body">
-          <form action="<?=$action?>" id="form" autocomplete="off">
+          <form action="<?=$action?>" id="form" method="post" autocomplete="off">
 
           <div class="form-group">
             <label>Judul</label>
@@ -14,7 +14,7 @@
 
           <div class="form-group">
             <label>Isi</label>
-            <textarea class="form-control form-control-sm" placeholder="Isi" name="isi" id="isi" rows="3" cols="80"></textarea>
+            <textarea class="form-control form-control-sm ckeditor" placeholder="Isi" name="isi" id="isi" rows="3" cols="80"></textarea>
           </div>
 
           <input type="hidden" name="submit" value="add">
@@ -30,7 +30,7 @@
 </div>
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $("#form").submit(function(e){
 e.preventDefault();
 var me = $(this);
@@ -62,4 +62,4 @@ $.ajax({
       }
     });
 });
-</script>
+</script> -->

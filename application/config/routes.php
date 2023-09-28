@@ -84,6 +84,11 @@ $route['logout'] = 'login/logout';
 $route[LOGIN_ROUTE] = 'login';
 $route[LOGIN_ROUTE.'/(:any)'] = 'login/$1';
 
+$route[DEFAULT_CONTROLLER.'/(:any)'] = '$1/frontend/$1';
+$route[DEFAULT_CONTROLLER.'/(:any)/(:any)'] = '$1/frontend/$1/$2';
+$route[DEFAULT_CONTROLLER.'/(:any)/(:any)/(:any)'] = '$1/frontend/$1/$2/$3';
+$route[DEFAULT_CONTROLLER.'/(:any)/(:any)/(:any)/(:any)'] = '$1/frontend/$1/$2/$3/$4';
+
 
 $route[ADMIN_ROUTE.'/(:any)'] = '$1/backend/$1';
 $route[ADMIN_ROUTE.'/(:any)/(:any)'] = '$1/backend/$1/$2';

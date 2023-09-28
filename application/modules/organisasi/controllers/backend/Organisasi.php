@@ -7,7 +7,7 @@
 /*| instagram :  */
 /*| youtube :  */
 /*| --------------------------------------------------------------------------*/
-/*| Generate By M-CRUD Generator 25/09/2023 20:07*/
+/*| Generate By M-CRUD Generator 28/09/2023 10:05*/
 /*| Please DO NOT modify this information*/
 
 
@@ -47,6 +47,7 @@ function json()
                 $rows[] = $row->kategori;
                 $rows[] = $row->nama;
                 $rows[] = $row->deskripsi;
+                $rows[] = is_image($row->image);
         
         $rows[] = '
                   <div class="btn-group" role="group" aria-label="Basic example">
@@ -95,6 +96,7 @@ function detail($id)
           "kategori" => $row->kategori,
           "nama" => $row->nama,
           "deskripsi" => $row->deskripsi,
+          "image" => $row->image,
     );
     $this->template->view("view",$data);
   }else{
@@ -110,42 +112,46 @@ function add()
                   'kategori' => set_value("kategori"),
                   'nama' => set_value("nama"),
                   'deskripsi' => set_value("deskripsi"),
+                  'image' => set_value("image"),
                   );
   $this->template->view("add",$data);
 }
 
 function add_action()
 {
-  if($this->input->is_ajax_request()){
+  //if($this->input->is_ajax_request()){
     if (!is_allowed('organisasi_add')) {
       show_error("Access Permission", 403,'403::Access Not Permission');
       exit();
     }
 
     $json = array('success' => false);
-    $this->form_validation->set_rules("kategori","* Kategori","trim|xss_clean");
-    $this->form_validation->set_rules("nama","* Nama","trim|xss_clean");
+    $this->form_validation->set_rules("kategori","* Kategori","trim|xss_clean|required");
+    $this->form_validation->set_rules("nama","* Nama","trim|xss_clean|required");
     $this->form_validation->set_rules("deskripsi","* Deskripsi","trim|xss_clean");
+    $this->form_validation->set_rules("image","* Image","trim|xss_clean");
     $this->form_validation->set_error_delimiters('<i class="error text-danger" style="font-size:11px">','</i>');
 
     if ($this->form_validation->run()) {
       $save_data['kategori'] = $this->input->post('kategori',true);
       $save_data['nama'] = $this->input->post('nama',true);
       $save_data['deskripsi'] = $this->input->post('deskripsi',true);
+      $save_data['image'] = $this->imageCopy($this->input->post('image',true),$_POST['file-dir-image']);
 
       $this->model->insert($save_data);
 
       set_message("success",cclang("notif_save"));
-      $json['redirect'] = url("organisasi");
-      $json['success'] = true;
+      //$json['redirect'] = url("organisasi");
+      //$json['success'] = true;
+      redirect('cpanel/organisasi');
     }else {
       foreach ($_POST as $key => $value) {
         $json['alert'][$key] = form_error($key);
       }
     }
 
-    $this->response($json);
-  }
+   // $this->response($json);
+  //}
 }
 
 function update($id)
@@ -157,6 +163,7 @@ function update($id)
                   'kategori' => set_value("kategori", $row->kategori),
                   'nama' => set_value("nama", $row->nama),
                   'deskripsi' => set_value("deskripsi", $row->deskripsi),
+                  'image' => set_value("image", $row->image),
                   );
     $this->template->view("update",$data);
   }else {
@@ -166,37 +173,39 @@ function update($id)
 
 function update_action($id)
 {
-  if($this->input->is_ajax_request()){
+  //if($this->input->is_ajax_request()){
     if (!is_allowed('organisasi_update')) {
       show_error("Access Permission", 403,'403::Access Not Permission');
       exit();
     }
 
     $json = array('success' => false);
-    $this->form_validation->set_rules("kategori","* Kategori","trim|xss_clean");
-    $this->form_validation->set_rules("nama","* Nama","trim|xss_clean");
+    $this->form_validation->set_rules("kategori","* Kategori","trim|xss_clean|required");
+    $this->form_validation->set_rules("nama","* Nama","trim|xss_clean|required");
     $this->form_validation->set_rules("deskripsi","* Deskripsi","trim|xss_clean");
+    $this->form_validation->set_rules("image","* Image","trim|xss_clean");
     $this->form_validation->set_error_delimiters('<i class="error text-danger" style="font-size:11px">','</i>');
 
     if ($this->form_validation->run()) {
       $save_data['kategori'] = $this->input->post('kategori',true);
       $save_data['nama'] = $this->input->post('nama',true);
       $save_data['deskripsi'] = $this->input->post('deskripsi',true);
+      $save_data['image'] = $this->imageCopy($this->input->post('image',true),$_POST['file-dir-image']);
 
       $save = $this->model->change(dec_url($id), $save_data);
 
       set_message("success",cclang("notif_update"));
-
-      $json['redirect'] = url("organisasi");
-      $json['success'] = true;
+      redirect('cpanel/organisasi');
+      // $json['redirect'] = url("organisasi");
+      // $json['success'] = true;
     }else {
       foreach ($_POST as $key => $value) {
         $json['alert'][$key] = form_error($key);
       }
     }
 
-    $this->response($json);
-  }
+   // $this->response($json);
+  //}
 }
 
 function delete($id)

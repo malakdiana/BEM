@@ -12,12 +12,19 @@ class StrukturOrganisasi extends Backend{
   {
     parent::__construct();
     $this->load->model("m_crud_generator/M_crud_generator_model","model");
+    $this->load->model("Base_model","base");
   }
 
   function index()
   {
+    $data = [
+      'row' => $this->base->get('struktur_organisasi')->result(),
+      'general' => $this->base->get('general_setting')->result(),
+       'sosmed' => $this->base->get('sosial_media')->result(),
+      'title' => 'Struktur Organisasi'
+    ];
     
-    $this->frontend->load('template', 'struktur_organisasi/struktur_organisasi');
+    $this->frontend->load('template', 'struktur_organisasi/struktur_organisasi',$data);
   }
 
   function getTable($table)

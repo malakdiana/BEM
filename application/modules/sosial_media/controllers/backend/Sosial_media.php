@@ -7,7 +7,7 @@
 /*| instagram :  */
 /*| youtube :  */
 /*| --------------------------------------------------------------------------*/
-/*| Generate By M-CRUD Generator 25/09/2023 21:16*/
+/*| Generate By M-CRUD Generator 28/09/2023 09:15*/
 /*| Please DO NOT modify this information*/
 
 
@@ -46,6 +46,7 @@ function json()
         $rows = array();
                 $rows[] = $row->sosmed;
                 $rows[] = $row->link;
+                $rows[] = $row->icon;
         
         $rows[] = '
                   <div class="btn-group" role="group" aria-label="Basic example">
@@ -93,6 +94,7 @@ function detail($id)
     $data = array(
           "sosmed" => $row->sosmed,
           "link" => $row->link,
+          "icon" => $row->icon,
     );
     $this->template->view("view",$data);
   }else{
@@ -107,6 +109,7 @@ function add()
   $data = array('action' => url("sosial_media/add_action"),
                   'sosmed' => set_value("sosmed"),
                   'link' => set_value("link"),
+                  'icon' => set_value("icon"),
                   );
   $this->template->view("add",$data);
 }
@@ -120,13 +123,15 @@ function add_action()
     }
 
     $json = array('success' => false);
-    $this->form_validation->set_rules("sosmed","* Sosmed","trim|xss_clean");
-    $this->form_validation->set_rules("link","* Link","trim|xss_clean");
+    $this->form_validation->set_rules("sosmed","* Sosmed","trim|xss_clean|required");
+    $this->form_validation->set_rules("link","* Link","trim|xss_clean|required");
+    $this->form_validation->set_rules("icon","* Icon","trim|xss_clean");
     $this->form_validation->set_error_delimiters('<i class="error text-danger" style="font-size:11px">','</i>');
 
     if ($this->form_validation->run()) {
       $save_data['sosmed'] = $this->input->post('sosmed',true);
       $save_data['link'] = $this->input->post('link',true);
+      $save_data['icon'] = $this->input->post('icon',true);
 
       $this->model->insert($save_data);
 
@@ -151,6 +156,7 @@ function update($id)
     $data = array('action' => url("sosial_media/update_action/$id"),
                   'sosmed' => set_value("sosmed", $row->sosmed),
                   'link' => set_value("link", $row->link),
+                  'icon' => set_value("icon", $row->icon),
                   );
     $this->template->view("update",$data);
   }else {
@@ -167,13 +173,15 @@ function update_action($id)
     }
 
     $json = array('success' => false);
-    $this->form_validation->set_rules("sosmed","* Sosmed","trim|xss_clean");
-    $this->form_validation->set_rules("link","* Link","trim|xss_clean");
+    $this->form_validation->set_rules("sosmed","* Sosmed","trim|xss_clean|required");
+    $this->form_validation->set_rules("link","* Link","trim|xss_clean|required");
+    $this->form_validation->set_rules("icon","* Icon","trim|xss_clean");
     $this->form_validation->set_error_delimiters('<i class="error text-danger" style="font-size:11px">','</i>');
 
     if ($this->form_validation->run()) {
       $save_data['sosmed'] = $this->input->post('sosmed',true);
       $save_data['link'] = $this->input->post('link',true);
+      $save_data['icon'] = $this->input->post('icon',true);
 
       $save = $this->model->change(dec_url($id), $save_data);
 

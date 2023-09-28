@@ -5,7 +5,7 @@
         <?=ucwords($title_module)?>
       </div>
       <div class="card-body">
-          <form action="<?=$action?>" id="form" autocomplete="off">
+          <form action="<?=$action?>" id="form" autocomplete="off" method="post">
           
           <div class="form-group">
             <label>Judul</label>
@@ -14,7 +14,7 @@
         
           <div class="form-group">
             <label>Isi</label>
-            <textarea class="form-control form-control-sm" placeholder="Isi" name="isi" id="isi" rows="3" cols="80"><?=$isi?></textarea>
+            <textarea class="form-control form-control-sm ckeditor" placeholder="Isi" name="isi" id="isi" rows="3" cols="80"><?=$isi?></textarea>
           </div>
         
           <input type="hidden" name="submit" value="update">
@@ -29,37 +29,3 @@
   </div>
 </div>
 
-
-<script type="text/javascript">
-$("#form").submit(function(e){
-e.preventDefault();
-var me = $(this);
-$("#submit").prop('disabled',true).html('Loading...');
-$(".form-group").find('.text-danger').remove();
-$.ajax({
-      url             : me.attr('action'),
-      type            : 'post',
-      data            :  new FormData(this),
-      contentType     : false,
-      cache           : false,
-      dataType        : 'JSON',
-      processData     :false,
-      success:function(json){
-        if (json.success==true) {
-          location.href = json.redirect;
-          return;
-        }else {
-          $("#submit").prop('disabled',false)
-                      .html('<?=cclang("save")?>');
-          $.each(json.alert, function(key, value) {
-            var element = $('#' + key);
-            $(element)
-            .closest('.form-group')
-            .find('.text-danger').remove();
-            $(element).after(value);
-          });
-        }
-      }
-    });
-});
-</script>

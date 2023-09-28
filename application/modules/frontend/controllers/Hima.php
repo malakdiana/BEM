@@ -12,12 +12,29 @@ class Hima extends Backend{
   {
     parent::__construct();
     $this->load->model("m_crud_generator/M_crud_generator_model","model");
+    $this->load->model("Base_model","base");
   }
 
   function index()
   {
-    
-    $this->frontend->load('template', 'hima/hima');
+    $data = [
+      'row' => $this->base->get('organisasi',['kategori'=>"HIMA"])->result(),
+      'general' => $this->base->get('general_setting')->result(),
+       'sosmed' => $this->base->get('sosial_media')->result(),
+      'title' => 'Organisasi'
+    ];
+    $this->frontend->load('template', 'hima/hima',$data);
+  }
+
+  function detail($id)
+  {
+    $data = [
+      'row' => $this->base->get('organisasi',['id'=>$id])->result(),
+      'general' => $this->base->get('general_setting')->result(),
+       'sosmed' => $this->base->get('sosial_media')->result(),
+      'title' => 'Organisasi'
+    ];
+    $this->frontend->load('template', 'hima/detail_hima',$data);
   }
 
   function getTable($table)

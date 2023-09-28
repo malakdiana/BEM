@@ -8,7 +8,7 @@
 /*| instagram :  */
 /*| youtube :  */
 /*| --------------------------------------------------------------------------*/
-/*| Generate By M-CRUD Generator 25/09/2023 21:16*/
+/*| Generate By M-CRUD Generator 28/09/2023 09:15*/
 /*| Please DO NOT modify this information*/
 
 
@@ -16,9 +16,9 @@ class Sosial_media_model extends MY_Model{
 
   private $table        = "sosial_media";
   private $primary_key  = "id";
-  private $column_order = array('sosmed', 'link');
+  private $column_order = array('sosmed', 'link', 'icon');
   private $order        = array('sosial_media.id'=>"DESC");
-  private $select       = "sosial_media.id,sosial_media.sosmed,sosial_media.link";
+  private $select       = "sosial_media.id,sosial_media.sosmed,sosial_media.link,sosial_media.icon";
 
 public function __construct()
 	{
@@ -46,6 +46,11 @@ public function __construct()
     if($this->input->post("link"))
         {
           $this->db->like("sosial_media.link", $this->input->post("link"));
+        }
+
+    if($this->input->post("icon"))
+        {
+          $this->db->like("sosial_media.icon", $this->input->post("icon"));
         }
 
       if(isset($_POST['order'])) // here order processing

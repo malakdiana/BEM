@@ -14,6 +14,10 @@
           <td>Link</td>
           <td><?=$link?></td>
         </tr>
+        <tr>
+          <td>Icon</td>
+          <td><?=$icon?></td>
+        </tr>
         </table>
 
         <a href="<?=url($this->uri->segment(2))?>" class="btn btn-sm btn-danger mt-3"><?=cclang("back")?></a>

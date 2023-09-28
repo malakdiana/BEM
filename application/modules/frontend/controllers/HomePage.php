@@ -19,12 +19,14 @@ class HomePage extends Backend{
   {
     // $tes = $this->base->get('visi_misi')->result();
     // var_dump($tes[0]->misi);
-
-    // $data = [
-    //   'row' => $this->base->get('kementerian')->result(),
-    //   'title' => 'Home Page'
-    // ];
-    $this->frontend->load('template', 'home/home');
+    
+     $data = [
+       'row' => $this->base->get('home')->result(),
+       'general' => $this->base->get('general_setting')->result(),
+       'sosmed' => $this->base->get('sosial_media')->result(),
+       'title' => 'Home Page'
+     ];
+    $this->frontend->load('template', 'home/home',$data);
   }
 
   function getTable($table)
