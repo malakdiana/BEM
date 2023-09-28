@@ -63,7 +63,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['mcrud'] = 'mcrud/Mcrud';
 
-
+//dev
 $route['frontend'] = 'frontend/HomePage';
 $route['tentang'] = 'frontend/Tentang';
 $route['visi-misi'] = 'frontend/VisiMisi';
@@ -72,6 +72,14 @@ $route['kementerian'] = 'frontend/Kementerian';
 $route['hima'] = 'frontend/Hima';
 $route['ukm'] = 'frontend/Ukm';
 
+//prd
+$route['frontend'] = 'HomePage';
+$route['tentang'] = 'Tentang';
+$route['visi-misi'] = 'VisiMisi';
+$route['struktur-organisasi'] = 'StrukturOrganisasi';
+$route['kementerian'] = 'Kementerian';
+$route['hima'] = 'Hima';
+$route['ukm'] = 'Ukm';
 
 $route['admin'] = LOGIN_ROUTE;
 $route['mcrud/(:any)'] = 'mcrud/Mcrud/$1';
