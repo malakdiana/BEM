@@ -1,7 +1,7 @@
 /**
-* Template Name: Scaffold
+* Template Name: 
 * Updated: Sep 18 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
+* Template URL: https://bootstrapmade.com/-bootstrap-metro-style-template/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
