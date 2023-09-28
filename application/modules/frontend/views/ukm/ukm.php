@@ -18,7 +18,7 @@
                   <div class="pic"><img src="<?=site_url()?>_temp/uploads/img/<?=$ukm->image?>" class="img-fluid" alt=""></div>
                   <div class="member-info">
                     <h4><?=$ukm->nama?></h4>
-                    <span> <a href="<?= site_url('frontend/ukm/detail/'.$ukm->id) ?>">Lihat Selengkapnya</a></span>
+                    <span> <a href="<?= site_url('frontend/ukm/detail/'.$ukm->seo_name) ?>">Lihat Selengkapnya</a></span>
                   </div>
                 </div>
               </div>

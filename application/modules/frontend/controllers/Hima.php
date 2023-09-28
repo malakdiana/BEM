@@ -15,14 +15,26 @@ class Hima extends CI_Controller
 
   function index()
   {
-    // $data = [
-    //   'row' => $this->base->get('organisasi', ['kategori' => "HIMA"])->result(),
-    //   'general' => $this->base->get('general_setting')->result(),
-    //   'sosmed' => $this->base->get('sosial_media')->result(),
-    //   'title' => 'Organisasi'
-    // ];
-    // $this->frontend->load('template', 'hima/hima', $data);
-    var_dump(slugify('Testing JUDUL pertama'));
+    $data = [
+      'row' => $this->base->get('organisasi', ['kategori' => "HIMA"])->result(),
+      'general' => $this->base->get('general_setting')->result(),
+      'sosmed' => $this->base->get('sosial_media')->result(),
+      'title' => 'Organisasi'
+    ];
+    $this->frontend->load('template', 'hima/hima', $data);
+    // var_dump(slugify('Testing JUDUL pertama'));
   }
+
+  function detail($id)
+  {
+    $data = [
+      'row' => $this->base->get('organisasi', ['seo_name' => $id])->result(),
+      'general' => $this->base->get('general_setting')->result(),
+      'sosmed' => $this->base->get('sosial_media')->result(),
+      'title' => 'UKM'
+    ];
+    $this->frontend->load('template', 'hima/detail_hima', $data);
+  }
+
 
 }
