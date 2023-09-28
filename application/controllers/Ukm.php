@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // require_once APPPATH . 'modules/mcrud/controllers/Dicoba.php';
 
-class VisiMisi extends CI_Controller{
+class Ukm extends CI_Controller{
 
   protected $title = "M-Crud Generator";
   // protected $data;
@@ -18,12 +18,23 @@ class VisiMisi extends CI_Controller{
   function index()
   {
     $data = [
-      'row' => $this->base->get('visi_misi')->result(),
+      'row' => $this->base->get('organisasi',['kategori'=>"UKM"])->result(),
       'general' => $this->base->get('general_setting')->result(),
        'sosmed' => $this->base->get('sosial_media')->result(),
-      'title' => 'Visi Misi'
+      'title' => 'Organisasi'
     ];
-    $this->frontend->load('template', 'visimisi/visimisi',$data);
+    $this->frontend->load('template', 'ukm/ukm',$data);
+  }
+
+  function detail($id)
+  {
+    $data = [
+      'row' => $this->base->get('organisasi',['id'=>$id])->result(),
+      'general' => $this->base->get('general_setting')->result(),
+       'sosmed' => $this->base->get('sosial_media')->result(),
+      'title' => 'UKM'
+    ];
+    $this->frontend->load('template', 'ukm/detail_ukm',$data);
   }
 
   function getTable($table)

@@ -63,11 +63,6 @@ class Core extends Backend{
     $this->template->view("icon",array(),false);
   }
 
-  function icon_sosmed()
-  {
-    $this->template->view("icon-sosmed",array(),false);
-  }
-
   function notPermission()
   {
     $this->template->set_title("Error 403 - do not have permission");

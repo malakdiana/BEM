@@ -63,7 +63,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['mcrud'] = 'mcrud/Mcrud';
 
-
+//dev
 $route['frontend'] = 'frontend/HomePage';
 $route['tentang'] = 'frontend/Tentang';
 $route['visi-misi'] = 'frontend/VisiMisi';
@@ -71,7 +71,6 @@ $route['struktur-organisasi'] = 'frontend/StrukturOrganisasi';
 $route['kementerian'] = 'frontend/Kementerian';
 $route['hima'] = 'frontend/Hima';
 $route['ukm'] = 'frontend/Ukm';
-
 
 $route['admin'] = LOGIN_ROUTE;
 $route['mcrud/(:any)'] = 'mcrud/Mcrud/$1';

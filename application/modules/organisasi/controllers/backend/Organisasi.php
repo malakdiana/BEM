@@ -142,8 +142,9 @@ function add_action()
       $save_data['nama'] = $this->input->post('nama',true);
       $save_data['deskripsi'] = $this->input->post('deskripsi',true);
       $save_data['image'] = $this->imageCopy($this->input->post('image',true),$_POST['file-dir-image']);
-      $save_data['seo_name'] = slugify($this->input->post('nama'));
+      $save_data['seo_name'] = slugify($this->input->post('nama', true));
 
+      // var_dump($save_data['seo_name']);
       $this->model->insert($save_data);
 
       set_message("success",cclang("notif_save"));
