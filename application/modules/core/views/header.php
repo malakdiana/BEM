@@ -14,11 +14,8 @@
   <link href="<?=base_url()?>_temp/backend/css/icons.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="<?=base_url()?>_temp/backend/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?=base_url()?>_temp/backend/vendors/select2/select2.min.css">
-  <link rel="stylesheet" href="<?=base_url()?>_te   mp/backend/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>_temp/backend/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
   <link rel="stylesheet" href="<?=base_url()?>_temp/backend/css/style.css">
-  <link rel="stylesheet" href="<?=base_url()?>_temp/backend/css/style.css">
-  <link href="<?= base_url() ?>_temp/frontend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link rel="stylesheet" href="<?=base_url()?>_temp/frontend//vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <!-- Plugin css for this page -->
 
   <link rel="stylesheet" href="<?=base_url()?>_temp/backend/vendors/jquery-toast-plugin/jquery.toast.min.css">
