@@ -26,6 +26,7 @@ if(!function_exists('enc_url')) {
   }
 }
 
+
 if(!function_exists('dec_url')) {
   function dec_url($plainText) {
     $ci=&get_instance();
