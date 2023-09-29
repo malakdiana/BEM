@@ -83,7 +83,7 @@ h6 {
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
-  background: #fff;
+  background: #30318b;
 }
 
 #header.header-scrolled {
@@ -101,7 +101,7 @@ h6 {
 
 #header .logo h1 a,
 #header .logo h1 a:hover {
-  color: #576971;
+  color: #ececec;
   text-decoration: none;
 }
 
@@ -166,7 +166,7 @@ h6 {
   padding: 10px 0 10px 30px;
   font-size: 15px;
   font-family: "Poppins", sans-serif;
-  color: #7b909a;
+  color: #FFF;
   white-space: nowrap;
   transition: 0.3s;
 }
