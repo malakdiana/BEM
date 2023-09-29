@@ -98,9 +98,9 @@
                                             : '' ?>" href="<?= site_url('ukm') ?>">UKM</a></li>
           <?php
           if ($this->session->userdata('login_status') == NULL) { ?>
-            <li><a class="nav-link scrollto">LOGIN</a></li>
+            <li><a class="nav-link scrollto" href="<?= site_url('login') ?>">LOGIN</a></li>
           <?php } else { ?>
-            <li><a class="nav-link scrollto">Logout</a></li>
+            <li><a class="nav-link scrollto" href="<?= site_url('logout') ?>">Logout</a></li>
           <?php }
           ?>
 
