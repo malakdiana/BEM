@@ -98,9 +98,7 @@
                                             : '' ?>" href="<?= site_url('ukm') ?>">UKM</a></li>
           <?php
           if ($this->session->userdata('login_status') == NULL) { ?>
-            <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'ukm'
-                                              ? 'active"'
-                                              : '' ?>" href="<?= site_url('login') ?>">LOGIN</a></li>
+            <li><a class="nav-link scrollto">LOGIN</a></li>
           <?php } else { ?>
             <li><a class="nav-link scrollto">Logout</a></li>
           <?php }
