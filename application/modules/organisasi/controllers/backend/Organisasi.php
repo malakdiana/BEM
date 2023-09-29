@@ -177,33 +177,6 @@ function update($id)
   }
 }
 
-private function slug($text){
-  
-   // replace non letter or digits by -
-   $text = preg_replace('~[^\pL\d]+~u', '-', $text);
-
-   // transliterate
-   $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
-   // remove unwanted characters
-   $text = preg_replace('[^-\w]+', '', $text);
-
-   // trim
-   $text = trim($text, '-');
-
-   // remove duplicate -
-   $text = preg_replace('-+', '-', $text);
-
-   // lowercase
-   $text = strtolower($text);
-
-   if (empty($text)) {
-      return 'n-a';
-   }
-
-   return $text;  
-}
-
 function update_action($id)
 {
   //if($this->input->is_ajax_request()){
@@ -225,13 +198,12 @@ function update_action($id)
       $save_data['nama'] = $this->input->post('nama',true);
       $save_data['deskripsi'] = $this->input->post('deskripsi',true);
       $save_data['image'] = $this->imageCopy($this->input->post('image',true),$_POST['file-dir-image']);
-      // $save_data['seo_name'] = slugify($post['nama']);
+      $save_data['seo_name'] = slugify($post['nama']);
 
-      var_dump($this->slug("Halo bandung"));
-      // $save = $this->model->change(dec_url($id), $save_data);
+      $save = $this->model->change(dec_url($id), $save_data);
 
       set_message("success",cclang("notif_update"));
-      // redirect('cpanel/organisasi');
+      redirect('cpanel/organisasi');
       // $json['redirect'] = url("organisasi");
       // $json['success'] = true;
     }else {
