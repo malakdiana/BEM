@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="content-language" content="id-id">
-  <meta property="og:url" content="<?= base_url()?>" />
+  <meta property="og:url" content="<?= base_url() ?>" />
   <meta name="description" content="Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen ">
   <meta property="og:locale" content="id_ID" />
   <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@
   <meta property="og:image:width" content="800" />
   <meta property="og:image:height" content="800" />
   <meta property="og:image:type" content="image/png" />
-  <title><?= $title?></title>
+  <title><?= $title ?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -59,7 +59,7 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto">
-        <h1><a href="index.html"><?=$general[0]->nama_website?></a></h1>
+        <h1><a href="index.html"><?= $general[0]->nama_website ?></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="<?= base_url() ?>_temp/frontend/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -69,7 +69,7 @@
           <li><a class="nav-link scrollto <?= $this->uri->segment(1) ==
                                             'frontend' || $this->uri->segment(1) == ''
                                             ? 'active"'
-                                            : '' ?>" href="<?= site_url('frontend') ?>">Home</a></li>
+                                            : '' ?>" href="<?= base_url() ?>">Home</a></li>
           <li><a class="nav-link scrollto <?= $this->uri->segment(1) ==
                                             'tentang'
                                             ? 'active"'
@@ -96,23 +96,33 @@
           <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'ukm'
                                             ? 'active"'
                                             : '' ?>" href="<?= site_url('ukm') ?>">UKM</a></li>
+          <?php
+          if ($this->session->userdata('login_status') == NULL) { ?>
+            <li><a class="nav-link scrollto <?= $this->uri->segment(1) == 'ukm'
+                                              ? 'active"'
+                                              : '' ?>" href="<?= site_url('login') ?>">LOGIN</a></li>
+          <?php } else { ?>
+            <li><a class="nav-link scrollto">Logout</a></li>
+          <?php }
+          ?>
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <div class="header-social-links d-flex align-items-center">
-        <?php foreach ($sosmed as $list_sosmed ){ ?>
-                  <a href="<?=$list_sosmed->link?>" class="twitter"><i class="<?=$list_sosmed->icon?>"></i></a>
-                  <?php } ?>
+      <!-- <div class="header-social-links d-flex align-items-center">
+        <?php foreach ($sosmed as $list_sosmed) { ?>
+          <a href="<?= $list_sosmed->link ?>" class="twitter"><i class="<?= $list_sosmed->icon ?>"></i></a>
+        <?php } ?>
 
-      </div>
+      </div> -->
 
     </div>
   </header><!-- End Header -->
   <?= $contents ?>
   <!-- ======= Footer ======= -->
   <footer id="footer">
-    <div class="container" >
+    <div class="container">
       <div class="copyright">
         &copy; Copyright <strong><span>Scaffold</span></strong>. All Rights Reserved
       </div>

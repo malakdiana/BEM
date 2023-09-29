@@ -96,9 +96,6 @@ $show_in_add = $this->mcrud_build->showInAdd();
   </div>
 </div>
 
-
-
-
 <script type="text/javascript">
   $(document).ready(function() {
     var table;

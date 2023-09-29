@@ -87,7 +87,7 @@ class Login extends Signin{
   {
     // $this->load->library(array("user_agent"));
     $this->session->sess_destroy();
-    redirect(LOGIN_ROUTE,"refresh");
+    redirect(base_url());
   }
 
 

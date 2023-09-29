@@ -19,11 +19,13 @@ class HomePage extends CI_Controller
   function index()
   {
     $data = [
-      'row' => $this->base->get('home')->result(),
+      'row'     => $this->base->get('home')->result(),
       'general' => $this->base->get('general_setting')->result(),
-      'sosmed' => $this->base->get('sosial_media')->result(),
-      'title' => 'Home Page'
+      'sosmed'  => $this->base->get('sosial_media')->result(),
+      'title'   => 'Home Page',
+      'tentang' => $this->base->get('tentang')->result(),
     ];
     $this->frontend->load('template', 'home/home', $data);
+    // var_dump(profile('id'));
   }
 }
