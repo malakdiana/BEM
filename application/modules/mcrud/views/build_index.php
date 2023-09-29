@@ -86,7 +86,6 @@ $show_in_add = $this->mcrud_build->showInAdd();
                     echo "\n\t\t\t\t\t\t\t<th>" . $field . "</th>";
                   }
                   ?>
-
                 <th>#</th>
               </tr>
             </thead>

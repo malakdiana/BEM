@@ -88,7 +88,6 @@ class Mcrud extends Backend
             }
           }
 
-
           $data = [
             'php_open_tag'         => '<?php',
             'php_close_tag'       => '?>',
