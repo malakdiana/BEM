@@ -25,7 +25,7 @@
   <section id="about" class="about" style="border-bottom:2px solid #e9ecee">
     <div class="container">
       <div class="section-title" data-aos="fade-up">
-        <h2>Tentang Kami</h2>
+        <h2>Tentang</h2>
       </div>
       <div class="row">
         <div class="col-lg-6" data-aos="zoom-in">
@@ -62,15 +62,13 @@
                 <?php foreach ($sosmed as $list_sosmed) { ?>
                   <a href="<?= $list_sosmed->link ?>" class="twitter"><i class="<?= $list_sosmed->icon ?>"></i></a>
                 <?php } ?>
-
-
               </div>
             </div>
           </div>
 
 
           <div class="col-lg-6 col-md-6 footer-links">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1975.7547834563854!2d112.61457868858814!3d-7.946176148019526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827687d272e7%3A0x789ce9a636cd3aa2!2sPoliteknik%20Negeri%20Malang!5e0!3m2!1sid!2sid!4v1695864443510!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1975.7547834563854!2d112.61457868858814!3d-7.946176148019526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827687d272e7%3A0x789ce9a636cd3aa2!2sPoliteknik%20Negeri%20Malang!5e0!3m2!1sid!2sid!4v1695864443510!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 390px;" allowfullscreen></iframe>
           </div>
         </div>
       </div>
