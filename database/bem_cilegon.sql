@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Sep 2023 pada 10.23
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.1
+-- Generation Time: Oct 02, 2023 at 02:57 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_group`
+-- Table structure for table `artikel`
+--
+
+CREATE TABLE `artikel` (
+  `id` int(11) NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `seo_title` varchar(200) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `content` text NOT NULL,
+  `createdOn` datetime NOT NULL,
+  `organisasi_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `artikel`
+--
+
+INSERT INTO `artikel` (`id`, `title`, `seo_title`, `image`, `content`, `createdOn`, `organisasi_id`) VALUES
+(1, 'Testing Berita kegiatan UKM Sopi', 'testing-berita-kegiatan-ukm-sopi', '021023103142_e8d27b80_cde3_4.jpeg', '<p xss=removed>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</p><p xss=removed>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p><p xss=removed><br></p><p xss=removed>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</p><p xss=removed>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p><p xss=removed><br></p><p xss=removed>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</p><p xss=removed>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p><p xss=removed><br></p><p xss=removed>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</p><p xss=removed>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>', '2023-10-02 10:31:42', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth_group`
 --
 
 CREATE TABLE `auth_group` (
@@ -35,7 +57,7 @@ CREATE TABLE `auth_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `auth_group`
+-- Dumping data for table `auth_group`
 --
 
 INSERT INTO `auth_group` (`id`, `group`, `definition`) VALUES
@@ -46,7 +68,7 @@ INSERT INTO `auth_group` (`id`, `group`, `definition`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_permission`
+-- Table structure for table `auth_permission`
 --
 
 CREATE TABLE `auth_permission` (
@@ -56,7 +78,7 @@ CREATE TABLE `auth_permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `auth_permission`
+-- Dumping data for table `auth_permission`
 --
 
 INSERT INTO `auth_permission` (`id`, `permission`, `definition`) VALUES
@@ -178,12 +200,24 @@ INSERT INTO `auth_permission` (`id`, `permission`, `definition`) VALUES
 (188, 'organisasi_detail', 'Module organisasi'),
 (189, 'organisasi_add', 'Module organisasi'),
 (190, 'organisasi_update', 'Module organisasi'),
-(191, 'organisasi_delete', 'Module organisasi');
+(191, 'organisasi_delete', 'Module organisasi'),
+(192, 'trias_list', 'Module trias'),
+(193, 'trias_detail', 'Module trias'),
+(194, 'trias_add', 'Module trias'),
+(195, 'trias_update', 'Module trias'),
+(196, 'trias_delete', 'Module trias'),
+(197, 'sidebar_view_trias', 'Module sidebar'),
+(203, 'sidebar_view_berita_kegiatan', 'Module sidebar'),
+(209, 'artikel_list', 'Module artikel'),
+(210, 'artikel_detail', 'Module artikel'),
+(211, 'artikel_add', 'Module artikel'),
+(212, 'artikel_update', 'Module artikel'),
+(213, 'artikel_delete', 'Module artikel');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_permission_to_group`
+-- Table structure for table `auth_permission_to_group`
 --
 
 CREATE TABLE `auth_permission_to_group` (
@@ -192,7 +226,7 @@ CREATE TABLE `auth_permission_to_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `auth_permission_to_group`
+-- Dumping data for table `auth_permission_to_group`
 --
 
 INSERT INTO `auth_permission_to_group` (`permission_id`, `group_id`) VALUES
@@ -312,7 +346,7 @@ INSERT INTO `auth_permission_to_group` (`permission_id`, `group_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_user`
+-- Table structure for table `auth_user`
 --
 
 CREATE TABLE `auth_user` (
@@ -331,19 +365,19 @@ CREATE TABLE `auth_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `auth_user`
+-- Dumping data for table `auth_user`
 --
 
 INSERT INTO `auth_user` (`id_user`, `name`, `photo`, `email`, `password`, `token`, `last_login`, `ip_address`, `is_active`, `created`, `modified`, `is_delete`) VALUES
-(1, 'Administrator', '300622015940_Picture1.png', 'admin@admin.com', '$2y$10$j6T3cDmcbgpTFWSpZ9UA4usdNecAtwv5e/nAPrsQRanPMPGjJxYum', '4cd8233f57ea815079bd12c551e4aa11', '2023-09-28 07:50:00', '::1', '1', '2022-06-28 10:31:00', '2022-06-30 01:59:40', '0'),
+(1, 'Administrator', '300622015940_Picture1.png', 'admin@admin.com', '$2y$10$j6T3cDmcbgpTFWSpZ9UA4usdNecAtwv5e/nAPrsQRanPMPGjJxYum', '4cd8233f57ea815079bd12c551e4aa11', '2023-10-02 10:16:00', '::1', '1', '2022-06-28 10:31:00', '2022-06-30 01:59:40', '0'),
 (2, 'Muhammad Royyan Zamzami', '', 'royyan@gmail.com', '$2y$10$N5XRDBkoARG05PYLYXyjC.AlrJUVN8HgF0rj9./27c4pShjiCZHMm', '2591a1a68b58f4de43c4c10647cc85c2', '2022-06-28 13:13:00', '::1', '1', '2022-06-28 10:33:16', '2022-06-28 10:47:23', '1'),
-(3, 'Muhammad Royyan', '290622152611_Picture1.png', 'royyan@gmail.com', '$2y$10$N4jNn8JN10jAxEFxc1smguonlGf5M.PfbMTJLFOQkeHtjMp45Dwqa', '0d9ec97bdd1b7527e086db6bf381bf07', '2023-09-25 13:54:00', '::1', '1', '2022-06-29 15:26:11', '2023-09-25 12:49:36', '0'),
+(3, 'Muhammad Royyan', '290622152611_Picture1.png', 'royyan@gmail.com', '$2y$10$N4jNn8JN10jAxEFxc1smguonlGf5M.PfbMTJLFOQkeHtjMp45Dwqa', '0d9ec97bdd1b7527e086db6bf381bf07', '2023-09-29 15:53:00', '::1', '1', '2022-06-29 15:26:11', '2023-09-25 12:49:36', '0'),
 (4, 'tes', '', 'tes@tes.com', '$2y$10$Lb/t7E7ANu3JuTnYCroB8.FWrnxRHGxRSy9l4/G3waFz.Njztlzsy', '46fbb956dde6bfc1b63bce54bfce5f57', NULL, NULL, '1', '2022-06-29 15:27:58', NULL, '0');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_user_to_group`
+-- Table structure for table `auth_user_to_group`
 --
 
 CREATE TABLE `auth_user_to_group` (
@@ -352,7 +386,7 @@ CREATE TABLE `auth_user_to_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `auth_user_to_group`
+-- Dumping data for table `auth_user_to_group`
 --
 
 INSERT INTO `auth_user_to_group` (`id_user`, `id_group`) VALUES
@@ -364,7 +398,7 @@ INSERT INTO `auth_user_to_group` (`id_user`, `id_group`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ci_user_log`
+-- Table structure for table `ci_user_log`
 --
 
 CREATE TABLE `ci_user_log` (
@@ -378,7 +412,7 @@ CREATE TABLE `ci_user_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `ci_user_log`
+-- Dumping data for table `ci_user_log`
 --
 
 INSERT INTO `ci_user_log` (`id`, `user`, `ip_address`, `controller`, `url`, `data`, `created_at`) VALUES
@@ -1977,12 +2011,200 @@ INSERT INTO `ci_user_log` (`id`, `user`, `ip_address`, `controller`, `url`, `dat
 (1588, 1, '::1', 'General Setting', '/BEM/cpanel/general_setting', NULL, '2023-09-28 15:22:50'),
 (1589, 1, '::1', 'Struktur Organisasi', '/BEM/cpanel/struktur_organisasi', NULL, '2023-09-28 15:22:52'),
 (1590, 1, '::1', 'Visi Misi', '/BEM/cpanel/visi_misi', NULL, '2023-09-28 15:22:53'),
-(1591, 1, '::1', 'Tentang', '/BEM/cpanel/tentang', NULL, '2023-09-28 15:22:54');
+(1591, 1, '::1', 'Tentang', '/BEM/cpanel/tentang', NULL, '2023-09-28 15:22:54'),
+(1592, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-28 18:12:00'),
+(1593, 1, '::1', 'title', '/freelance/modulGenerator/mcrud', NULL, '2023-09-28 18:59:57'),
+(1594, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-28 20:51:05'),
+(1595, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator', NULL, '2023-09-28 20:51:12'),
+(1596, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi', NULL, '2023-09-28 20:51:46'),
+(1597, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-28 20:51:55'),
+(1598, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-28 20:54:07'),
+(1599, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/core/imageUpload', NULL, '2023-09-28 20:54:45'),
+(1600, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add_action', '{\"kategori\":\"HIMA\",\"nama\":\"HAPE NOKIA\",\"img\":\"320220326_921022495926115_5617207164019695899_n.jpg\",\"file-dir-image\":\"1-e62e8d870f068a9c2e132236aebc01bf0ea3dec8\",\"image\":\"320220326_921022.jpg\",\"deskripsi\":\"ASDJKLAJSLKDJAKLSDKLAKLSJDKLAJLSKDJLKASJDAJKSLDASDJAKLSJKDLASD\",\"submit\":\"add\"}', '2023-09-28 20:54:50'),
+(1601, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi', NULL, '2023-09-28 20:54:50'),
+(1602, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi', NULL, '2023-09-28 20:55:27'),
+(1603, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-28 20:55:30'),
+(1604, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/core/imageUpload', NULL, '2023-09-28 20:55:38'),
+(1605, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add_action', '{\"kategori\":\"UKM\",\"nama\":\"Saya belajar\",\"img\":\"320220326_921022495926115_5617207164019695899_n.jpg\",\"file-dir-image\":\"1-28542a264f8e64f2f9a7f3787634ed5c6db8c27d\",\"image\":\"320220326_921022.jpg\",\"deskripsi\":\"askdj\",\"submit\":\"add\"}', '2023-09-28 20:55:53'),
+(1606, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add_action', '{\"kategori\":\"UKM\",\"nama\":\"Saya belajar\",\"img\":\"320220326_921022495926115_5617207164019695899_n.jpg\",\"file-dir-image\":\"1-28542a264f8e64f2f9a7f3787634ed5c6db8c27d\",\"image\":\"320220326_921022.jpg\",\"deskripsi\":\"askdj\",\"submit\":\"add\"}', '2023-09-28 20:57:49'),
+(1607, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-28 20:58:01'),
+(1608, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-28 20:58:02'),
+(1609, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/core/imageUpload', NULL, '2023-09-28 20:58:10'),
+(1610, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add_action', '{\"kategori\":\"UKM\",\"nama\":\"Halo bro\",\"img\":\"320220326_921022495926115_5617207164019695899_n.jpg\",\"file-dir-image\":\"1-a9c17b65ab08eb7df3d432e76cb7058768f09753\",\"image\":\"320220326_921022.jpg\",\"deskripsi\":\"asdlkasd\",\"submit\":\"add\"}', '2023-09-28 20:58:13'),
+(1611, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add_action', '{\"kategori\":\"UKM\",\"nama\":\"Halo bro\",\"img\":\"320220326_921022495926115_5617207164019695899_n.jpg\",\"file-dir-image\":\"1-a9c17b65ab08eb7df3d432e76cb7058768f09753\",\"image\":\"320220326_921022.jpg\",\"deskripsi\":\"asdlkasd\",\"submit\":\"add\"}', '2023-09-28 20:58:29'),
+(1612, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-28 20:58:31'),
+(1613, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/core/imageUpload', NULL, '2023-09-28 20:58:41'),
+(1614, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add_action', '{\"kategori\":\"UKM\",\"nama\":\"asda as da sd a sd sd\",\"img\":\"320983029_878367420277737_5864109685613605793_n.jpg\",\"file-dir-image\":\"1-de2d1d480ca59489ed3b5ee57efbb10cfeb726d3\",\"image\":\"320983029_878367.jpg\",\"deskripsi\":\"askdalsd\",\"submit\":\"add\"}', '2023-09-28 20:58:44'),
+(1615, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add_action', '{\"kategori\":\"UKM\",\"nama\":\"asda as da sd a sd sd\",\"img\":\"320983029_878367420277737_5864109685613605793_n.jpg\",\"file-dir-image\":\"1-de2d1d480ca59489ed3b5ee57efbb10cfeb726d3\",\"image\":\"320983029_878367.jpg\",\"deskripsi\":\"askdalsd\",\"submit\":\"add\"}', '2023-09-28 20:59:44'),
+(1616, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-28 20:59:46'),
+(1617, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-28 20:59:47'),
+(1618, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/core/imageUpload', NULL, '2023-09-28 20:59:56'),
+(1619, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add_action', '{\"kategori\":\"UKM\",\"nama\":\"asd asd as\",\"img\":\"320983029_878367420277737_5864109685613605793_n.jpg\",\"file-dir-image\":\"1-fef81eaeee4465001b4367d3eac2eced91592b8c\",\"image\":\"320983029_878367.jpg\",\"deskripsi\":\"askdmaklsd\",\"submit\":\"add\"}', '2023-09-28 20:59:59'),
+(1620, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-28 21:03:28'),
+(1621, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-28 21:03:29'),
+(1622, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/core/imageUpload', NULL, '2023-09-28 21:03:39'),
+(1623, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add_action', '{\"kategori\":\"UKM\",\"nama\":\"Ayo arema\",\"img\":\"320220326_921022495926115_5617207164019695899_n.jpg\",\"file-dir-image\":\"1-59dc44f4f1b884472e46abd09feac14ccbf544a5\",\"image\":\"320220326_921022.jpg\",\"deskripsi\":\"asjdhkjasd\",\"submit\":\"add\"}', '2023-09-28 21:03:42'),
+(1624, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add_action', '{\"kategori\":\"UKM\",\"nama\":\"Ayo arema\",\"img\":\"320220326_921022495926115_5617207164019695899_n.jpg\",\"file-dir-image\":\"1-59dc44f4f1b884472e46abd09feac14ccbf544a5\",\"image\":\"320220326_921022.jpg\",\"deskripsi\":\"asjdhkjasd\",\"submit\":\"add\"}', '2023-09-28 21:05:45'),
+(1625, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-28 21:05:49'),
+(1626, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-28 21:05:50'),
+(1627, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/core/imageUpload', NULL, '2023-09-28 21:06:08'),
+(1628, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add_action', '{\"kategori\":\"UKM\",\"nama\":\"UKM ANJUSH\",\"img\":\"318749982_559039962937456_6648958394000663707_n.jpg\",\"file-dir-image\":\"1-26476e50a548290df95bf804ae9dc752ce609ed1\",\"image\":\"318749982_559039.jpg\",\"deskripsi\":\"UKAEM\",\"submit\":\"add\"}', '2023-09-28 21:06:14'),
+(1629, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi', NULL, '2023-09-28 21:06:14'),
+(1630, 1, '::1', 'title', '/freelance/modulGenerator/mcrud', NULL, '2023-09-28 21:06:28'),
+(1631, 1, '::1', 'title', '/freelance/modulGenerator/mcrud', NULL, '2023-09-28 22:09:47'),
+(1632, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-28 22:09:54'),
+(1633, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator', NULL, '2023-09-28 22:12:42'),
+(1634, 1, '::1', 'Home', '/freelance/modulGenerator/cpanel/home', NULL, '2023-09-28 22:12:44'),
+(1635, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi', NULL, '2023-09-28 22:13:04'),
+(1636, 1, '::1', 'Struktur Organisasi', '/freelance/modulGenerator/cpanel/struktur_organisasi', NULL, '2023-09-28 22:13:17'),
+(1637, 1, '::1', 'Tentang', '/freelance/modulGenerator/cpanel/tentang', NULL, '2023-09-28 22:13:20'),
+(1638, 1, '::1', 'Visi Misi', '/freelance/modulGenerator/cpanel/visi_misi', NULL, '2023-09-28 22:13:21'),
+(1639, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-28 22:33:00'),
+(1640, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi', NULL, '2023-09-28 22:33:05'),
+(1641, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator', NULL, '2023-09-28 22:44:53'),
+(1642, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator/about', NULL, '2023-09-28 22:44:57'),
+(1643, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 08:47:31'),
+(1644, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi', NULL, '2023-09-29 08:47:36'),
+(1645, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/add', NULL, '2023-09-29 08:47:51'),
+(1646, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi', NULL, '2023-09-29 08:47:52'),
+(1647, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/update/887e622e2413e2dceff21209eb270ada8cc15b2ac90e2df4f1932dbda4f6592eba280d82b9ed437f76153f254f62d374712a00b59f08f2e8069ce2768a032482ekr9gdOdLG5OdwKr1xo5HxKLuRDiLSyj9aFOnuPGV5o-', NULL, '2023-09-29 08:48:00'),
+(1648, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi', NULL, '2023-09-29 08:48:03'),
+(1649, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/update/03c2e2eb8cf1dd4e22165c891ff29d536ebe5e2aaed4fc12e99a26d924599ac76f1ceb39ad7561ede98a679520426d229d490d32a96a2bbc7f68c3979b2b8a932qp7L_Qay97LVD2ZiUDlGEVEnc_4A_UlXDlC8kfM9xo-', NULL, '2023-09-29 08:48:05'),
+(1650, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/core/imageUpload', NULL, '2023-09-29 08:48:18'),
+(1651, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/update_action/03c2e2eb8cf1dd4e22165c891ff29d536ebe5e2aaed4fc12e99a26d924599ac76f1ceb39ad7561ede98a679520426d229d490d32a96a2bbc7f68c3979b2b8a932qp7L_Qay97LVD2ZiUDlGEVEnc_4A_UlXDlC8kfM9xo-', '{\"kategori\":\"HIMA\",\"nama\":\"HIMA Pendidikan Biologi\",\"img\":\"dpm.jpeg\",\"file-dir-image\":\"1-1ac23d2aeadb12b9a9412c3f540edcba00a5fc29\",\"image\":\"dpm.jpeg\",\"deskripsi\":\"<p>Himpunan Mahasiswa atau Hima merupakan salah satu organisasi mahasiswa yang berada di tingkat jurusan dan termasuk organisasi intra kampus, serta bagian dari kegiatan ekstra kurikuler yang dapat dipilih dan diikuti oleh setiap mahasiswa. Hadirnya organisasi Himpunan Mahasiswa tersebut, berasal dari prinsip dari, oleh serta untuk mahasiswa.<\\/p>\\r\\n\\r\\n<p>Hima menjadi media bagi para anggotanya agar mampu mengembangkan pola pikir, kepribadian serta potensi yang dimiliki oleh setiap mahasiswa yang berkaitan dengan disiplin ilmu, agar setelah lulus dari perguruan tinggi maka mahasiswa siap untuk terjun langsung ke masyarakat.<\\/p>\\r\\n\\r\\n<p>Pada dasarnya, Himpunan Mahasiswa ada dua yaitu Himpunan Mahasiswa Jurusan atau HMJ serta Himpunan Mahasiswa Program Studi atau HMPS yang berada di tingkat fakultas serta berada di bawah koordinasi dari para Senat Mahasiswa atau BEM fakultas, sehingga seluruh kegiatan yang diadakan oleh HMJ atau HMPS haruslah memiliki afiliasi dengan program-program yang ada pada Senat Mahasiswa.<\\/p>\",\"submit\":\"update\"}', '2023-09-29 08:48:20'),
+(1652, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/update_action/03c2e2eb8cf1dd4e22165c891ff29d536ebe5e2aaed4fc12e99a26d924599ac76f1ceb39ad7561ede98a679520426d229d490d32a96a2bbc7f68c3979b2b8a932qp7L_Qay97LVD2ZiUDlGEVEnc_4A_UlXDlC8kfM9xo-', '{\"kategori\":\"HIMA\",\"nama\":\"HIMA Pendidikan Biologi\",\"img\":\"dpm.jpeg\",\"file-dir-image\":\"1-1ac23d2aeadb12b9a9412c3f540edcba00a5fc29\",\"image\":\"dpm.jpeg\",\"deskripsi\":\"<p>Himpunan Mahasiswa atau Hima merupakan salah satu organisasi mahasiswa yang berada di tingkat jurusan dan termasuk organisasi intra kampus, serta bagian dari kegiatan ekstra kurikuler yang dapat dipilih dan diikuti oleh setiap mahasiswa. Hadirnya organisasi Himpunan Mahasiswa tersebut, berasal dari prinsip dari, oleh serta untuk mahasiswa.<\\/p>\\r\\n\\r\\n<p>Hima menjadi media bagi para anggotanya agar mampu mengembangkan pola pikir, kepribadian serta potensi yang dimiliki oleh setiap mahasiswa yang berkaitan dengan disiplin ilmu, agar setelah lulus dari perguruan tinggi maka mahasiswa siap untuk terjun langsung ke masyarakat.<\\/p>\\r\\n\\r\\n<p>Pada dasarnya, Himpunan Mahasiswa ada dua yaitu Himpunan Mahasiswa Jurusan atau HMJ serta Himpunan Mahasiswa Program Studi atau HMPS yang berada di tingkat fakultas serta berada di bawah koordinasi dari para Senat Mahasiswa atau BEM fakultas, sehingga seluruh kegiatan yang diadakan oleh HMJ atau HMPS haruslah memiliki afiliasi dengan program-program yang ada pada Senat Mahasiswa.<\\/p>\",\"submit\":\"update\"}', '2023-09-29 08:49:12'),
+(1653, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/update/03c2e2eb8cf1dd4e22165c891ff29d536ebe5e2aaed4fc12e99a26d924599ac76f1ceb39ad7561ede98a679520426d229d490d32a96a2bbc7f68c3979b2b8a932qp7L_Qay97LVD2ZiUDlGEVEnc_4A_UlXDlC8kfM9xo-', NULL, '2023-09-29 08:49:13'),
+(1654, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/core/imageUpload', NULL, '2023-09-29 08:49:18'),
+(1655, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/update_action/03c2e2eb8cf1dd4e22165c891ff29d536ebe5e2aaed4fc12e99a26d924599ac76f1ceb39ad7561ede98a679520426d229d490d32a96a2bbc7f68c3979b2b8a932qp7L_Qay97LVD2ZiUDlGEVEnc_4A_UlXDlC8kfM9xo-', '{\"kategori\":\"HIMA\",\"nama\":\"HIMA Pendidikan Biologi\",\"img\":\"dpm.jpeg\",\"file-dir-image\":\"1-f27e074583b89922faf205cce5d074ca652454d4\",\"image\":\"dpm.jpeg\",\"deskripsi\":\"<p>Himpunan Mahasiswa atau Hima merupakan salah satu organisasi mahasiswa yang berada di tingkat jurusan dan termasuk organisasi intra kampus, serta bagian dari kegiatan ekstra kurikuler yang dapat dipilih dan diikuti oleh setiap mahasiswa. Hadirnya organisasi Himpunan Mahasiswa tersebut, berasal dari prinsip dari, oleh serta untuk mahasiswa.<\\/p>\\r\\n\\r\\n<p>Hima menjadi media bagi para anggotanya agar mampu mengembangkan pola pikir, kepribadian serta potensi yang dimiliki oleh setiap mahasiswa yang berkaitan dengan disiplin ilmu, agar setelah lulus dari perguruan tinggi maka mahasiswa siap untuk terjun langsung ke masyarakat.<\\/p>\\r\\n\\r\\n<p>Pada dasarnya, Himpunan Mahasiswa ada dua yaitu Himpunan Mahasiswa Jurusan atau HMJ serta Himpunan Mahasiswa Program Studi atau HMPS yang berada di tingkat fakultas serta berada di bawah koordinasi dari para Senat Mahasiswa atau BEM fakultas, sehingga seluruh kegiatan yang diadakan oleh HMJ atau HMPS haruslah memiliki afiliasi dengan program-program yang ada pada Senat Mahasiswa.<\\/p>\",\"submit\":\"update\"}', '2023-09-29 08:49:19'),
+(1656, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi', NULL, '2023-09-29 08:49:19'),
+(1657, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/update/f068626eb9eda8a372dd6a782d0a7efefb227999a3393a4e182cb16d8636e7880cfb75424d45c73e05c53478d46e393afaeb196b704741164881d51329cdb147xZ2Zk74xQUHNdR72rPe0OsTN9oAeQ8k3HoE2DoaRSF0-', NULL, '2023-09-29 08:49:51'),
+(1658, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi/update_action/f068626eb9eda8a372dd6a782d0a7efefb227999a3393a4e182cb16d8636e7880cfb75424d45c73e05c53478d46e393afaeb196b704741164881d51329cdb147xZ2Zk74xQUHNdR72rPe0OsTN9oAeQ8k3HoE2DoaRSF0-', '{\"kategori\":\"UKM\",\"nama\":\"HIMA Pendidikan Biologi\",\"img\":\"\",\"file-dir-image\":\"\",\"image\":\"290923084919_dpm.jpeg\",\"deskripsi\":\"<p>Himpunan Mahasiswa atau Hima merupakan salah satu organisasi mahasiswa yang berada di tingkat jurusan dan termasuk organisasi intra kampus, serta bagian dari kegiatan ekstra kurikuler yang dapat dipilih dan diikuti oleh setiap mahasiswa. Hadirnya organisasi Himpunan Mahasiswa tersebut, berasal dari prinsip dari, oleh serta untuk mahasiswa.<\\/p>\\r\\n\\r\\n<p>Hima menjadi media bagi para anggotanya agar mampu mengembangkan pola pikir, kepribadian serta potensi yang dimiliki oleh setiap mahasiswa yang berkaitan dengan disiplin ilmu, agar setelah lulus dari perguruan tinggi maka mahasiswa siap untuk terjun langsung ke masyarakat.<\\/p>\\r\\n\\r\\n<p>Pada dasarnya, Himpunan Mahasiswa ada dua yaitu Himpunan Mahasiswa Jurusan atau HMJ serta Himpunan Mahasiswa Program Studi atau HMPS yang berada di tingkat fakultas serta berada di bawah koordinasi dari para Senat Mahasiswa atau BEM fakultas, sehingga seluruh kegiatan yang diadakan oleh HMJ atau HMPS haruslah memiliki afiliasi dengan program-program yang ada pada Senat Mahasiswa.<\\/p>\",\"submit\":\"update\"}', '2023-09-29 08:49:55'),
+(1659, 1, '::1', 'Organisasi', '/freelance/modulGenerator/cpanel/organisasi', NULL, '2023-09-29 08:49:55'),
+(1660, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator', NULL, '2023-09-29 08:53:34'),
+(1661, 1, '::1', 'title', '/freelance/modulGenerator/mcrud', NULL, '2023-09-29 08:53:37'),
+(1662, 1, '::1', 'title', '/freelance/modulGenerator/mcrud', NULL, '2023-09-29 08:54:34'),
+(1663, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/getTable/trias', NULL, '2023-09-29 08:54:37'),
+(1664, 1, '::1', 'title', '/freelance/modulGenerator/mcrud/action', '{\"table\":\"trias\",\"title\":\"Trias\",\"controllers\":\"Trias\",\"primary_key\":\"id\",\"mcrud\":{\"1\":{\"id\":{\"field_name\":\"id\",\"sort\":\"1\",\"field_label\":\"Id\",\"form_type\":\"number\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\"}},\"2\":{\"nama\":{\"field_name\":\"nama\",\"sort\":\"2\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Nama\",\"form_type\":\"text\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"3\":{\"alamat\":{\"field_name\":\"alamat\",\"sort\":\"3\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Alamat\",\"form_type\":\"text\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"4\":{\"nomer\":{\"field_name\":\"nomer\",\"sort\":\"4\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Nomer\",\"form_type\":\"number\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"numeric\"]}}}}', '2023-09-29 08:54:51'),
+(1665, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator', NULL, '2023-09-29 08:54:54'),
+(1666, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu', NULL, '2023-09-29 08:55:00'),
+(1667, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu/add', NULL, '2023-09-29 08:55:01'),
+(1668, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu/add_action', '{\"menu\":\"Trias\",\"icon\":\"\",\"type\":\"controller\",\"controller\":\"trias\",\"data_target\":\"\",\"is_parent\":\"7\",\"is_active\":\"1\",\"submit\":\"save\"}', '2023-09-29 08:55:23'),
+(1669, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu', NULL, '2023-09-29 08:55:23'),
+(1670, 1, '::1', 'Trias', '/freelance/modulGenerator/cpanel/trias', NULL, '2023-09-29 08:55:26'),
+(1671, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/%20trias/add', NULL, '2023-09-29 08:55:30'),
+(1672, 1, '::1', 'Trias', '/freelance/modulGenerator/cpanel/trias', NULL, '2023-09-29 08:55:31'),
+(1673, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/%20trias/add', NULL, '2023-09-29 08:55:33'),
+(1674, 1, '::1', 'Trias', '/freelance/modulGenerator/cpanel/trias', NULL, '2023-09-29 08:55:34'),
+(1675, 1, '::1', 'Setting', '/freelance/modulGenerator/cpanel/setting', NULL, '2023-09-29 08:55:41'),
+(1676, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu', NULL, '2023-09-29 08:55:43'),
+(1677, 1, '::1', 'File manager', '/freelance/modulGenerator/cpanel/filemanager', NULL, '2023-09-29 08:55:47'),
+(1678, 1, '::1', 'Home', '/freelance/modulGenerator/cpanel/home', NULL, '2023-09-29 10:42:02'),
+(1679, 1, '::1', 'Struktur Organisasi', '/freelance/modulGenerator/cpanel/struktur_organisasi', NULL, '2023-09-29 10:42:04'),
+(1680, 1, '::1', 'Kementerian', '/freelance/modulGenerator/cpanel/kementerian', NULL, '2023-09-29 10:42:06'),
+(1681, 1, '::1', 'Tentang', '/freelance/modulGenerator/cpanel/tentang', NULL, '2023-09-29 10:42:42'),
+(1682, 1, '::1', 'Tentang', '/freelance/modulGenerator/cpanel/tentang/detail/e7dd7eec76595f11d0073518bdab11aa4e5171337bc78d1f20bfa6b474e528288c5a45192d3e27b619dbda98d8b0304ffbcef0194976fa5145a5021c601a2f165lXhyGCMLgKjnxfg0UZaqtkdUECf0LVpkBNKsf4OL10-', NULL, '2023-09-29 10:42:58'),
+(1683, 1, '::1', 'Tentang', '/freelance/modulGenerator/cpanel/tentang', NULL, '2023-09-29 10:43:04'),
+(1684, 1, '::1', 'Visi Misi', '/freelance/modulGenerator/cpanel/visi_misi', NULL, '2023-09-29 10:43:11'),
+(1685, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:33:46'),
+(1686, 3, '::1', 'Visi Misi', '/freelance/modulGenerator/cpanel/visi_misi', NULL, '2023-09-29 15:33:49'),
+(1687, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:34:00'),
+(1688, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:35:30'),
+(1689, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:35:41'),
+(1690, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:37:16'),
+(1691, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:37:20'),
+(1692, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:42:59'),
+(1693, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:47:15'),
+(1694, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:49:32'),
+(1695, 3, '::1', 'Visi Misi', '/freelance/modulGenerator/cpanel/visi_misi', NULL, '2023-09-29 15:49:34'),
+(1696, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:53:08'),
+(1697, 3, '::1', 'Visi Misi', '/freelance/modulGenerator/cpanel/visi_misi', NULL, '2023-09-29 15:53:11'),
+(1698, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:53:15'),
+(1699, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:53:37'),
+(1700, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:53:49'),
+(1701, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:53:54'),
+(1702, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/core/reset_password', NULL, '2023-09-29 15:53:56'),
+(1703, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:54:25'),
+(1704, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:54:34'),
+(1705, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:54:49'),
+(1706, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:55:04'),
+(1707, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:55:20'),
+(1708, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:55:29'),
+(1709, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:55:40'),
+(1710, 3, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 15:55:57'),
+(1711, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-09-29 16:49:43'),
+(1712, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/dashboard', NULL, '2023-10-02 10:16:59'),
+(1713, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator', NULL, '2023-10-02 10:17:05'),
+(1714, 1, '::1', 'title', '/freelance/modulGenerator/mcrud', NULL, '2023-10-02 10:17:06'),
+(1715, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/getTable/artikel', NULL, '2023-10-02 10:17:09'),
+(1716, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/get_list_field/organisasi', NULL, '2023-10-02 10:18:25'),
+(1717, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/get_list_field/organisasi/1', NULL, '2023-10-02 10:18:25'),
+(1718, 1, '::1', 'title', '/freelance/modulGenerator/mcrud/action', '{\"table\":\"artikel\",\"title\":\"Berita Kegiatan\",\"controllers\":\"Artikel\",\"primary_key\":\"id\",\"mcrud\":{\"1\":{\"id\":{\"field_name\":\"id\",\"sort\":\"1\",\"field_label\":\"Id\",\"form_type\":\"number\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\"}},\"2\":{\"title\":{\"field_name\":\"title\",\"sort\":\"2\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Title\",\"form_type\":\"text\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"3\":{\"seo_title\":{\"field_name\":\"seo_title\",\"sort\":\"3\",\"field_label\":\"Seo title\",\"form_type\":\"text\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\"}},\"4\":{\"image\":{\"field_name\":\"image\",\"sort\":\"4\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Image\",\"form_type\":\"upload_image\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"5\":{\"content\":{\"field_name\":\"content\",\"sort\":\"5\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Content\",\"form_type\":\"text_editor\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"6\":{\"createdOn\":{\"field_name\":\"createdOn\",\"sort\":\"6\",\"field_label\":\"CreatedOn\",\"form_type\":\"datetime\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\"}},\"7\":{\"organisasi_id\":{\"field_name\":\"organisasi_id\",\"sort\":\"7\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Organisasi id\",\"form_type\":\"option_relation\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"organisasi\",\"relation_value\":\"id\",\"relation_label\":\"nama\",\"rules\":[\"required\"]}}}}', '2023-10-02 10:18:40'),
+(1719, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator', NULL, '2023-10-02 10:18:44'),
+(1720, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/permission', NULL, '2023-10-02 10:18:47'),
+(1721, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu', NULL, '2023-10-02 10:18:50');
+INSERT INTO `ci_user_log` (`id`, `user`, `ip_address`, `controller`, `url`, `data`, `created_at`) VALUES
+(1722, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu/add', NULL, '2023-10-02 10:18:52'),
+(1723, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu/add_action', '{\"menu\":\"Berita kegiatan\",\"icon\":\"\",\"type\":\"controller\",\"controller\":\"artikel\",\"data_target\":\"\",\"is_parent\":\"57\",\"is_active\":\"1\",\"submit\":\"save\"}', '2023-10-02 10:19:09'),
+(1724, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu', NULL, '2023-10-02 10:19:09'),
+(1725, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel', NULL, '2023-10-02 10:19:15'),
+(1726, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/%20artikel/add', NULL, '2023-10-02 10:19:22'),
+(1727, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel', NULL, '2023-10-02 10:19:24'),
+(1728, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu', NULL, '2023-10-02 10:19:25'),
+(1729, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel', NULL, '2023-10-02 10:19:27'),
+(1730, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator', NULL, '2023-10-02 10:19:30'),
+(1731, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator/delete/f5d5f741a75c8df78c99cadf33ab2daf3da2e388ed08a4e92400ac82627a43afcbef006f84e7a7f412fd9abf0ba250776f9a011c3828b4319b52f62f71dfdda4BFJlkcfkLmwublytnMZsMSbhDgH_Vhu1lMjSDu9MxVE-/2c888e73f9b84bd392a13a783a8dca6d82f4db1ff535aaf3253d308a59d5a733414ce446b8b098b0ca87e06284fa62f7575c1ad28ad00bcf0fcb34b64c53b2ecC_E1e9MKlpdJmD2ziYnxivrknS3h_xQSuDTjVaJ3r3s-', NULL, '2023-10-02 10:19:35'),
+(1732, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu', NULL, '2023-10-02 10:19:39'),
+(1733, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu/delete/c8a0895ab2552ff4afa75dc9617318b1a96dbcc08d86aa4937375e31f13420ec482ec88b9e17d647c712df038947fac35f2b27f3904878bb32232f4d033be239Mw8VNEwVJEMikNllrxMn4C43uvcEO4dVMPRe_ktDvLI-', NULL, '2023-10-02 10:19:43'),
+(1734, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu', NULL, '2023-10-02 10:19:43'),
+(1735, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu/add', NULL, '2023-10-02 10:21:58'),
+(1736, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator', NULL, '2023-10-02 10:22:00'),
+(1737, 1, '::1', 'title', '/freelance/modulGenerator/mcrud', NULL, '2023-10-02 10:22:02'),
+(1738, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/getTable/artikel', NULL, '2023-10-02 10:22:04'),
+(1739, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/get_list_field/artikel', NULL, '2023-10-02 10:22:54'),
+(1740, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/get_list_field/artikel/1', NULL, '2023-10-02 10:22:54'),
+(1741, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/get_list_field/organisasi/1', NULL, '2023-10-02 10:22:58'),
+(1742, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/get_list_field/organisasi', NULL, '2023-10-02 10:22:58'),
+(1743, 1, '::1', 'title', '/freelance/modulGenerator/mcrud/action', '{\"table\":\"artikel\",\"title\":\"Berita Kegiatan\",\"controllers\":\"Artikel\",\"primary_key\":\"id\",\"mcrud\":{\"1\":{\"id\":{\"field_name\":\"id\",\"sort\":\"1\",\"field_label\":\"Id\",\"form_type\":\"number\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\"}},\"2\":{\"title\":{\"field_name\":\"title\",\"sort\":\"2\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Title\",\"form_type\":\"text\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"3\":{\"seo_title\":{\"field_name\":\"seo_title\",\"sort\":\"3\",\"field_label\":\"Seo title\",\"form_type\":\"text\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\"}},\"4\":{\"image\":{\"field_name\":\"image\",\"sort\":\"4\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Image\",\"form_type\":\"upload_image\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"5\":{\"content\":{\"field_name\":\"content\",\"sort\":\"5\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Content\",\"form_type\":\"text_editor\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\"}},\"6\":{\"createdOn\":{\"field_name\":\"createdOn\",\"sort\":\"6\",\"field_label\":\"CreatedOn\",\"form_type\":\"datetime\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"7\":{\"organisasi_id\":{\"field_name\":\"organisasi_id\",\"sort\":\"7\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Organisasi id\",\"form_type\":\"select_relation\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"organisasi\",\"relation_value\":\"id\",\"relation_label\":\"nama\",\"rules\":[\"required\"]}}}}', '2023-10-02 10:23:06'),
+(1744, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator', NULL, '2023-10-02 10:23:09'),
+(1745, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu', NULL, '2023-10-02 10:23:13'),
+(1746, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu/add', NULL, '2023-10-02 10:23:14'),
+(1747, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu/add_action', '{\"menu\":\"Berita kegiatan\",\"icon\":\"\",\"type\":\"controller\",\"controller\":\"artikel\",\"data_target\":\"\",\"is_parent\":\"57\",\"is_active\":\"1\",\"submit\":\"save\"}', '2023-10-02 10:23:29'),
+(1748, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu', NULL, '2023-10-02 10:23:29'),
+(1749, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu/save', '{\"data\":\"[{\\\"id\\\":36},{\\\"id\\\":37,\\\"children\\\":[{\\\"id\\\":38},{\\\"id\\\":39},{\\\"id\\\":40}]},{\\\"id\\\":7,\\\"children\\\":[{\\\"id\\\":69},{\\\"id\\\":34},{\\\"id\\\":3},{\\\"id\\\":54}]},{\\\"id\\\":48},{\\\"id\\\":57,\\\"children\\\":[{\\\"id\\\":62},{\\\"id\\\":63},{\\\"id\\\":58},{\\\"id\\\":60},{\\\"id\\\":65},{\\\"id\\\":64},{\\\"id\\\":71},{\\\"id\\\":66},{\\\"id\\\":68}]}]\"}', '2023-10-02 10:23:35'),
+(1750, 1, '::1', 'Main Menu', '/freelance/modulGenerator/cpanel/main_menu', NULL, '2023-10-02 10:23:39'),
+(1751, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel', NULL, '2023-10-02 10:23:43'),
+(1752, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/%20artikel/add', NULL, '2023-10-02 10:23:45'),
+(1753, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator', NULL, '2023-10-02 10:24:28'),
+(1754, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/Artikel', NULL, '2023-10-02 10:24:31'),
+(1755, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator/delete/8ee3ee20771973c88ad3adfcd653ba3bb70f9f69f746b51ae81898a0379d126d0a5a5855b4d0c6c78feef43285fe5d06c27e4b2b58478248efb8d0c90b1070a1ADMbe0737_qZaHMBJ~OhVmQ5ZHEgUaJHlfxoiHpS374-/8ef089db97e0d7bc002abb1011e721741072c2c481dc0fa47af4935c529adb5c471e7352b069eda55bca8069ba729805d91b7fd570477fedbf99d262dd341138gUIBprocPVuEZMZ0Dl_YW~Ssq08iOIbW70_g6in6_Ak-', NULL, '2023-10-02 10:24:38'),
+(1756, 1, '::1', 'title', '/freelance/modulGenerator/mcrud', NULL, '2023-10-02 10:24:39'),
+(1757, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/getTable/artikel', NULL, '2023-10-02 10:24:42'),
+(1758, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/get_list_field/artikel', NULL, '2023-10-02 10:25:20'),
+(1759, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/get_list_field/artikel/1', NULL, '2023-10-02 10:25:20'),
+(1760, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/get_list_field/organisasi', NULL, '2023-10-02 10:25:23'),
+(1761, 1, '::1', 'title', '/freelance/modulGenerator//mcrud/get_list_field/organisasi/1', NULL, '2023-10-02 10:25:23'),
+(1762, 1, '::1', 'title', '/freelance/modulGenerator/mcrud/action', '{\"table\":\"artikel\",\"title\":\"Berita Kegiatan\",\"controllers\":\"Artikel\",\"primary_key\":\"id\",\"mcrud\":{\"1\":{\"id\":{\"field_name\":\"id\",\"sort\":\"1\",\"field_label\":\"Id\",\"form_type\":\"number\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\"}},\"2\":{\"title\":{\"field_name\":\"title\",\"sort\":\"2\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Title\",\"form_type\":\"text\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"3\":{\"seo_title\":{\"field_name\":\"seo_title\",\"sort\":\"3\",\"field_label\":\"Seo title\",\"form_type\":\"text\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\"}},\"4\":{\"image\":{\"field_name\":\"image\",\"sort\":\"4\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Image\",\"form_type\":\"upload_image\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"5\":{\"content\":{\"field_name\":\"content\",\"sort\":\"5\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Content\",\"form_type\":\"text_editor\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"6\":{\"createdOn\":{\"field_name\":\"createdOn\",\"sort\":\"6\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"CreatedOn\",\"form_type\":\"datetime\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\"}},\"7\":{\"organisasi_id\":{\"field_name\":\"organisasi_id\",\"sort\":\"7\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Organisasi id\",\"form_type\":\"select_relation\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"organisasi\",\"relation_value\":\"id\",\"relation_label\":\"nama\",\"rules\":[\"required\"]}}}}', '2023-10-02 10:25:37'),
+(1763, 1, '::1', 'M crud Generator', '/freelance/modulGenerator/cpanel/m_crud_generator', NULL, '2023-10-02 10:25:40'),
+(1764, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel', NULL, '2023-10-02 10:25:44'),
+(1765, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel/add', NULL, '2023-10-02 10:25:46'),
+(1766, 1, '::1', 'title', '/freelance/modulGenerator/cpanel/core/imageUpload', NULL, '2023-10-02 10:30:26'),
+(1767, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel/add_action', '{\"title\":\"Testing Berita kegiatan UKM Sopi\",\"file-dir-image\":\"1-ae94af5e5912c823b2cd1dcd60773565cbbbfbcd\",\"image\":\"e8d27b80-cde3-4.jpeg\",\"content\":\"<p style=\\\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\\\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \\\"de Finibus Bonorum et Malorum\\\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \\\"Lorem ipsum dolor sit amet..\\\", comes from a line in section 1.10.32.<\\/p><p style=\\\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\\\">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \\\"de Finibus Bonorum et Malorum\\\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.<\\/p><p style=\\\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\\\"><br><\\/p><p style=\\\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\\\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \\\"de Finibus Bonorum et Malorum\\\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \\\"Lorem ipsum dolor sit amet..\\\", comes from a line in section 1.10.32.<\\/p><p style=\\\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\\\">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \\\"de Finibus Bonorum et Malorum\\\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.<\\/p><p style=\\\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\\\"><br><\\/p><p style=\\\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; font-size: 14px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \\\"de Finibus Bonorum et Malorum\\\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \\\"Lorem ipsum dolor sit amet..\\\", comes from a line in section 1.10.32.<\\/p><p style=\\\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; font-size: 14px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \\\"de Finibus Bonorum et Malorum\\\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.<\\/p><p style=\\\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; font-size: 14px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\"><br><\\/p><p style=\\\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; font-size: 14px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \\\"de Finibus Bonorum et Malorum\\\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \\\"Lorem ipsum dolor sit amet..\\\", comes from a line in section 1.10.32.<\\/p><p style=\\\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; font-size: 14px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif;\\\">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \\\"de Finibus Bonorum et Malorum\\\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.<\\/p>\",\"createdOn\":\"\",\"organisasi_id\":\"3\",\"submit\":\"add\"}', '2023-10-02 10:31:42'),
+(1768, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel', NULL, '2023-10-02 10:31:42'),
+(1769, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel/add', NULL, '2023-10-02 10:34:22'),
+(1770, 1, '::1', 'File manager', '/freelance/modulGenerator/cpanel/filemanager', NULL, '2023-10-02 10:34:27'),
+(1771, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel', NULL, '2023-10-02 10:38:41'),
+(1772, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel/update/d638f0928172aba988a79ee975a2524e38d7bc9bcb5aeb6fed5121a0d1b62d3fc041bbad6f4742597d355a7b61904d4954a05d583788fc94ed2efe7e6438b320oU5VjwFQZ_prI9jErhVL7U0P2_oPxEf4ciztlyADI5E-', NULL, '2023-10-02 10:38:44'),
+(1773, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel/update/d638f0928172aba988a79ee975a2524e38d7bc9bcb5aeb6fed5121a0d1b62d3fc041bbad6f4742597d355a7b61904d4954a05d583788fc94ed2efe7e6438b320oU5VjwFQZ_prI9jErhVL7U0P2_oPxEf4ciztlyADI5E-', NULL, '2023-10-02 11:04:10'),
+(1774, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel', NULL, '2023-10-02 11:38:11'),
+(1775, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel/detail/e0196efaa3a4a2a24d521d4c6a4de97ce90e775ed5a1f52f36ce7387a697aef27416e7ed70309385a2e03e17622c419119ef5fc2dc8e4402f752ff4906f9f955QtzzY6foP4bir45W439XD0XR8J04wz362wN2qwluvZE-', NULL, '2023-10-02 11:38:35'),
+(1776, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel', NULL, '2023-10-02 11:38:37'),
+(1777, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel', NULL, '2023-10-02 11:39:10'),
+(1778, 1, '::1', 'Berita Kegiatan', '/freelance/modulGenerator/cpanel/artikel', NULL, '2023-10-02 11:39:23');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `filemanager`
+-- Table structure for table `filemanager`
 --
 
 CREATE TABLE `filemanager` (
@@ -1994,7 +2216,7 @@ CREATE TABLE `filemanager` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `filemanager`
+-- Dumping data for table `filemanager`
 --
 
 INSERT INTO `filemanager` (`id`, `file_name`, `ket`, `created`, `update`) VALUES
@@ -2010,12 +2232,22 @@ INSERT INTO `filemanager` (`id`, `file_name`, `ket`, `created`, `update`) VALUES
 (14, '280923101405_ukm.jpg', 'Di upload melalui module Organisasi', '2023-09-28 10:14:00', NULL),
 (15, '280923101415_ukm.jpg', 'Di upload melalui module Organisasi', '2023-09-28 10:14:00', NULL),
 (16, '280923101426_ukm.jpg', 'Di upload melalui module Organisasi', '2023-09-28 10:14:00', NULL),
-(17, '280923145855_ukm.jpg', 'Di upload melalui module Organisasi', '2023-09-28 14:58:00', NULL);
+(17, '280923145855_ukm.jpg', 'Di upload melalui module Organisasi', '2023-09-28 14:58:00', NULL),
+(18, '280923205450_320220326_921022.jpg', 'Di upload melalui module Organisasi', '2023-09-28 20:54:00', NULL),
+(19, '280923205553_320220326_921022.jpg', 'Di upload melalui module Organisasi', '2023-09-28 20:55:00', NULL),
+(20, '280923205813_320220326_921022.jpg', 'Di upload melalui module Organisasi', '2023-09-28 20:58:00', NULL),
+(21, '280923205844_320983029_878367.jpg', 'Di upload melalui module Organisasi', '2023-09-28 20:58:00', NULL),
+(22, '280923205959_320983029_878367.jpg', 'Di upload melalui module Organisasi', '2023-09-28 20:59:00', NULL),
+(23, '280923210342_320220326_921022.jpg', 'Di upload melalui module Organisasi', '2023-09-28 21:03:00', NULL),
+(24, '280923210614_318749982_559039.jpg', 'Di upload melalui module Organisasi', '2023-09-28 21:06:00', NULL),
+(25, '290923084820_dpm.jpeg', 'Di upload melalui module Organisasi', '2023-09-29 08:48:00', NULL),
+(26, '290923084919_dpm.jpeg', 'Di upload melalui module Organisasi', '2023-09-29 08:49:00', NULL),
+(27, '021023103142_e8d27b80_cde3_4.jpeg', 'Di upload melalui module Berita Kegiatan', '2023-10-02 10:31:00', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `general_setting`
+-- Table structure for table `general_setting`
 --
 
 CREATE TABLE `general_setting` (
@@ -2028,7 +2260,7 @@ CREATE TABLE `general_setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `general_setting`
+-- Dumping data for table `general_setting`
 --
 
 INSERT INTO `general_setting` (`id`, `nama_website`, `logo`, `alamat`, `telepon`, `email`) VALUES
@@ -2037,7 +2269,7 @@ INSERT INTO `general_setting` (`id`, `nama_website`, `logo`, `alamat`, `telepon`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `home`
+-- Table structure for table `home`
 --
 
 CREATE TABLE `home` (
@@ -2048,7 +2280,7 @@ CREATE TABLE `home` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `home`
+-- Dumping data for table `home`
 --
 
 INSERT INTO `home` (`id`, `judul`, `subjudul`, `image`) VALUES
@@ -2057,7 +2289,7 @@ INSERT INTO `home` (`id`, `judul`, `subjudul`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kementerian`
+-- Table structure for table `kementerian`
 --
 
 CREATE TABLE `kementerian` (
@@ -2067,7 +2299,7 @@ CREATE TABLE `kementerian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `kementerian`
+-- Dumping data for table `kementerian`
 --
 
 INSERT INTO `kementerian` (`id`, `nama`, `deskripsi`) VALUES
@@ -2078,7 +2310,7 @@ INSERT INTO `kementerian` (`id`, `nama`, `deskripsi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `main_menu`
+-- Table structure for table `main_menu`
 --
 
 CREATE TABLE `main_menu` (
@@ -2097,34 +2329,36 @@ CREATE TABLE `main_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `main_menu`
+-- Dumping data for table `main_menu`
 --
 
 INSERT INTO `main_menu` (`id_menu`, `is_parent`, `menu`, `slug`, `type`, `controller`, `target`, `icon`, `is_active`, `sort`, `created`, `modified`) VALUES
-(3, 7, 'management menu', 'management-menu', 'controller', 'main_menu', '', '', '1', 8, '2020-02-15 06:48:31', '2020-11-02 13:33:26'),
+(3, 7, 'management menu', 'management-menu', 'controller', 'main_menu', '', '', '1', 9, '2020-02-15 06:48:31', '2020-11-02 13:33:26'),
 (7, 0, 'configuration', 'configuration', 'controller', '', '', 'fa fa-cogs', '1', 6, '2020-02-26 06:42:29', '2020-11-23 05:20:01'),
-(34, 7, 'settings', 'settings', 'controller', 'setting', '', '', '1', 7, '2020-10-19 00:25:57', '2020-11-23 05:20:11'),
+(34, 7, 'settings', 'settings', 'controller', 'setting', '', '', '1', 8, '2020-10-19 00:25:57', '2020-11-23 05:20:11'),
 (36, 0, 'dashboard', 'dashboard', 'controller', 'dashboard', '', 'mdi mdi-laptop', '1', 1, '2020-10-27 08:18:55', '2020-11-09 23:07:13'),
 (37, 0, 'auth', 'auth', NULL, '', NULL, 'mdi mdi-account-settings-variant', '1', 2, '2020-10-27 08:45:17', NULL),
 (38, 37, 'user', 'user', 'controller', 'user', NULL, 'mdi mdi-account-star', '1', 3, '2020-10-27 08:46:10', '2020-10-27 09:38:05'),
 (39, 37, 'groups', 'groups', 'controller', 'group', NULL, '', '1', 4, '2020-10-27 08:48:28', '2020-10-27 20:24:12'),
 (40, 37, 'permission', 'permission', 'controller', 'permission', NULL, '', '1', 5, '2020-10-27 08:49:49', '2020-10-29 22:47:10'),
-(48, 0, 'm-crud generator', 'm-crud-generator', 'controller', 'm_crud_generator', '', 'mdi mdi-xml', '1', 10, '2020-11-01 12:23:11', '2020-11-22 00:06:35'),
-(54, 7, 'file manager', 'file-manager', 'controller', 'filemanager', '', 'mdi mdi-folder-multiple-image', '1', 9, '2020-11-08 00:44:38', NULL),
-(57, 0, 'management website', 'management-website', 'controller', 'website', '', 'fa fa-window-maximize', '1', 11, '2023-09-25 12:46:14', NULL),
-(58, 57, 'visi misi', 'visi-misi', 'controller', 'visi_misi', '', '', '1', 14, '2023-09-25 12:46:53', NULL),
-(60, 57, 'struktur organisasi', 'struktur-organisasi', 'controller', 'struktur_organisasi', '', '', '1', 15, '2023-09-25 13:59:05', '2023-09-25 16:06:45'),
-(62, 57, 'home', 'home', 'controller', 'home', '', '', '1', 12, '2023-09-25 19:43:58', NULL),
-(63, 57, 'tentang', 'tentang', 'controller', 'tentang', '', '', '1', 13, '2023-09-25 19:46:40', NULL),
-(64, 57, 'organisasi', 'organisasi', 'controller', 'organisasi', '', '', '1', 17, '2023-09-25 19:51:07', NULL),
-(65, 57, 'kementerian', 'kementerian', 'controller', 'kementerian', '', '', '1', 16, '2023-09-25 20:16:58', NULL),
-(66, 57, 'general setting', 'general-setting', 'controller', 'general_setting', '', '', '1', 18, '2023-09-25 20:57:24', NULL),
-(68, 57, 'sosial media', 'sosial-media', 'controller', 'sosial_media', '', '', '1', 19, '2023-09-25 21:12:34', '2023-09-25 21:18:05');
+(48, 0, 'm-crud generator', 'm-crud-generator', 'controller', 'm_crud_generator', '', 'mdi mdi-xml', '1', 11, '2020-11-01 12:23:11', '2020-11-22 00:06:35'),
+(54, 7, 'file manager', 'file-manager', 'controller', 'filemanager', '', 'mdi mdi-folder-multiple-image', '1', 10, '2020-11-08 00:44:38', NULL),
+(57, 0, 'management website', 'management-website', 'controller', 'website', '', 'fa fa-window-maximize', '1', 12, '2023-09-25 12:46:14', NULL),
+(58, 57, 'visi misi', 'visi-misi', 'controller', 'visi_misi', '', '', '1', 15, '2023-09-25 12:46:53', NULL),
+(60, 57, 'struktur organisasi', 'struktur-organisasi', 'controller', 'struktur_organisasi', '', '', '1', 16, '2023-09-25 13:59:05', '2023-09-25 16:06:45'),
+(62, 57, 'home', 'home', 'controller', 'home', '', '', '1', 13, '2023-09-25 19:43:58', NULL),
+(63, 57, 'tentang', 'tentang', 'controller', 'tentang', '', '', '1', 14, '2023-09-25 19:46:40', NULL),
+(64, 57, 'organisasi', 'organisasi', 'controller', 'organisasi', '', '', '1', 18, '2023-09-25 19:51:07', NULL),
+(65, 57, 'kementerian', 'kementerian', 'controller', 'kementerian', '', '', '1', 17, '2023-09-25 20:16:58', NULL),
+(66, 57, 'general setting', 'general-setting', 'controller', 'general_setting', '', '', '1', 20, '2023-09-25 20:57:24', NULL),
+(68, 57, 'sosial media', 'sosial-media', 'controller', 'sosial_media', '', '', '1', 21, '2023-09-25 21:12:34', '2023-09-25 21:18:05'),
+(69, 7, 'trias', 'trias', 'controller', 'trias', '', '', '1', 7, '2023-09-29 08:55:23', NULL),
+(71, 57, 'berita kegiatan', 'berita-kegiatan', 'controller', 'artikel', '', '', '1', 19, '2023-10-02 10:23:29', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -2132,7 +2366,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`version`) VALUES
@@ -2141,7 +2375,7 @@ INSERT INTO `migrations` (`version`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `modules_crud_generator`
+-- Table structure for table `modules_crud_generator`
 --
 
 CREATE TABLE `modules_crud_generator` (
@@ -2153,7 +2387,7 @@ CREATE TABLE `modules_crud_generator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `modules_crud_generator`
+-- Dumping data for table `modules_crud_generator`
 --
 
 INSERT INTO `modules_crud_generator` (`id`, `module`, `module_name`, `table`, `created_at`) VALUES
@@ -2166,12 +2400,14 @@ INSERT INTO `modules_crud_generator` (`id`, `module`, `module_name`, `table`, `c
 (13, 'Home', 'Home', 'home', '2023-09-25 20:50:00'),
 (16, 'General_setting', 'General Setting', 'general_setting', '2023-09-25 21:12:00'),
 (19, 'Sosial_media', 'Sosial Media', 'sosial_media', '2023-09-28 09:15:00'),
-(21, 'Organisasi', 'Organisasi', 'organisasi', '2023-09-28 12:43:00');
+(21, 'Organisasi', 'Organisasi', 'organisasi', '2023-09-28 12:43:00'),
+(22, 'Trias', 'Trias', 'trias', '2023-09-29 08:54:00'),
+(25, 'Artikel', 'Berita Kegiatan', 'artikel', '2023-10-02 10:25:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `organisasi`
+-- Table structure for table `organisasi`
 --
 
 CREATE TABLE `organisasi` (
@@ -2184,7 +2420,7 @@ CREATE TABLE `organisasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `organisasi`
+-- Dumping data for table `organisasi`
 --
 
 INSERT INTO `organisasi` (`id`, `kategori`, `nama`, `deskripsi`, `image`, `seo_name`) VALUES
@@ -2192,13 +2428,15 @@ INSERT INTO `organisasi` (`id`, `kategori`, `nama`, `deskripsi`, `image`, `seo_n
 (2, 'UKM', 'Resimen Mahasiswa', '<p>UKM Resimen Mahasiswa merupakan wadah bagi mahasiswa untuk menyalurkan potensinya. Mahasiswa dilatih untuk disiplin, berjiwa dan berfisik kuat, berpengetahuan luas dan diberikan pelatihan ilmu militer seperti bela diri militer, survival, penggunaan senjata, dll.</p>', '280923101426_ukm.jpg', ''),
 (3, 'UKM', 'UKM Penalaran', '<p>Unit Kegiatan Mahasiswa (UKM) Penalaran merupakan organisasi yang mewadahi minat bakat dan aktualisasi mahasiswa dalam bidang karya tulis, penelitian, dan jurnalistik. Sekretariat UKM Penalaran Universitas Airlangga terletak di ruang 302 lantai 3 gedung Student Center Kampus C Universitas Airlangga atau yang biasa disebut oleh pengurus UKM Penalaran sebagai Astana Widya (AW) yang berarti istana pengetahuan.</p>', '280923101415_ukm.jpg', ''),
 (4, 'UKM', 'UKM Pramuka', '<p>UKM Pramuka merupakan wadah untuk menunjang pengembangan potensi dan daya kreatifitas mahasiswa dalam mengamalkan Tri Dharma Perguruan Tinggi. UKM ini menggunakan metode belajar Learning by Doing, yaitu belajar dengan melakukan. Seorang pramuka mengalami proses pembelajaran yang bertahap, kesulitan dan tanggung jawab yang diembannya disesuaikan dengan tingkatan dalam usia mereka.</p>', '280923101405_ukm.jpg', 'n-a'),
-(5, 'HIMA', 'HIMA Pendidikan Biologi', '<p>Himpunan Mahasiswa atau Hima merupakan salah satu organisasi mahasiswa yang berada di tingkat jurusan dan termasuk organisasi intra kampus, serta bagian dari kegiatan ekstra kurikuler yang dapat dipilih dan diikuti oleh setiap mahasiswa. Hadirnya organisasi Himpunan Mahasiswa tersebut, berasal dari prinsip dari, oleh serta untuk mahasiswa.</p>\r\n\r\n<p>Hima menjadi media bagi para anggotanya agar mampu mengembangkan pola pikir, kepribadian serta potensi yang dimiliki oleh setiap mahasiswa yang berkaitan dengan disiplin ilmu, agar setelah lulus dari perguruan tinggi maka mahasiswa siap untuk terjun langsung ke masyarakat.</p>\r\n\r\n<p>Pada dasarnya, Himpunan Mahasiswa ada dua yaitu Himpunan Mahasiswa Jurusan atau HMJ serta Himpunan Mahasiswa Program Studi atau HMPS yang berada di tingkat fakultas serta berada di bawah koordinasi dari para Senat Mahasiswa atau BEM fakultas, sehingga seluruh kegiatan yang diadakan oleh HMJ atau HMPS haruslah memiliki afiliasi dengan program-program yang ada pada Senat Mahasiswa.</p>', '280923101210_hima.png', 'n-a'),
-(6, 'HIMA', 'Helm shopee', '<p>Testog</p>', '280923145855_ukm.jpg', 'n-a');
+(5, 'UKM', 'HIMA Pendidikan Biologi', '<p>Himpunan Mahasiswa atau Hima merupakan salah satu organisasi mahasiswa yang berada di tingkat jurusan dan termasuk organisasi intra kampus, serta bagian dari kegiatan ekstra kurikuler yang dapat dipilih dan diikuti oleh setiap mahasiswa. Hadirnya organisasi Himpunan Mahasiswa tersebut, berasal dari prinsip dari, oleh serta untuk mahasiswa.</p>\r\n\r\n<p>Hima menjadi media bagi para anggotanya agar mampu mengembangkan pola pikir, kepribadian serta potensi yang dimiliki oleh setiap mahasiswa yang berkaitan dengan disiplin ilmu, agar setelah lulus dari perguruan tinggi maka mahasiswa siap untuk terjun langsung ke masyarakat.</p>\r\n\r\n<p>Pada dasarnya, Himpunan Mahasiswa ada dua yaitu Himpunan Mahasiswa Jurusan atau HMJ serta Himpunan Mahasiswa Program Studi atau HMPS yang berada di tingkat fakultas serta berada di bawah koordinasi dari para Senat Mahasiswa atau BEM fakultas, sehingga seluruh kegiatan yang diadakan oleh HMJ atau HMPS haruslah memiliki afiliasi dengan program-program yang ada pada Senat Mahasiswa.</p>', '290923084919_dpm.jpeg', 'hima-pendidikan-biologi'),
+(6, 'HIMA', 'Helm shopee', '<p>Testog</p>', '280923145855_ukm.jpg', 'n-a'),
+(7, 'HIMA', 'HAPE NOKIA', 'ASDJKLAJSLKDJAKLSDKLAKLSJDKLAJLSKDJLKASJDAJKSLDASDJAKLSJKDLASD', '280923205450_320220326_921022.jpg', 'n-a'),
+(8, 'UKM', 'UKM ANJUSH', 'UKAEM', '280923210614_318749982_559039.jpg', 'ukm-anjush');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `setting`
+-- Table structure for table `setting`
 --
 
 CREATE TABLE `setting` (
@@ -2209,7 +2447,7 @@ CREATE TABLE `setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `setting`
+-- Dumping data for table `setting`
 --
 
 INSERT INTO `setting` (`id_setting`, `group`, `options`, `value`) VALUES
@@ -2232,7 +2470,7 @@ INSERT INTO `setting` (`id_setting`, `group`, `options`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sosial_media`
+-- Table structure for table `sosial_media`
 --
 
 CREATE TABLE `sosial_media` (
@@ -2243,7 +2481,7 @@ CREATE TABLE `sosial_media` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `sosial_media`
+-- Dumping data for table `sosial_media`
 --
 
 INSERT INTO `sosial_media` (`id`, `sosmed`, `link`, `icon`) VALUES
@@ -2254,7 +2492,7 @@ INSERT INTO `sosial_media` (`id`, `sosmed`, `link`, `icon`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `struktur_organisasi`
+-- Table structure for table `struktur_organisasi`
 --
 
 CREATE TABLE `struktur_organisasi` (
@@ -2263,7 +2501,7 @@ CREATE TABLE `struktur_organisasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `struktur_organisasi`
+-- Dumping data for table `struktur_organisasi`
 --
 
 INSERT INTO `struktur_organisasi` (`id`, `path`) VALUES
@@ -2272,7 +2510,7 @@ INSERT INTO `struktur_organisasi` (`id`, `path`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tentang`
+-- Table structure for table `tentang`
 --
 
 CREATE TABLE `tentang` (
@@ -2282,7 +2520,7 @@ CREATE TABLE `tentang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tentang`
+-- Dumping data for table `tentang`
 --
 
 INSERT INTO `tentang` (`id`, `judul`, `isi`) VALUES
@@ -2291,7 +2529,20 @@ INSERT INTO `tentang` (`id`, `judul`, `isi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `visi_misi`
+-- Table structure for table `trias`
+--
+
+CREATE TABLE `trias` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `nomer` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `visi_misi`
 --
 
 CREATE TABLE `visi_misi` (
@@ -2301,7 +2552,7 @@ CREATE TABLE `visi_misi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `visi_misi`
+-- Dumping data for table `visi_misi`
 --
 
 INSERT INTO `visi_misi` (`id`, `visi`, `misi`) VALUES
@@ -2312,194 +2563,229 @@ INSERT INTO `visi_misi` (`id`, `visi`, `misi`) VALUES
 --
 
 --
--- Indeks untuk tabel `auth_group`
+-- Indexes for table `artikel`
+--
+ALTER TABLE `artikel`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `organisasi_id` (`organisasi_id`);
+
+--
+-- Indexes for table `auth_group`
 --
 ALTER TABLE `auth_group`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `auth_permission`
+-- Indexes for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `auth_user`
+-- Indexes for table `auth_user`
 --
 ALTER TABLE `auth_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indeks untuk tabel `ci_user_log`
+-- Indexes for table `ci_user_log`
 --
 ALTER TABLE `ci_user_log`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `filemanager`
+-- Indexes for table `filemanager`
 --
 ALTER TABLE `filemanager`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `general_setting`
+-- Indexes for table `general_setting`
 --
 ALTER TABLE `general_setting`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `home`
+-- Indexes for table `home`
 --
 ALTER TABLE `home`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kementerian`
+-- Indexes for table `kementerian`
 --
 ALTER TABLE `kementerian`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `main_menu`
+-- Indexes for table `main_menu`
 --
 ALTER TABLE `main_menu`
   ADD PRIMARY KEY (`id_menu`);
 
 --
--- Indeks untuk tabel `modules_crud_generator`
+-- Indexes for table `modules_crud_generator`
 --
 ALTER TABLE `modules_crud_generator`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `organisasi`
+-- Indexes for table `organisasi`
 --
 ALTER TABLE `organisasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `setting`
+-- Indexes for table `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`id_setting`);
 
 --
--- Indeks untuk tabel `sosial_media`
+-- Indexes for table `sosial_media`
 --
 ALTER TABLE `sosial_media`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `struktur_organisasi`
+-- Indexes for table `struktur_organisasi`
 --
 ALTER TABLE `struktur_organisasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tentang`
+-- Indexes for table `tentang`
 --
 ALTER TABLE `tentang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `visi_misi`
+-- Indexes for table `trias`
+--
+ALTER TABLE `trias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `visi_misi`
 --
 ALTER TABLE `visi_misi`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `auth_group`
+-- AUTO_INCREMENT for table `artikel`
+--
+ALTER TABLE `artikel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `auth_group`
 --
 ALTER TABLE `auth_group`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_permission`
+-- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_user`
+-- AUTO_INCREMENT for table `auth_user`
 --
 ALTER TABLE `auth_user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `ci_user_log`
+-- AUTO_INCREMENT for table `ci_user_log`
 --
 ALTER TABLE `ci_user_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1592;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1779;
 
 --
--- AUTO_INCREMENT untuk tabel `filemanager`
+-- AUTO_INCREMENT for table `filemanager`
 --
 ALTER TABLE `filemanager`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT untuk tabel `general_setting`
+-- AUTO_INCREMENT for table `general_setting`
 --
 ALTER TABLE `general_setting`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `home`
+-- AUTO_INCREMENT for table `home`
 --
 ALTER TABLE `home`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `kementerian`
+-- AUTO_INCREMENT for table `kementerian`
 --
 ALTER TABLE `kementerian`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `main_menu`
+-- AUTO_INCREMENT for table `main_menu`
 --
 ALTER TABLE `main_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
--- AUTO_INCREMENT untuk tabel `modules_crud_generator`
+-- AUTO_INCREMENT for table `modules_crud_generator`
 --
 ALTER TABLE `modules_crud_generator`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT untuk tabel `organisasi`
+-- AUTO_INCREMENT for table `organisasi`
 --
 ALTER TABLE `organisasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `sosial_media`
+-- AUTO_INCREMENT for table `sosial_media`
 --
 ALTER TABLE `sosial_media`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `struktur_organisasi`
+-- AUTO_INCREMENT for table `struktur_organisasi`
 --
 ALTER TABLE `struktur_organisasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tentang`
+-- AUTO_INCREMENT for table `tentang`
 --
 ALTER TABLE `tentang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `visi_misi`
+-- AUTO_INCREMENT for table `trias`
+--
+ALTER TABLE `trias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `visi_misi`
 --
 ALTER TABLE `visi_misi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `artikel`
+--
+ALTER TABLE `artikel`
+  ADD CONSTRAINT `artikel_ibfk_1` FOREIGN KEY (`organisasi_id`) REFERENCES `organisasi` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
