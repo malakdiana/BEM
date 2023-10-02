@@ -19,8 +19,12 @@
           <td><?=$deskripsi?></td>
         </tr>
         <tr>
-          <td>Image</td>
+          <td>Logo</td>
           <td><?=is_image($image)?></td>
+        </tr>
+        <tr>
+          <td>Foto Kepengurusan</td>
+          <td><?=is_image($foto_kepengurusan)?></td>
         </tr>
         <tr>
           <td>Seo name</td>

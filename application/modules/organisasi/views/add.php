@@ -33,17 +33,31 @@
 
 
           <div class="form-group">
-            <label>Image</label>
+            <label>Logo</label>
             <input type="file" name="img" class="file-upload-default" data-id="image"/>
             <div class="input-group col-xs-12">
               <input type="hidden" class="file-dir" name="file-dir-image" data-id="image"/>
-              <input type="text" class="form-control form-control-sm file-upload-info file-name" data-id="image" placeholder="Image" readonly name="image" />
+              <input type="text" class="form-control form-control-sm file-upload-info file-name" data-id="image" placeholder="Logo" readonly name="image" />
             <span class="input-group-append">
               <button class="btn-remove-image btn btn-danger btn-sm" type="button" data-id="image" style="display:<?=$image!=''?'block':'none'?>;"><i class="ti-trash"></i></button>
               <button class="file-upload-browse btn btn-primary btn-sm" data-id="image" type="button">Select File</button>
             </span>
             </div>
             <div id="image"></div>
+          </div>
+
+          <div class="form-group">
+            <label>Foto Kepengurusan</label>
+            <input type="file" name="img" class="file-upload-default" data-id="foto_kepengurusan"/>
+            <div class="input-group col-xs-12">
+              <input type="hidden" class="file-dir" name="file-dir-foto_kepengurusan" data-id="foto_kepengurusan"/>
+              <input type="text" class="form-control form-control-sm file-upload-info file-name" data-id="foto_kepengurusan" placeholder="Foto Kepengurusan" readonly name="foto_kepengurusan" />
+            <span class="input-group-append">
+              <button class="btn-remove-image btn btn-danger btn-sm" type="button" data-id="foto_kepengurusan" style="display:<?=$foto_kepengurusan!=''?'block':'none'?>;"><i class="ti-trash"></i></button>
+              <button class="file-upload-browse btn btn-primary btn-sm" data-id="foto_kepengurusan" type="button">Select File</button>
+            </span>
+            </div>
+            <div id="foto_kepengurusan"></div>
           </div>
           
           <div class="form-group">

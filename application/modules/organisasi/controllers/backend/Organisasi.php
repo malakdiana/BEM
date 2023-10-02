@@ -49,6 +49,7 @@ function json()
                 $rows[] = $row->nama;
                 $rows[] = $row->deskripsi;
                 $rows[] = is_image($row->image);
+                $rows[] = is_image($row->foto_kepengurusan);
                 $rows[] = $row->seo_name;
         
         $rows[] = '
@@ -99,6 +100,7 @@ function detail($id)
           "nama" => $row->nama,
           "deskripsi" => $row->deskripsi,
           "image" => $row->image,
+          "foto_kepengurusan" => $row->foto_kepengurusan,
           "seo_name" => $row->seo_name,
     );
     $this->template->view("view",$data);
@@ -116,6 +118,7 @@ function add()
                   'nama' => set_value("nama"),
                   'deskripsi' => set_value("deskripsi"),
                   'image' => set_value("image"),
+                  'foto_kepengurusan' => set_value("foto_kepengurusan"),
                   'seo_name' => set_value("seo_name"),
                   );
   $this->template->view("add",$data);
@@ -134,6 +137,7 @@ function add_action()
     $this->form_validation->set_rules("nama","* Nama","trim|xss_clean");
     $this->form_validation->set_rules("deskripsi","* Deskripsi","trim|xss_clean");
     $this->form_validation->set_rules("image","* Image","trim|xss_clean");
+    $this->form_validation->set_rules("foto_kepengurusan","* Foto kepengurusan","trim|xss_clean");
     $this->form_validation->set_rules("seo_name","* Seo name","trim|xss_clean");
     $this->form_validation->set_error_delimiters('<i class="error text-danger" style="font-size:11px">','</i>');
 
@@ -142,6 +146,7 @@ function add_action()
       $save_data['nama'] = $this->input->post('nama',true);
       $save_data['deskripsi'] = $this->input->post('deskripsi',true);
       $save_data['image'] = $this->imageCopy($this->input->post('image',true),$_POST['file-dir-image']);
+      $save_data['foto_kepengurusan'] = $this->imageCopy($this->input->post('foto_kepengurusan',true),$_POST['file-dir-foto_kepengurusan']);
       $save_data['seo_name'] = slugify($this->input->post('nama', true));
 
       // var_dump($save_data['seo_name']);
@@ -169,6 +174,7 @@ function update($id)
                   'nama' => set_value("nama", $row->nama),
                   'deskripsi' => set_value("deskripsi", $row->deskripsi),
                   'image' => set_value("image", $row->image),
+                  'foto_kepengurusan' => set_value("foto_kepengurusan", $row->foto_kepengurusan),
                   'seo_name' => set_value("seo_name", $row->seo_name),
                   );
     $this->template->view("update",$data);
@@ -190,6 +196,7 @@ function update_action($id)
     $this->form_validation->set_rules("nama","* Nama","trim|xss_clean");
     $this->form_validation->set_rules("deskripsi","* Deskripsi","trim|xss_clean");
     $this->form_validation->set_rules("image","* Image","trim|xss_clean");
+    $this->form_validation->set_rules("foto_kepengurusan","* Foto kepengurusan","trim|xss_clean");
     $this->form_validation->set_error_delimiters('<i class="error text-danger" style="font-size:11px">','</i>');
 
     if ($this->form_validation->run()) {
@@ -198,6 +205,7 @@ function update_action($id)
       $save_data['nama'] = $this->input->post('nama',true);
       $save_data['deskripsi'] = $this->input->post('deskripsi',true);
       $save_data['image'] = $this->imageCopy($this->input->post('image',true),$_POST['file-dir-image']);
+      $save_data['foto_kepengurusan'] = $this->imageCopy($this->input->post('foto_kepengurusan',true),$_POST['file-dir-foto_kepengurusan']);
       $save_data['seo_name'] = slugify($post['nama']);
 
       $save = $this->model->change(dec_url($id), $save_data);

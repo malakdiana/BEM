@@ -16,9 +16,9 @@ class Organisasi_model extends MY_Model{
 
   private $table        = "organisasi";
   private $primary_key  = "id";
-  private $column_order = array('kategori', 'nama', 'deskripsi', 'image', 'seo_name');
+  private $column_order = array('kategori', 'nama', 'deskripsi', 'image','foto_kepengurusan', 'seo_name');
   private $order        = array('organisasi.id'=>"DESC");
-  private $select       = "organisasi.id,organisasi.kategori,organisasi.nama,organisasi.deskripsi,organisasi.image,organisasi.seo_name";
+  private $select       = "organisasi.id,organisasi.kategori,organisasi.nama,organisasi.deskripsi,organisasi.image,organisasi.foto_kepengurusan,organisasi.seo_name";
 
 public function __construct()
 	{
@@ -57,6 +57,11 @@ public function __construct()
         {
           $this->db->like("organisasi.image", $this->input->post("image"));
         }
+    if($this->input->post("foto_kepengurusan"))
+        {
+          $this->db->like("organisasi.foto_kepengurusan", $this->input->post("foto_kepengurusan"));
+        }
+    
 
     if($this->input->post("seo_name"))
         {

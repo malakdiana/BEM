@@ -42,6 +42,15 @@
   <!-- Template Main CSS File -->
   <link href="<?= base_url() ?>_temp/frontend/css/style.css" rel="stylesheet">
 
+
+	
+  <link href="<?= base_url() ?>_temp/front/css/style.css" rel="stylesheet">
+
+
+
+
+
+
   <!-- =======================================================
   * Template Name: Scaffold
   * Updated: Sep 18 2023 with Bootstrap v5.3.2

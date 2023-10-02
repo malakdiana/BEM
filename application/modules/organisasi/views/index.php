@@ -42,6 +42,10 @@
             </div>
 
             <div class="form-group col-md-6">
+              <input type="text" id="foto_kepengurusan" class="form-control form-control-sm" placeholder="Image" />
+            </div>
+
+            <div class="form-group col-md-6">
               <input type="text" id="seo_name" class="form-control form-control-sm" placeholder="Seo name" />
             </div>
 
@@ -59,7 +63,8 @@
                 <th>Kategori</th>
                 <th>Nama</th>
                 <th>Deskripsi</th>
-                <th>Image</th>
+                <th>Logo</th>
+                <th>Foto Kepengurusan</th>
                 <th>Seo name</th>
                 <th>#</th>
               </tr>
@@ -101,6 +106,7 @@
           data.nama = $("#nama").val();
           data.deskripsi = $("#deskripsi").val();
           data.image = $("#image").val();
+          data.foto_kepengurusan = $("#foto_kepengurusan").val();
           data.seo_name = $("#seo_name").val();
         }
       },
@@ -146,6 +152,7 @@
       $("#nama").val("");
       $("#deskripsi").val("");
       $("#image").val("");
+      $("#foto_kepengurusan").val("");
       $("#seo_name").val("");
       table.ajax.reload();
     });
