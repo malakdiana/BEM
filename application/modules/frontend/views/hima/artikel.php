@@ -38,14 +38,39 @@ img {
             </div>
             <div class="magazine-view">
                   <div class='fbt_magazine-blog-post fbt-index-post row align-items-center justify-content-between'>
-                     <div class='col-xl-6 col-md-5'>
+                     <div class='col-xl-4 col-md-5'>
                         <div class='fbt-post-thumbnail'>
                            <a href='#'>
-                              <img alt='' class='post-thumbnail lazyloaded' src='<?= base_url() ?>_temp/uploads/img/<?=$row[0]->foto_kepengurusan?>'>
+                              <img alt='' class='post-thumbnail lazyloaded' src='<?= base_url() ?>_temp/uploads/img/011023084359_struktur.jpg'>
                            </a>
                         </div>
                      </div>
-                     <div class='col-xl-6 col-md-7'>
+                     <div class='col-xl-8 col-md-7'>
+                        <div class='fbt-post-caption mt-3 mt-md-0'>
+                           <div class="choice_text">
+                              <a href=''>
+                                 <h4>Judul</h4>
+                              </a>
+                           </div>
+                           <div class='post-meta mb-2'>
+                              <span class='post-author'>Penulis</span> -
+                              <span class='post-date published'>12 Oktober 2023</span>
+                           </div>
+                           <p class='post-excerpt'>
+                           <p><?= character_limiter("contoh artikel bla blas badhbd jfhdhbc bbdhsbs ahabs asbsb dnnd bdgd anhsbd ndbdb bdb", 100) ?></p>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class='fbt_magazine-blog-post fbt-index-post row align-items-center justify-content-between'>
+                     <div class='col-xl-4 col-md-5'>
+                        <div class='fbt-post-thumbnail'>
+                           <a href='#'>
+                              <img alt='' class='post-thumbnail lazyloaded' src='<?= base_url() ?>_temp/uploads/img/280923210614_318749982_559039.jpg'>
+                           </a>
+                        </div>
+                     </div>
+                     <div class='col-xl-8 col-md-7'>
                         <div class='fbt-post-caption mt-3 mt-md-0'>
                            <div class="choice_text">
                               <a href=''>

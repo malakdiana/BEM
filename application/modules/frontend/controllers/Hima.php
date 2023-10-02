@@ -43,7 +43,7 @@ class Hima extends CI_Controller
       'sosmed' => $this->base->get('sosial_media')->result(),
       'title' => 'Organisasi'
     ];
-    $data['total_rows']  = $this->base->count();
+    //$data['total_rows']  = $this->base->count();
     $data['pagination']  = $this->base->makePagination(
       base_url('hima'),
       2,
