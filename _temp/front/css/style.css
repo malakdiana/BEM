@@ -3747,6 +3747,24 @@ h6 {
 	margin-bottom: 30px;
 }
 
+img.gambar-logo{
+	position: relative;
+	width: 25%;
+	align-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+	/* For mobile phones: */
+	.choice_item {
+		margin-bottom: 30px;
+		padding: 50px;
+	}
+
+	img.gambar-logo{
+		position: relative;
+	}
+  }
+
 .choice_item img.choice {
 	width: 270px;
 	height: 169px;

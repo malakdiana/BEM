@@ -27,14 +27,19 @@ class Hima extends CI_Controller
 
   function detail($id)
   {
+    $detail = $this->base->get('organisasi', ['seo_name' => $id])->result();
     $data = [
-      'row' => $this->base->get('organisasi', ['seo_name' => $id])->result(),
+      'row'     => $detail,
       'general' => $this->base->get('general_setting')->result(),
-      'sosmed' => $this->base->get('sosial_media')->result(),
-      'title' => 'UKM'
+      'sosmed'  => $this->base->get('sosial_media')->result(),
+      'title'   => 'UKM',
+      'berita'  => $this->base->get('artikel', ['organisasi_id' => $detail[0]->id], NULL, 4),
     ];
+
+    // var_dump($data['berita']);
     $this->frontend->load('template', 'hima/detail_hima', $data);
   }
+
   function artikel()
   {
     $data = [
@@ -48,10 +53,7 @@ class Hima extends CI_Controller
       base_url('hima'),
       2,
       10
-  );
+    );
     $this->frontend->load('template', 'hima/artikel', $data);
-    // var_dump(slugify('Testing JUDUL pertama'));
   }
-
-
 }

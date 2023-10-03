@@ -3743,6 +3743,12 @@ h6 {
 	margin-bottom: -30px;
 }
 
+.gambar-logo{
+	margin: 0 auto;
+	position: relative;
+	width: 10%;
+}
+
 .choice_item {
 	margin-bottom: 30px;
 }

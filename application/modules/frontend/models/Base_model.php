@@ -13,10 +13,16 @@ class Base_model extends CI_Model
         }
     }
 
-    public function get($table, $where = null)
+    public function get($table, $where = null, $order = null, $limit = null)
     {
         if ($where != null) {
             $this->db->where($where);
+        }
+        if ($order != null) {
+            $this->db->order_by($order);
+        }
+        if ($limit != null) {
+            $this->db->limit($limit);
         }
         $sql = $this->db->get($table);
         return $sql;
