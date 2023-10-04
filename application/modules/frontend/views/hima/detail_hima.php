@@ -46,8 +46,11 @@
               <p><?= $row[0]->deskripsi ?></p>
             </div>
             <div class="col-lg-12 image-container">
+            <?php
+              if ($row[0]->foto_kepengurusan != '') { ?>
               <img src="<?= base_url() ?>_temp/uploads/img/<?= $row[0]->foto_kepengurusan ?>" alt="" class="img-fluid">
               <p class="image-number">Gambar Struktur Kepengurusan <?= $row[0]->nama ?></p>
+                <?php } ?>
             </div>
           </div>
         </div>

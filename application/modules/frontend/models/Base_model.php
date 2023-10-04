@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Base_model extends CI_Model
 {
-
+    public $perPage = 4;
     public function getUser($table, $data = null, $where = null)
     {
         if ($data != null) {
@@ -163,5 +163,28 @@ class Base_model extends CI_Model
         $this->pagination->initialize($config);
         return $this->pagination->create_links();
      }
+
+     public function getAllPosting($page)
+    {
+        $this->db->from('artikel');
+        $this->paginate($page);
+        $this->db->order_by('artikel.id', 'desc');
+        return $this->db->get()->result();
+    }
+
+    public function paginate($page)
+    {
+        return  $this->db->limit($this->perPage, $this->calculateRealOffset($page));
+    }
+    public function calculateRealOffset($page)
+    {
+        if (is_null($page) || empty($page)) {
+            $offset = 0;
+        } else {
+            $offset = ($page * $this->perPage) - $this->perPage;
+        }
+
+        return $offset;
+    }
 
 }

@@ -71,6 +71,8 @@ $route['struktur-organisasi'] = 'frontend/StrukturOrganisasi';
 $route['kementerian'] = 'frontend/Kementerian';
 $route['hima'] = 'frontend/Hima';
 $route['ukm'] = 'frontend/Ukm';
+$route['blog'] = 'frontend/Blog';
+$route['blog/(:num)'] = 'frontend/Blog/index/$1';
 
 $route['admin'] = LOGIN_ROUTE;
 $route['mcrud/(:any)'] = 'mcrud/Mcrud/$1';
