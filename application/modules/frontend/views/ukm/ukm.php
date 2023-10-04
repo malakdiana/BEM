@@ -14,7 +14,7 @@
           <div class="row">
           <?php foreach ($row as $ukm) {?>
               <div class="col-lg-4 col-md-6">
-                <div class="member" data-aos="zoom-in">
+                <div class="member" data-aos="zoom-in" style="min-height: 252px;">
                   <div class="pic"><img src="<?=site_url()?>_temp/uploads/img/<?=$ukm->image?>" class="img-fluid" alt=""></div>
                   <div class="member-info">
                     <h4><?=$ukm->nama?></h4>
