@@ -21,6 +21,8 @@ class Blog extends CI_Controller
     //ID organisasi
     $thisID = $this->base->get('organisasi', ['seo_name' => $id])->row();
 
+    $uri = $this->uri->segment(1);
+
     $data = [
       'row' => $this->base->get('organisasi', ['kategori' => "HIMA"])->result(),
       'artikel' => $this->base->getAllPosting(null, ['organisasi_id' => $thisID->id], $page),
@@ -46,6 +48,8 @@ class Blog extends CI_Controller
 
     // var_dump($thisID->seo_name);
 
+    $uri = $this->uri->segment(1);
+
     $data = [
       'row' => $this->base->get('organisasi', ['kategori' => "HIMA"])->result(),
       'artikel' => $this->base->getAllPosting(null, ['organisasi_id' => $thisID->id], $page),
@@ -55,13 +59,13 @@ class Blog extends CI_Controller
     ];
     $data['total_rows']  = $this->base->count('artikel', ['organisasi_id' => $thisID->id]);
     $data['pagination']  = $this->base->makePagination(
-      base_url("blog/list/$id/"),
+      base_url("$uri/list/$id/"),
       4,
       $data['total_rows']
     );
     $this->frontend->load('template', 'blog/blog', $data);
 
-    // var_dump($data['total_rows']);
+    // var_dump($uri);
   }
 
   function detail($id)
