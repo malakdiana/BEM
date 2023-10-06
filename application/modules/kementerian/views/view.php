@@ -14,6 +14,14 @@
           <td>Deskripsi</td>
           <td><?=$deskripsi?></td>
         </tr>
+        <tr>
+          <td>Image</td>
+          <td><?=is_image($image)?></td>
+        </tr>
+        <tr>
+          <td>Seo name</td>
+          <td><?=$seo_name?></td>
+        </tr>
         </table>
 
         <a href="<?=url($this->uri->segment(2))?>" class="btn btn-sm btn-danger mt-3"><?=cclang("back")?></a>

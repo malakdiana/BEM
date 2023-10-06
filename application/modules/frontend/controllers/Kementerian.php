@@ -26,6 +26,20 @@ class Kementerian extends CI_Controller{
     $this->frontend->load('template', 'kementerian/kementerian',$data);
   }
 
+  function detail($id)
+  {
+    $detail = $this->base->get('kementerian', ['seo_name' => $id])->result();
+    $data = [
+      'row'     => $detail,
+      'general' => $this->base->get('general_setting')->result(),
+      'sosmed'  => $this->base->get('sosial_media')->result(),
+      'title'   => 'Kementerian'
+    ];
+
+    // var_dump($data['berita']);
+    $this->frontend->load('template', 'kementerian/detail_kementerian', $data);
+  }
+
   function getTable($table)
   {
     $this->attr['table'] = $table;

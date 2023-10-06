@@ -2,27 +2,35 @@
   <div class="col-md-12 col-xl-12 mx-auto animated fadeIn delay-2s">
     <div class="card m-b-30">
       <div class="card-header bg-primary text-white">
-        <?= ucwords($title_module) ?>
+        <?=ucwords($title_module)?>
       </div>
       <div class="card-body">
         <div class="mb-2">
-          <a href="<?= url("kementerian/add") ?>" class="btn btn-sm btn-success btn-icon-text"><i class="fa fa-file btn-icon-prepend"></i><?= cclang("add_new") ?></a>
-          <button type="button" id="reload" class="btn btn-sm btn-info-2 btn-icon-text"><i class="mdi mdi-backup-restore btn-icon-prepend"></i> Reload</button>
-          <a href="<?= url("kementerian/filter/") ?>" id="filter-show" class="btn btn-sm btn-primary btn-icon-text"><i class="mdi mdi-magnify btn-icon-prepend"></i> Filter</a>
-        </div>
+                      <a href="<?=url("kementerian/add")?>" class="btn btn-sm btn-success btn-icon-text"><i class="fa fa-file btn-icon-prepend"></i><?=cclang("add_new")?></a>
+                    <button type="button" id="reload" class="btn btn-sm btn-info-2 btn-icon-text"><i class="mdi mdi-backup-restore btn-icon-prepend"></i> Reload</button>
+                      <a href="<?=url("kementerian/filter/")?>" id="filter-show" class="btn btn-sm btn-primary btn-icon-text"><i class="mdi mdi-magnify btn-icon-prepend"></i> Filter</a>
+                  </div>
 
         <form autocomplete="off" class="content-filter">
           <div class="row">
-            <div class="form-group col-md-6">
-              <input type="text" id="nama" class="form-control form-control-sm" placeholder="Nama" />
-            </div>
+                          <div class="form-group col-md-6">
+                                  <input type="text" id="nama" class="form-control form-control-sm" placeholder="Nama" />
+                              </div>
 
-            <div class="form-group col-md-6">
-              <input type="text" id="deskripsi" class="form-control form-control-sm" placeholder="Deskripsi" />
-            </div>
+                          <div class="form-group col-md-6">
+                                  <input type="text" id="deskripsi" class="form-control form-control-sm" placeholder="Deskripsi" />
+                              </div>
 
-            <div class="col-md-12">
-              <button type='button' class='btn btn-default btn-sm' id="filter-cancel"><?= cclang("cancel") ?></button>
+                          <div class="form-group col-md-6">
+                                  <input type="text" id="image" class="form-control form-control-sm" placeholder="Image" />
+                              </div>
+
+                          <div class="form-group col-md-6">
+                                  <input type="text" id="seo_name" class="form-control form-control-sm" placeholder="Seo name" />
+                              </div>
+
+                        <div class="col-md-12">
+              <button type='button' class='btn btn-default btn-sm' id="filter-cancel"><?=cclang("cancel")?></button>
               <button type="button" class="btn btn-primary btn-sm" id="filter">Filter</button>
             </div>
           </div>
@@ -32,12 +40,13 @@
           <table class="table table-bordered table-striped" id="table" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
             <thead>
               <tr>
-                <th>Nama</th>
-                <th>Deskripsi</th>
+							<th>Nama</th>
+							<th>Deskripsi</th>
+							<th>Image</th>
+							<th>Seo name</th>
                 <th>#</th>
               </tr>
             </thead>
-
           </table>
         </div>
       </div>
@@ -67,63 +76,77 @@
 
       // Load data for the table's content from an Ajax source
       "ajax": {
-        "url": "<?= url("kementerian/json") ?>",
-        "type": "POST",
-        "data": function(data) {
-          data.nama = $("#nama").val();
-          data.deskripsi = $("#deskripsi").val();
-        }
+      "url": "<?= url("kementerian/json")?>",
+      "type": "POST",
+      "data": function(data) {
+         data.nama = $("#nama").val();
+         data.deskripsi = $("#deskripsi").val();
+         data.image = $("#image").val();
+         data.seo_name = $("#seo_name").val();
+         }
       },
 
       //Set column definition initialisation properties.
       "columnDefs": [
+        
+					{
+            "targets": 0,
+            "orderable": false
+          },
 
-        {
-          "targets": 0,
-          "orderable": false
-        },
+					{
+            "targets": 1,
+            "orderable": false
+          },
 
-        {
-          "targets": 1,
-          "orderable": false
-        },
+					{
+            "targets": 2,
+            "orderable": false
+          },
+
+					{
+            "targets": 3,
+            "orderable": false
+          },
 
         {
           "className": "text-center",
           "orderable": false,
-          "targets": 2
+          "targets": 4
         },
       ],
     });
 
     $("#reload").click(function() {
-      $("#nama").val("");
-      $("#deskripsi").val("");
-      table.ajax.reload();
+                        $("#nama").val("");
+                  $("#deskripsi").val("");
+                  $("#image").val("");
+                  $("#seo_name").val("");
+                    table.ajax.reload();
     });
 
-    $(document).on("click", "#filter-show", function(e) {
-      e.preventDefault();
-      $(".content-filter").slideDown();
-    });
+          $(document).on("click", "#filter-show", function(e) {
+        e.preventDefault();
+        $(".content-filter").slideDown();
+      });
 
-    $(document).on("click", "#filter", function(e) {
-      e.preventDefault();
-      $("#table").DataTable().ajax.reload();
-    })
+      $(document).on("click", "#filter", function(e) {
+        e.preventDefault();
+        $("#table").DataTable().ajax.reload();
+      })
 
-    $(document).on("click", "#filter-cancel", function(e) {
-      e.preventDefault();
-      $(".content-filter").slideUp();
-    });
-
+      $(document).on("click", "#filter-cancel", function(e) {
+        e.preventDefault();
+        $(".content-filter").slideUp();
+      });
+    
     $(document).on("click", "#delete", function(e) {
       e.preventDefault();
       $('.modal-dialog').addClass('modal-sm');
-      $("#modalTitle").text('<?= cclang("confirm") ?>');
-      $('#modalContent').html(`<p class="mb-4"><?= cclang("delete_description") ?></p>
-  														<button type='button' class='btn btn-default btn-sm' data-dismiss='modal'><?= cclang("cancel") ?></button>
-  	                          <button type='button' class='btn btn-primary btn-sm' id='ya-hapus' data-id=` + $(this).attr('alt') + `  data-url=` + $(this).attr('href') + `><?= cclang("delete_action") ?></button>
+      $("#modalTitle").text('<?=cclang("confirm")?>');
+      $('#modalContent').html(`<p class="mb-4"><?=cclang("delete_description")?></p>
+  														<button type='button' class='btn btn-default btn-sm' data-dismiss='modal'><?=cclang("cancel")?></button>
+  	                          <button type='button' class='btn btn-primary btn-sm' id='ya-hapus' data-id=` + $(this).attr('alt') + `  data-url=` + $(this).attr('href') + `><?=cclang("delete_action")?></button>
   														`);
       $("#modalGue").modal('show');
     });

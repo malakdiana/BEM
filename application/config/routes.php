@@ -77,6 +77,8 @@ $route['blog/list/(:any)/(:num)'] = 'frontend/Blog/list/$1/$2';
 $route['hima/detail/(:any)'] = 'frontend/hima/detail/$1';
 $route['ukm/detail/(:any)'] = 'frontend/ukm/detail/$1';
 
+$route['kementerian/detail/(:any)'] = 'frontend/kementerian/detail/$1';
+
 $route['ukm/list/(:any)'] = 'frontend/Blog/list/$1';
 $route['ukm/list/(:any)/(:num)'] = 'frontend/Blog/list/$1/$2';
 
