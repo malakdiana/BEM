@@ -100,7 +100,7 @@
 
         <div class="row mt-5">
           <div class="col text-center">
-            <a href="<?= base_url('blog') ?>" class="genric-btn danger-border circle arrow">More View<span class="lnr lnr-arrow-right"></span></a>
+            <a href="<?= base_url('blog/list/'. $row[0]->seo_name ) ?>" class="genric-btn danger-border circle arrow">More View<span class="lnr lnr-arrow-right"></span></a>
           </div>
         </div>
       </div>

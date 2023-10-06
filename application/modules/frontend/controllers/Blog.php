@@ -16,22 +16,52 @@ class Blog extends CI_Controller
     $this->load->model("Base_model", "base");
   }
 
-  function index($page = null)
+  function index($id, $page = null)
   {
+    //ID organisasi
+    $thisID = $this->base->get('organisasi', ['seo_name' => $id])->row();
+
     $data = [
-        'row' => $this->base->get('organisasi', ['kategori' => "HIMA"])->result(),
-        'artikel' => $this->base->getAllPosting($page),
-        'general' => $this->base->get('general_setting')->result(),
-        'sosmed' => $this->base->get('sosial_media')->result(),
-        'title' => 'Organisasi'
-      ];
-      $data['total_rows']  = $this->base->count('artikel');
-      $data['pagination']  = $this->base->makePagination(
-        base_url('blog'),
-        2,
-        $data['total_rows']
-      );
-      $this->frontend->load('template', 'blog/blog', $data);
+      'row' => $this->base->get('organisasi', ['kategori' => "HIMA"])->result(),
+      'artikel' => $this->base->getAllPosting(null, ['organisasi_id' => $thisID->id], $page),
+      'general' => $this->base->get('general_setting')->result(),
+      'sosmed' => $this->base->get('sosial_media')->result(),
+      'title' => 'Organisasi'
+    ];
+    $data['total_rows']  = $this->base->count('artikel');
+    $data['pagination']  = $this->base->makePagination(
+      base_url("blog/organisasi/$id"),
+      3,
+      $data['total_rows']
+    );
+    $this->frontend->load('template', 'blog/blog', $data);
+
+    // $tes =  base_url('blog/' . $id . '/');
+    // var_dump($tes);
+  }
+
+  public function list($id, $page = null)
+  {
+    $thisID = $this->base->get('organisasi', ['seo_name' => $id])->row();
+
+    // var_dump($thisID->seo_name);
+
+    $data = [
+      'row' => $this->base->get('organisasi', ['kategori' => "HIMA"])->result(),
+      'artikel' => $this->base->getAllPosting(null, ['organisasi_id' => $thisID->id], $page),
+      'general' => $this->base->get('general_setting')->result(),
+      'sosmed' => $this->base->get('sosial_media')->result(),
+      'title' => 'Organisasi'
+    ];
+    $data['total_rows']  = $this->base->count('artikel', ['organisasi_id' => $thisID->id]);
+    $data['pagination']  = $this->base->makePagination(
+      base_url("blog/list/$id/"),
+      4,
+      $data['total_rows']
+    );
+    $this->frontend->load('template', 'blog/blog', $data);
+
+    // var_dump($data['total_rows']);
   }
 
   function detail($id)
@@ -44,7 +74,6 @@ class Blog extends CI_Controller
       'title'   => 'UKM'
     ];
 
-    // var_dump($data['berita']);
     $this->frontend->load('template', 'blog/detail_blog', $data);
   }
 }

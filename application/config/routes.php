@@ -72,7 +72,8 @@ $route['kementerian'] = 'frontend/Kementerian';
 $route['hima'] = 'frontend/Hima';
 $route['ukm'] = 'frontend/Ukm';
 $route['blog'] = 'frontend/Blog';
-$route['blog/(:num)'] = 'frontend/Blog/index/$1';
+$route['blog/list/(:any)'] = 'frontend/Blog/list/$1';
+$route['blog/list/(:any)/(:num)'] = 'frontend/Blog/list/$1/$2';
 
 $route['admin'] = LOGIN_ROUTE;
 $route['mcrud/(:any)'] = 'mcrud/Mcrud/$1';

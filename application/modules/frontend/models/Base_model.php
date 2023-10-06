@@ -164,9 +164,12 @@ class Base_model extends CI_Model
         return $this->pagination->create_links();
      }
 
-     public function getAllPosting($page)
+     public function getAllPosting($id = null, $where = null, $page)
     {
         $this->db->from('artikel');
+        if ($where != null) {
+            $this->db->where($where);
+        }
         $this->paginate($page);
         $this->db->order_by('artikel.id', 'desc');
         return $this->db->get()->result();
