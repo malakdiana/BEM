@@ -26,7 +26,7 @@
     <div class="container">
 
       <ol>
-        <li><a href="index.html">HIMA</a></li>
+        <li><a href="index.html"><?= $row[0]->kategori ?></a></li>
         <li><?= $row[0]->nama ?></li>
       </ol>
       <h2><?= $row[0]->nama ?></h2>
@@ -100,7 +100,7 @@
 
         <div class="row mt-5">
           <div class="col text-center">
-            <a href="<?= base_url('blog/list/'. $row[0]->seo_name ) ?>" class="genric-btn danger-border circle arrow">More View<span class="lnr lnr-arrow-right"></span></a>
+            <a href="<?= base_url(strtolower($title).'/list/'. $row[0]->seo_name ) ?>" class="genric-btn danger-border circle arrow">More View<span class="lnr lnr-arrow-right"></span></a>
           </div>
         </div>
       </div>

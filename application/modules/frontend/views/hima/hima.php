@@ -51,7 +51,7 @@
               <div class="icon"> <img src="<?= site_url() ?>_temp/uploads/img/270923211220_download_(2).png" class="img-fluid" style="hight:100px; width:100px;" alt=""></div>
               <h4 class="title"><a href=""><?= $hima->nama ?></a></h4>
               <p class="description" style="text-align:initial"><?php echo substr($hima->deskripsi, 0, 100); ?></p>
-              <a href="<?= site_url('frontend/hima/detail/' . $hima->seo_name) ?>">Lihat Selengkapnya</a>
+              <a href="<?= site_url('hima/detail/' . $hima->seo_name) ?>">Lihat Selengkapnya</a>
             </div>
           </div>
         <?php } ?>
