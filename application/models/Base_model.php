@@ -22,6 +22,17 @@ class Base_model extends CI_Model
         return $sql;
     }
 
+    
+    public function get_limit($table, $limit = null)
+    {
+        if ($limit != null) {
+            $this->db->limit($limit,1);
+        }
+        $sql = $this->db->get($table);
+        return $sql;
+    }
+
+
     public function getTable($table, $where = null)
     {
         $this->db->select('*');

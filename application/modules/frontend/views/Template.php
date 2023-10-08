@@ -39,12 +39,12 @@
   <link href="<?= base_url() ?>_temp/frontend/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="<?= base_url() ?>_temp/frontend/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+  <link href="<?= base_url() ?>_temp/front/css/style.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="<?= base_url() ?>_temp/frontend/css/style.css" rel="stylesheet">
 
 
 
-  <link href="<?= base_url() ?>_temp/front/css/style.css" rel="stylesheet">
 
 
 
@@ -68,7 +68,9 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto">
-        <h1><a href="index.html"><?= $general[0]->nama_website ?></a></h1>
+        <h1> <a href="index.html">
+        <img src="<?= base_url() ?>_temp/uploads/img/<?=$general[0]->logo?>" alt="">
+        <?= $general[0]->nama_website ?></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="<?= base_url() ?>_temp/frontend/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -138,20 +140,15 @@
             <div class="footer-info">
               <h3><?= $general[0]->nama_website ?></h3>
               <p>
-                <?= $general[0]->alamat ?>
+                <?= $general[0]->alamat ?><br>
                 <strong>Phone:</strong> <?= $general[0]->telepon ?><br>
                 <strong>Email:</strong> <?= $general[0]->email ?><br>
               </p>
-              <div class="social-links mt-3">
-                <?php foreach ($sosmed as $list_sosmed) { ?>
-                  <a href="<?= $list_sosmed->link ?>" class=""><i class="<?= $list_sosmed->icon ?>"></i></a>
-                <?php } ?>
-
-              </div>
+              
             </div>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
+          <div class="col-lg-6 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="<?= base_url() ?>">Home</a></li>
@@ -183,6 +180,16 @@
             </form>
 
           </div> -->
+
+          <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Sosial Media</h4>
+               <div class="social-links mt-3">
+                <?php foreach ($sosmed as $list_sosmed) { ?>
+                  <a href="<?= $list_sosmed->link ?>" class=""><i class="<?= $list_sosmed->icon ?>"></i></a>
+                <?php } ?>
+
+              </div>
+          </div>
 
         </div>
       </div>

@@ -87,7 +87,7 @@
                       <i class="fa fa-calendar" aria-hidden="true"></i><?= mediumdate_indo($data->createdOn) ?>
                     </a>
                   </div>
-                  <a href="#">
+                  <a href="<?= site_url('frontend/blog/detail/' . $data->seo_title) ?>">
                     <h4><?= $data->title ?></h4>
                   </a>
                   <p><?= character_limiter($data->content, 100) ?></p>

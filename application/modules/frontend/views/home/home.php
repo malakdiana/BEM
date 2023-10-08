@@ -18,32 +18,118 @@
 </section><!-- End Hero -->
 
 <main id="main">
+  <!-- ======= Pricing Section ======= -->
+  <section id="pricing" class="pricing section-bg">
+      <div class="container">
 
-  <!-- ======= Team Section ======= -->
+        <div class="section-title" data-aos="fade-up">
+          <h2 style="color:#464848">Tentang Kami</h2>
+          <p><?php $var = explode("</p>",$tentang[0]->isi);
+              echo  $var[0]
+            ?></p>
+        </div>
+      </div>
+  </section>
 
   <!-- ======= About Section ======= -->
-  <section id="about" class="about" style="border-bottom:2px solid #e9ecee">
+  <!-- <section id="about" class="about" style="border-bottom:2px solid #e9ecee">
     <div class="container">
       <div class="section-title" data-aos="fade-up">
-        <h2>Tentang</h2>
+        <h2>Tentang Kami</h2>
       </div>
       <div class="row">
-        <div class="col-lg-6" data-aos="zoom-in">
-          <img src="<?= base_url() ?>_temp/frontend/img/about.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
+        <div class="col-lg-12 d-flex flex-column justify-contents-center" data-aos="fade-left">
           <div class="content pt-4 pt-lg-0">
             <h3></h3>
 
-            <p>
-              <?= $tentang[0]->isi ?>
+            <p><?php $var = explode("</p>",$tentang[0]->isi);
+              echo  $var[0]
+            ?>
+              
             </p>
           </div>
         </div>
       </div>
 
     </div>
-  </section><!-- End About Section -->
+  </section> -->
+  <!-- End About Section -->
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2 style="color:#464848">Organisasi</h2>
+         </div>
+
+        <div class="row">
+     
+
+          <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box icon-box-cyan" style="min-width: -webkit-fill-available" >
+              <div class="icon"><i class="bx bx-group"></i></div>
+              <h4 class="title"><a href="<?= site_url('kementerian') ?>">KEMENTERIAN</a></h4>
+              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box icon-box-green" style="min-width: -webkit-fill-available" >
+              <div class="icon"><i class="bx bx-building"></i></div>
+              <h4 class="title"><a href="<?= site_url('hima') ?>">HIMPUNAN MAHASISWA</a></h4>
+              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box icon-box-blue" style="min-width: -webkit-fill-available">
+              <div class="icon"><i class="bx bx-briefcase"></i></div>
+              <h4 class="title"><a href="<?= site_url('ukm') ?>">UNIT KERJA MAHASISWA</a></h4>
+              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <?php
+  if ($berita->num_rows() > 0) { ?>
+    <section class="choice_area mt-4">
+      <div class="container">
+          <div class="section-title" data-aos="fade-up">
+          <h2 style="color:#464848">Kegiatan Terbaru</h2>
+         </div>
+
+        <div class="row choice_inner">
+          <?php
+          foreach ($berita->result() as $key => $data) { ?>
+            <div class="col-lg-3">
+              <div class="choice_item">
+                <img class="img-fluid choice" src="<?= base_url() ?>_temp/uploads/img/<?= $data->image ?>" alt="">
+                <div class="choice_text">
+                  <div class="date">
+                    <a href="#" class="float-right">
+                      <i class="fa fa-calendar" aria-hidden="true"></i><?= mediumdate_indo($data->createdOn) ?>
+                    </a>
+                  </div>
+                  <a href="<?= site_url('frontend/blog/detail/' . $data->seo_title) ?>">
+                    <h4><?= $data->title ?></h4>
+                  </a>
+                  <p><?= character_limiter($data->content, 100) ?></p>
+                </div>
+              </div>
+            </div>
+          <?php }
+          ?>
+        </div>
+      </div>
+    </section>
+  <?php }
+  ?>
+<!-- 
 
   <section id="footer">
     <div class="footer-top">
@@ -75,6 +161,7 @@
     </div>
 
   </section>
+ -->
 
 
 </main><!-- End #main -->

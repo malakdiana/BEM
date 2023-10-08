@@ -41,7 +41,7 @@ Table of Content:
 /*font Variables*/
 /*Color Variables*/
 /*=================== fonts ====================*/
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Roboto:300,400,500,700");
+/* @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Roboto:300,400,500,700"); */
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 .list {
@@ -67,7 +67,7 @@ a:focus {
 	margin: 0px;
 }
 
-body {
+/* body {
 	line-height: 24px;
 	font-size: 14px;
 	font-family: "Open Sans", sans-serif;
@@ -83,7 +83,7 @@ h5,
 h6 {
 	font-family: "Roboto", sans-serif;
 	font-weight: 500;
-}
+} */
 
 button:focus {
 	outline: none;
@@ -191,7 +191,7 @@ button:focus {
 	background: #f9f9ff;
 }
 
-.top_menu .float-left a {
+/* .top_menu .float-left a {
 	font-size: 12px;
 	color: #fff;
 	background: #00a0f5;
@@ -203,7 +203,7 @@ button:focus {
 	display: inline-block;
 	border: 1px solid #00a0f5;
 	margin-top: 6px;
-}
+} */
 
 .top_menu .float-left a:hover {
 	background: transparent;
@@ -225,7 +225,7 @@ button:focus {
 	margin-right: 15px;
 }
 
-.header_social li a {
+/* .header_social li a {
 	font-size: 14px;
 	color: #aaaaaa;
 	display: inline-block;
@@ -233,7 +233,7 @@ button:focus {
 	-webkit-transition: all 300ms linear 0s;
 	-o-transition: all 300ms linear 0s;
 	transition: all 300ms linear 0s;
-}
+} */
 
 .header_social li:last-child {
 	margin-right: 0px;
@@ -279,13 +279,13 @@ button:focus {
 	margin-right: 45px;
 }
 
-.main_menu .navbar .nav .nav-item .nav-link {
+/* .main_menu .navbar .nav .nav-item .nav-link {
 	font: 500 12px/60px "Roboto", sans-serif;
 	text-transform: uppercase;
 	color: #222222;
 	padding: 0px;
 	display: inline-block;
-}
+} */
 
 .main_menu .navbar .nav .nav-item .nav-link:after {
 	display: none;
@@ -338,14 +338,14 @@ button:focus {
 .navbar-blog .nav-item {
 	padding-left: 20px;
 }
-
+/* 
 .navbar-blog .nav-item .nav-link {
 	font: 500 12px/40px "Roboto", sans-serif;
 	text-transform: uppercase;
 	color: #222222;
 	padding: 0px;
 	display: inline-block;
-}
+} */
 
 .navbar-blog .nav-item:hover .nav-link,
 .navbar-blog .nav-item.active .nav-link {
@@ -583,13 +583,13 @@ button:focus {
 	height: 400px !important;
 	/* background-size: cover; */
 }
-
+/* 
 .container.contact p {
 	margin-top: 70px;
 	padding-bottom: 100px;
 	font-size: 20px;
 	font-family: Georgia, "Times New Roman", Times, serif;
-}
+} */
 
 /* End Custom Banner */
 
