@@ -67,9 +67,13 @@
 <body>
   <div class="container-scroller">
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="<?= url("dashboard") ?>"><img src="<?= base_url() ?>_temp/uploads/img/<?= setting("logo") ?>" class="mr-2" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="<?= url("dashboard") ?>"><img src="<?= base_url() ?>_temp/uploads/img/<?= setting("logo_mini") ?>" alt="logo" /></a>
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-left pl-4">
+        <a class="navbar-brand brand-logo" href="<?= url("dashboard") ?>"><img src="<?= base_url() ?>_temp/uploads/img/081023205638_20230929_105757.png" class="mr-2" alt="logo" style="width: auto;" />
+        </a>
+        <a class="navbar-brand brand-logo-mini" href="<?= url("dashboard") ?>"><img src="<?= base_url() ?>_temp/uploads/img/081023205638_20230929_105757.png" alt="logo" />
+
+        </a>
+        <h4 class="halo mt-2">BEM UNIVAL</h4>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
