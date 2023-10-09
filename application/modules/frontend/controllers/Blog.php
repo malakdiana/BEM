@@ -28,7 +28,7 @@ class Blog extends CI_Controller
       'artikel' => $this->base->getAllPosting(null, ['organisasi_id' => $thisID->id], $page),
       'general' => $this->base->get('general_setting')->result(),
       'sosmed' => $this->base->get('sosial_media')->result(),
-      'title' => 'Organisasi'
+      'title' => $uri
     ];
     $data['total_rows']  = $this->base->count('artikel');
     $data['pagination']  = $this->base->makePagination(

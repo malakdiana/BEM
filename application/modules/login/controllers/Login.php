@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends Signin{
 
+  
   function _tokens()
   {
     if (!$this->session->token) {
@@ -20,12 +21,15 @@ class Login extends Signin{
 
   function index()
   {
+    $data = [
+      'general' => $this->db->get('general_setting')->result()
+    ];
     if ($this->auth->is_logged()) {
       redirect(url("dashboard"),"refresh");
     }
     
        $this->_tokens();
-       $this->load->view("login-clasic");
+       $this->load->view("login-clasic",$data);
 
   }
 

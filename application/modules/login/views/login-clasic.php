@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="<?=base_url()?>_temp/backend/vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="<?=base_url()?>_temp/backend/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?=base_url()?>_temp/backend/css/style.css">
-  <link rel="shortcut icon" href="<?=base_url()?>_temp/uploads/img/<?=setting("favicon")?>" />
+  <link rel="shortcut icon" href="<?=base_url()?>_temp/uploads/img/<?=$general[0]->logo?>" />
 </head>
 
 <body>
@@ -25,7 +25,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5" style="border-radius:5px;">
               <div class="brand-logo text-center">
-                <img src="<?=base_url()?>_temp/uploads/img/<?=setting("logo")?>" alt="logo">
+                <img src="<?=base_url()?>_temp/uploads/img/<?=$general[0]->logo?>" alt="logo">
               </div>
               <div class="text-center">
                 <h4>Hello! let's get started</h4>

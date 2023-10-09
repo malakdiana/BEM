@@ -26,10 +26,10 @@
       <div class="container">
 
          <ol>
-            <li><a href="index.html">HIMA</a></li>
-            <li>HIMA</li>
+            <li><a href="index.html"><?=$title?></a></li>
+            <li>Berita Kegiatan</li>
          </ol>
-         <h2>HIMA</h2>
+         <h2>Berita Kegiatan</h2>
 
       </div>
    </section><!-- End Breadcrumbs -->
