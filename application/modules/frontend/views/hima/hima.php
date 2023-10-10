@@ -46,8 +46,8 @@
 
       <div class="row">
         <?php foreach ($row as $hima) { ?>
-          <div id="animated-div" class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" style="margin-top:5px">
-            <div class="icon-box icon-box-pink" style="min-width: -webkit-fill-available">
+          <div id="animated-div" class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
+            <div class="icon-box icon-box-pink mt-3" style="min-width: -webkit-fill-available">
               <div class="icon"> <img src="<?= site_url() ?>_temp/uploads/img/270923211220_download_(2).png" class="img-fluid" style="hight:100px; width:100px;" alt=""></div>
               <h4 class="title"><a href=""><?= $hima->nama ?></a></h4>
               <p class="description" style="text-align:initial"><?php echo substr($hima->deskripsi, 0, 100); ?></p>

@@ -41,7 +41,7 @@
         <div class="row">
           <?php foreach ($row as $kementerian) {?>
           <div id="animated-div" class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
-            <div class="icon-box icon-box-pink">
+            <div class="icon-box icon-box-pink mt-3">
               <div class="icon">  <img src="<?=site_url()?>_temp/uploads/img/<?=$kementerian->image?>" class="img-fluid" style="hight:100px; width:100px;" alt=""></div>
               <h4 class="title"><a href=""><?=$kementerian->nama?></a></h4>
               <p class="description" style="text-align:initial" ><?php echo substr($kementerian->deskripsi, 0, 100);?>...</p>
