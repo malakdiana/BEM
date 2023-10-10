@@ -5,7 +5,7 @@
         <?=ucwords($title_module)?>
       </div>
       <div class="card-body">
-          <form action="<?=$action?>" id="form" method="post" autocomplete="off">
+          <form action="<?=$action?>" id="form" autocomplete="off">
 
           <div class="form-group">
             <label>Nama</label>
@@ -14,7 +14,8 @@
 
           <div class="form-group">
             <label>Deskripsi</label>
-            <textarea class="form-control form-control-sm ckeditor" placeholder="Deskripsi" name="deskripsi" id="deskripsi" rows="3" cols="80"></textarea>
+            <textarea class="form-control text-editor" rows="3" data-original-label="deskripsi" name="deskripsi"></textarea>
+            <div id="deskripsi"></div>
           </div>
 
           <div class="form-group">
@@ -30,6 +31,21 @@
             </div>
             <div id="image"></div>
           </div>
+
+          <div class="form-group">
+            <label>Foto kepengurusan</label>
+            <input type="file" name="img" class="file-upload-default" data-id="foto_kepengurusan"/>
+            <div class="input-group col-xs-12">
+              <input type="hidden" class="file-dir" name="file-dir-foto_kepengurusan" data-id="foto_kepengurusan"/>
+              <input type="text" class="form-control form-control-sm file-upload-info file-name" data-id="foto_kepengurusan" placeholder="Foto kepengurusan" readonly name="foto_kepengurusan" />
+            <span class="input-group-append">
+              <button class="btn-remove-image btn btn-danger btn-sm" type="button" data-id="foto_kepengurusan" style="display:<?=$foto_kepengurusan!=''?'block':'none'?>;"><i class="ti-trash"></i></button>
+              <button class="file-upload-browse btn btn-primary btn-sm" data-id="foto_kepengurusan" type="button">Select File</button>
+            </span>
+            </div>
+            <div id="foto_kepengurusan"></div>
+          </div>
+
           <input type="hidden" name="submit" value="add">
 
           <div class="text-right">
@@ -44,35 +60,35 @@
 
 
 <script type="text/javascript">
-// $("#form").submit(function(e){
-// e.preventDefault();
-// var me = $(this);
-// $("#submit").prop('disabled',true).html('Loading...');
-// $(".form-group").find('.text-danger').remove();
-// $.ajax({
-//       url             : me.attr('action'),
-//       type            : 'post',
-//       data            :  new FormData(this),
-//       contentType     : false,
-//       cache           : false,
-//       dataType        : 'JSON',
-//       processData     :false,
-//       success:function(json){
-//         if (json.success==true) {
-//           location.href = json.redirect;
-//           return;
-//         }else {
-//           $("#submit").prop('disabled',false)
-//                       .html('<?=cclang("save")?>');
-//           $.each(json.alert, function(key, value) {
-//             var element = $('#' + key);
-//             $(element)
-//             .closest('.form-group')
-//             .find('.text-danger').remove();
-//             $(element).after(value);
-//           });
-//         }
-//       }
-//     });
-// });
+$("#form").submit(function(e){
+e.preventDefault();
+var me = $(this);
+$("#submit").prop('disabled',true).html('Loading...');
+$(".form-group").find('.text-danger').remove();
+$.ajax({
+      url             : me.attr('action'),
+      type            : 'post',
+      data            :  new FormData(this),
+      contentType     : false,
+      cache           : false,
+      dataType        : 'JSON',
+      processData     :false,
+      success:function(json){
+        if (json.success==true) {
+          location.href = json.redirect;
+          return;
+        }else {
+          $("#submit").prop('disabled',false)
+                      .html('<?=cclang("save")?>');
+          $.each(json.alert, function(key, value) {
+            var element = $('#' + key);
+            $(element)
+            .closest('.form-group')
+            .find('.text-danger').remove();
+            $(element).after(value);
+          });
+        }
+      }
+    });
+});
 </script>

@@ -28,9 +28,10 @@ class HomePage extends CI_Controller
       'sosmed'  => $this->base->get('sosial_media')->result(),
       'title'   => 'Home Page',
       'tentang' => $this->base->get('tentang')->result(),
-      'berita' => $this->db->order_by('id','desc')->get('artikel', 8, 1)
-
+      'berita'  => $this->base->get('artikel', NULL, 'id', 8),
+      // 'berita'  => $this->db->get('artikel'),
     ];
+    // var_dump($data['berita']->result());
     $this->frontend->load('template', 'home/home', $data);
     // var_dump(profile('id'));
   }

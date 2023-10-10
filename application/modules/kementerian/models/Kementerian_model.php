@@ -8,7 +8,7 @@
 /*| instagram :  */
 /*| youtube :  */
 /*| --------------------------------------------------------------------------*/
-/*| Generate By M-CRUD Generator 06/10/2023 21:57*/
+/*| Generate By M-CRUD Generator 10/10/2023 13:31*/
 /*| Please DO NOT modify this information*/
 
 
@@ -16,9 +16,9 @@ class Kementerian_model extends MY_Model{
 
   private $table        = "kementerian";
   private $primary_key  = "id";
-  private $column_order = array('nama', 'deskripsi', 'image', 'seo_name');
+  private $column_order = array('nama', 'image', 'foto_kepengurusan');
   private $order        = array('kementerian.id'=>"DESC");
-  private $select       = "kementerian.id,kementerian.nama,kementerian.deskripsi,kementerian.image,kementerian.seo_name";
+  private $select       = "kementerian.id,kementerian.nama,kementerian.image,kementerian.foto_kepengurusan";
 
 public function __construct()
 	{
@@ -41,21 +41,6 @@ public function __construct()
     if($this->input->post("nama"))
         {
           $this->db->like("kementerian.nama", $this->input->post("nama"));
-        }
-
-    if($this->input->post("deskripsi"))
-        {
-          $this->db->like("kementerian.deskripsi", $this->input->post("deskripsi"));
-        }
-
-    if($this->input->post("image"))
-        {
-          $this->db->like("kementerian.image", $this->input->post("image"));
-        }
-
-    if($this->input->post("seo_name"))
-        {
-          $this->db->like("kementerian.seo_name", $this->input->post("seo_name"));
         }
 
       if(isset($_POST['order'])) // here order processing
