@@ -9,7 +9,7 @@
   <meta name="description" content="Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen Kedai Kopi Koopen ">
   <meta property="og:locale" content="id_ID" />
   <meta property="og:type" content="website" />
-  <meta name="keyword" content="toko kopi koopen, kopi koopen, Kedai kopi koopen, koopen malang, kopi malang, kopi dari malang, ngopi malang, tempat ngopi malang">
+  <meta name="keyword" content="Bem Unival, Unival, Badan Eksekutif Mahasiswa, Bem Cilegon, Bem Indonesia, Bem SI">
   <meta property="og:url" content="https://kopikoopen.com/blog/read/">
   <meta property="og:type" content="website">
   <meta property="og:title" content=" | TOKO KOPI KOOPEN">
@@ -25,8 +25,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?= base_url() ?>_temp/frontend/img/favicon.png" rel="icon">
-  <link href="<?= base_url() ?>_temp/frontend/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="<?= base_url() ?>_temp/front/logo.png" rel="icon">
+  <link href="<?= base_url() ?>_temp/front/logo.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -52,11 +52,8 @@
 
 
   <!-- =======================================================
-  * Template Name: Scaffold
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
+  * Author: Malak Diana Dewi
+  * Updated: Oct 10 2023
   ======================================================== -->
 </head>
 

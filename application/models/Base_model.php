@@ -22,7 +22,6 @@ class Base_model extends CI_Model
         return $sql;
     }
 
-    
     public function get_limit($table, $limit = null)
     {
         if ($limit != null) {
