@@ -26,7 +26,7 @@
     <div class="container">
 
       <ol>
-        <li><a href="index.html">Kementerian</a></li>
+        <li><a href="<?= site_url('kementerian')?>">Kementerian</a></li>
         <li><?= $row[0]->nama ?></li>
       </ol>
       <h2><?= $row[0]->nama ?></h2>
@@ -46,6 +46,11 @@
               <p><?= $row[0]->deskripsi ?></p>
             </div>
             <div class="col-lg-12 image-container">
+            <?php
+              if ($row[0]->foto_kepengurusan != '') { ?>
+              <img src="<?= base_url() ?>_temp/uploads/img/<?= $row[0]->foto_kepengurusan ?>" alt="" class="img-fluid">
+              <p class="image-number">Gambar Struktur Kepengurusan <?= $row[0]->nama ?></p>
+                <?php } ?>
             </div>
           </div>
         </div>
@@ -61,7 +66,4 @@
       </div>
     </div>
   </section>
-
-
-
 </main><!-- End #main -->

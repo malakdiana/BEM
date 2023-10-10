@@ -37,7 +37,7 @@ class Kementerian extends CI_Controller{
     ];
 
     // var_dump($data['berita']);
-    $this->frontend->load('template', 'hima/detail_hima', $data);
+    $this->frontend->load('template', 'kementerian/detail_kementerian', $data);
   }
 
   function getTable($table)
