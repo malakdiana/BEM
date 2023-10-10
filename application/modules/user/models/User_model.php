@@ -23,14 +23,21 @@ class User_model extends MY_Model{
 
   private function _get_datatables_query()
     {
+      // $this->db->select($this->select);
+      // $this->db->from("auth_user_to_group");
+      // $this->db->join("auth_user","auth_user.id_user = auth_user_to_group.id_user");
+      // $this->db->join("auth_group","auth_group.id = auth_user_to_group.id_group","left");
+      $this->db->distinct('auth_user.id_user');
       $this->db->select($this->select);
-      $this->db->from("auth_user_to_group");
-      $this->db->join("auth_user","auth_user.id_user = auth_user_to_group.id_user");
+      $this->db->from("auth_user");
+      $this->db->join("auth_user_to_group", "auth_user_to_group.id_user = auth_user.id_user");
       $this->db->join("auth_group","auth_group.id = auth_user_to_group.id_group","left");
       $this->db->where("auth_user.is_delete","0");
       if (sess("id_user")!= 1) {
         $this->db->where("auth_user_to_group.id_user !=","1");
       }
+
+     
 
       if(isset($_POST['order'])) // here order processing
        {
