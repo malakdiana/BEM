@@ -19,8 +19,8 @@
           <td><?=is_image($image)?></td>
         </tr>
         <tr>
-          <td>Seo name</td>
-          <td><?=$seo_name?></td>
+          <td>Foto kepengurusan</td>
+          <td><?=is_image($foto_kepengurusan)?></td>
         </tr>
         </table>
 

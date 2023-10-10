@@ -7,7 +7,7 @@
 /*| instagram :  */
 /*| youtube :  */
 /*| --------------------------------------------------------------------------*/
-/*| Generate By M-CRUD Generator 06/10/2023 21:57*/
+/*| Generate By M-CRUD Generator 10/10/2023 13:31*/
 /*| Please DO NOT modify this information*/
 
 
@@ -23,7 +23,6 @@ public function __construct()
    );
   parent::__construct($config);
   $this->load->model("Kementerian_model","model");
-  $this->load->helper('seo');
 }
 
 function index()
@@ -46,9 +45,8 @@ function json()
     foreach ($list as $row) {
         $rows = array();
                 $rows[] = $row->nama;
-                $rows[] = $row->deskripsi;
                 $rows[] = is_image($row->image);
-                $rows[] = $row->seo_name;
+                $rows[] = is_image($row->foto_kepengurusan);
         
         $rows[] = '
                   <div class="btn-group" role="group" aria-label="Basic example">
@@ -97,7 +95,7 @@ function detail($id)
           "nama" => $row->nama,
           "deskripsi" => $row->deskripsi,
           "image" => $row->image,
-          "seo_name" => $row->seo_name,
+          "foto_kepengurusan" => $row->foto_kepengurusan,
     );
     $this->template->view("view",$data);
   }else{
@@ -113,14 +111,14 @@ function add()
                   'nama' => set_value("nama"),
                   'deskripsi' => set_value("deskripsi"),
                   'image' => set_value("image"),
-                  'seo_name' => set_value("seo_name"),
+                  'foto_kepengurusan' => set_value("foto_kepengurusan"),
                   );
   $this->template->view("add",$data);
 }
 
 function add_action()
 {
- // if($this->input->is_ajax_request()){
+  if($this->input->is_ajax_request()){
     if (!is_allowed('kementerian_add')) {
       show_error("Access Permission", 403,'403::Access Not Permission');
       exit();
@@ -130,30 +128,29 @@ function add_action()
     $this->form_validation->set_rules("nama","* Nama","trim|xss_clean");
     $this->form_validation->set_rules("deskripsi","* Deskripsi","trim|xss_clean");
     $this->form_validation->set_rules("image","* Image","trim|xss_clean");
-    $this->form_validation->set_rules("seo_name","* Seo name","trim|xss_clean");
+    $this->form_validation->set_rules("foto_kepengurusan","* Foto kepengurusan","trim|xss_clean");
     $this->form_validation->set_error_delimiters('<i class="error text-danger" style="font-size:11px">','</i>');
 
     if ($this->form_validation->run()) {
       $save_data['nama'] = $this->input->post('nama',true);
       $save_data['deskripsi'] = $this->input->post('deskripsi',true);
       $save_data['image'] = $this->imageCopy($this->input->post('image',true),$_POST['file-dir-image']);
-      $save_data['seo_name'] = slugify($this->input->post('nama',true));
-
+      $save_data['foto_kepengurusan'] = $this->imageCopy($this->input->post('foto_kepengurusan',true),$_POST['file-dir-foto_kepengurusan']);
+      $save_data['seo_name'] =  slugify($this->input->post('nama',true));
+      
       $this->model->insert($save_data);
 
       set_message("success",cclang("notif_save"));
-      redirect('cpanel/kementerian');
-      //$json['redirect'] = url("kementerian");
-      //$json['success'] = true;
+      $json['redirect'] = url("kementerian");
+      $json['success'] = true;
     }else {
-      set_message("Error", cclang("notif_save"));
-      // foreach ($_POST as $key => $value) {
-      //  $json['alert'][$key] = form_error($key);
-      //}
+      foreach ($_POST as $key => $value) {
+        $json['alert'][$key] = form_error($key);
+      }
     }
 
-    //$this->response($json);
-  //}
+    $this->response($json);
+  }
 }
 
 function update($id)
@@ -165,7 +162,7 @@ function update($id)
                   'nama' => set_value("nama", $row->nama),
                   'deskripsi' => set_value("deskripsi", $row->deskripsi),
                   'image' => set_value("image", $row->image),
-                  'seo_name' => set_value("seo_name", $row->seo_name),
+                  'foto_kepengurusan' => set_value("foto_kepengurusan", $row->foto_kepengurusan),
                   );
     $this->template->view("update",$data);
   }else {
@@ -175,7 +172,7 @@ function update($id)
 
 function update_action($id)
 {
-  //if($this->input->is_ajax_request()){
+  if($this->input->is_ajax_request()){
     if (!is_allowed('kementerian_update')) {
       show_error("Access Permission", 403,'403::Access Not Permission');
       exit();
@@ -185,29 +182,30 @@ function update_action($id)
     $this->form_validation->set_rules("nama","* Nama","trim|xss_clean");
     $this->form_validation->set_rules("deskripsi","* Deskripsi","trim|xss_clean");
     $this->form_validation->set_rules("image","* Image","trim|xss_clean");
+    $this->form_validation->set_rules("foto_kepengurusan","* Foto kepengurusan","trim|xss_clean");
     $this->form_validation->set_error_delimiters('<i class="error text-danger" style="font-size:11px">','</i>');
 
     if ($this->form_validation->run()) {
       $save_data['nama'] = $this->input->post('nama',true);
       $save_data['deskripsi'] = $this->input->post('deskripsi',true);
       $save_data['image'] = $this->imageCopy($this->input->post('image',true),$_POST['file-dir-image']);
-      $save_data['seo_name'] = slugify($this->input->post('nama',true));
+      $save_data['foto_kepengurusan'] = $this->imageCopy($this->input->post('foto_kepengurusan',true),$_POST['file-dir-foto_kepengurusan']);
+      $save_data['seo_name'] =  slugify($this->input->post('nama',true));
 
       $save = $this->model->change(dec_url($id), $save_data);
 
       set_message("success",cclang("notif_update"));
-      redirect('cpanel/kementerian');
-      //$json['redirect'] = url("kementerian");
-      //$json['success'] = true;
+
+      $json['redirect'] = url("kementerian");
+      $json['success'] = true;
     }else {
-      set_message("Error", cclang("notif_save"));
-      // foreach ($_POST as $key => $value) {
-      //   $json['alert'][$key] = form_error($key);
-      // }
+      foreach ($_POST as $key => $value) {
+        $json['alert'][$key] = form_error($key);
+      }
     }
 
-    //$this->response($json);
-  //}
+    $this->response($json);
+  }
 }
 
 function delete($id)

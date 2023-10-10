@@ -1,3 +1,5 @@
+
+text/x-generic User_model.php ( PHP script, ASCII text, with CRLF line terminators )
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /* dev : mpampam*/
